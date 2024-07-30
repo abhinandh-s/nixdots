@@ -1,7 +1,7 @@
 {
   config,
   pkgs,
-  theme,
+  colorpencil,
   ...
 }:
 
@@ -104,36 +104,36 @@
       #};
       colors = {
         primary = {
-          background = "${theme.base00}";
-          foreground = "${theme.base01}";
+          background = "${colorpencil.base00}";
+          foreground = "${colorpencil.base01}";
         };
         cursor = {
-          text = "${theme.base0A}";
-          cursor = "${theme.base01}";
+          text = "${colorpencil.base0A}";
+          cursor = "${colorpencil.base01}";
         };
         selection = {
-          text = "${theme.base01}";
-          background = "${theme.base0A}";
+          text = "${colorpencil.base01}";
+          background = "${colorpencil.base0A}";
         };
         normal = {
-          black = "${theme.base02}";
-          red = "${theme.base03}";
-          green = "${theme.base04}";
-          yellow = "${theme.base05}";
-          blue = "${theme.base06}";
-          magenta = "${theme.base07}";
-          cyan = "${theme.base08}";
-          white = "${theme.base09}";
+          black = "${colorpencil.base02}";
+          red = "${colorpencil.base03}";
+          green = "${colorpencil.base04}";
+          yellow = "${colorpencil.base05}";
+          blue = "${colorpencil.base06}";
+          magenta = "${colorpencil.base07}";
+          cyan = "${colorpencil.base08}";
+          white = "${colorpencil.base09}";
         };
         bright = {
-          black = "${theme.base0A}";
-          red = "${theme.base0B}";
-          green = "${theme.base0C}";
-          yellow = "${theme.base0D}";
-          blue = "${theme.base0E}";
-          magenta = "${theme.base0F}";
-          cyan = "${theme.base0G}";
-          white = "${theme.base0H}";
+          black = "${colorpencil.base0A}";
+          red = "${colorpencil.base0B}";
+          green = "${colorpencil.base0C}";
+          yellow = "${colorpencil.base0D}";
+          blue = "${colorpencil.base0E}";
+          magenta = "${colorpencil.base0F}";
+          cyan = "${colorpencil.base0G}";
+          white = "${colorpencil.base0H}";
         };
       };
     };

@@ -16,8 +16,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    emacs-overlay.url = "github:nix-community/emacs-overlay/da2f552d133497abd434006e0cae996c0a282394";
-
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -70,7 +68,7 @@
                   ./home/abhi/home.nix
                   spicetify-nix.homeManagerModules.default
                 ];
-                _module.args.theme = import ./custom/themes/base16;
+                _module.args.colorpencil = import ./custom/themes/colorpencil;
               };
               extraSpecialArgs = {
                 inherit self inputs;
