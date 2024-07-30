@@ -12,7 +12,6 @@
 
     sddm-sugar-candy-nix = {
       url = "gitlab:Zhaith-Izaliel/sddm-sugar-candy-nix";
-      # Optional, by default this flake follows nixpkgs-unstable.
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -20,7 +19,6 @@
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
   };
 
   outputs = inputs@{
@@ -46,9 +44,9 @@
       nixosConfigurations."nixos" = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
-          # Overlays-module makes "pkgs.unstable" available in configuration.nix
           ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlay-unstable ]; })
           ./host/abhi/configuration.nix
+
           sddm-sugar-candy-nix.nixosModules.default
           {
             nixpkgs = {
@@ -57,9 +55,10 @@
               ];
             };
           }
+
           home-manager.nixosModules.home-manager
           {
-            home-manager.backupFileExtension = "bkp1";
+            home-manager.backupFileExtension = "backup";
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
