@@ -66,7 +66,6 @@
     # unstable.krita
     # unstable.inkscape-with-extensions
     # unstable.gimp
-     unstable.binutils_nogold
      unstable.rust-analyzer
      unstable.python3
      unstable.lua-language-server
