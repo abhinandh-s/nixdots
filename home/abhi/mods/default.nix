@@ -4,6 +4,7 @@
     ./alacritty.nix
     ./bash.nix
     # ./conky.nix
+    ./multimedia
     #./betterlockscreen.nix
     #./cava.nix
     #./dunst.nix
