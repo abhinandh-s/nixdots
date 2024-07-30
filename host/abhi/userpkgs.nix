@@ -33,14 +33,14 @@
     vim
     #   (import ../../home/abhi/mods/spotify-adblock/default.nix )
     unstable.neovim
-    spotify-adblock
+    #spotify-adblock
     alacritty
     cmake
     ripgrep
     playerctl
     neofetch
     unstable.librewolf
-    unstable.youtube-music
+    #unstable.youtube-music
     xclip
     gcc
     pkg-config
@@ -53,12 +53,12 @@
     git
     feh
     fzf
-    mpv
-    vlc
+    #mpv
+    #vlc
     dconf
     rofi
     networkmanager
-    unstable.telegram-desktop
+    #unstable.telegram-desktop
 
     unstable.lua
     unstable.luajitPackages.luarocks
@@ -74,22 +74,22 @@
 
     font-manager
     tree-sitter-grammars.tree-sitter-latex
-    calibre
-    kdePackages.okular
-    libreoffice-fresh
+    #calibre
+    #kdePackages.okular
+    #libreoffice-fresh
     fd
     ffmpeg
     pulsemixer
-    lxappearance
+    #lxappearance
     tree-sitter
 
-    unstable.krita
-    unstable.inkscape-with-extensions
-    unstable.gimp
+    #unstable.krita
+    #unstable.inkscape-with-extensions
+    #unstable.gimp
 
 
-    where-is-my-sddm-theme
-    sddm-chili-theme
+    #where-is-my-sddm-theme
+    #sddm-chili-theme
 
     unstable.rustc
     unstable.rustfmt
@@ -99,14 +99,14 @@
 
     unstable.yazi
 
-    virtualbox
+    #virtualbox
 
 
-    calibre
+    #calibre
     cinnamon.nemo-with-extensions
 
     texlive.combined.scheme-full
-    zathura
+    #zathura
 
 
     tree
