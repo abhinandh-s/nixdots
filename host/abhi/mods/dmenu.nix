@@ -18,8 +18,8 @@
           sha256 = "sha256-gdWMymgGNfU0rA2inl1bqlGyLMKyBpB3zhDuPn61Ga8=";
         })
       ];
-      configFile = writeText "config.def.h" (builtins.readFile ../../../custom/overlays/dmenu/config.h);
-      postPatch = "${oldAttrs.postPatch}\n cp ${configFile} config.def.h";
+      # configFile = writeText "config.def.h" (builtins.readFile ../../../custom/overlays/dmenu/config.h);
+      # postPatch = "${oldAttrs.postPatch}\n cp ${configFile} config.def.h";
     }))
   ];
 }
