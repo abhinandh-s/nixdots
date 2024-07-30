@@ -16,7 +16,7 @@
     #./mpd.nix
     #./ncmpcpp.nix
     #./kitty.nix
-    #./rofi.nix
+    ./rofi.nix
     #./slstatus.nix
     #./sxhkd.nix
     #./spotify-adblock
