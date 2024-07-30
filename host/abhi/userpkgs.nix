@@ -49,7 +49,7 @@
     xorg.libX11
     xorg.libXft
     xorg.libXinerama
-    pcmanfm
+    #pcmanfm
     git
     feh
     fzf
@@ -72,7 +72,7 @@
     john
     nmap
 
-    font-manager
+    #font-manager
     tree-sitter-grammars.tree-sitter-latex
     #calibre
     #kdePackages.okular
