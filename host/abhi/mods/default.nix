@@ -6,6 +6,7 @@
 		#./kdeconnect.nix
 		#./mpd.nix
 		#./picom.nix
+		./dmenu.nix
 		./st.nix
 		./syncthing.nix
 		./qt.nix
