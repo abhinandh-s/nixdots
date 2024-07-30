@@ -24,7 +24,8 @@
         # Set your configuration options here.
         # Here is a simple example:
         # Background = ../../assets/vivid_rainwld.jpg;
-        Background = lib.cleanSource ../../../assets/vivid_rainwld.jpg;
+        Background = lib.cleanSource ../../../assets/wallpaper/wall-sddm.png;
+        #Background = lib.cleanSource ../../../assets/vivid_rainwld.jpg;
         ScreenWidth = 1920;
         ScreenHeight = 1080;
         FormPosition = "left";
