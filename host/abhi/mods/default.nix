@@ -5,12 +5,12 @@
 		./bootloader.nix
 		#	./emacs.nix
 		./fonts.nix
-		./ftp.nix
+		#./ftp.nix
 		./locale.nix
-		./kdeconnect.nix
+		#./kdeconnect.nix
 		#./mpd.nix
 		./network.nix
-		./picom.nix
+		#./picom.nix
 		./polkit.nix
 		./st.nix
 		./syncthing.nix
