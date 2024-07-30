@@ -9,7 +9,7 @@
     #./dunst.nix
     #./emacs/emacs.nix
     #./fastfetch.nix
-    #./firefox.nix
+    ./firefox.nix
     ./git.nix
     #./mimeapps.nix
     #./newsboat.nix
@@ -17,7 +17,7 @@
     #./ncmpcpp.nix
     #./kitty.nix
     ./rofi.nix
-    #./slstatus.nix
+    ./slstatus.nix
     #./sxhkd.nix
     #./spotify-adblock
     #./qutebrowser.nix
