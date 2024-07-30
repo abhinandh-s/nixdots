@@ -20,6 +20,8 @@
         history
         fullAppDisplay
         hidePodcasts
+        keyboardShortcut
+        popupLyrics
         seekSong
         adblock
       ];
