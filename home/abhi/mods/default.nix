@@ -19,6 +19,7 @@
     ./rofi.nix
     ./slstatus.nix
     #./sxhkd.nix
+    ./spotify.nix
     #./spotify-adblock
     #./qutebrowser.nix
     #./yazi.nix
