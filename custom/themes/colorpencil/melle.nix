@@ -44,4 +44,38 @@
   cat_base = "#1e1e2e";
   cat_mantle = "#181825";
   cat_crust = "#11111b";
+
+  tknyt_base00 = "#1a1b26";
+  tknyt_base01 = "#a9b1d6";
+  tknyt_base02 = "#24283b";
+  tknyt_base03 = "#f7768e";
+  tknyt_base04 = "#9ece6a";
+  tknyt_base05 = "#e0af68";
+  tknyt_base06 = "#7aa2f7";
+  tknyt_base07 = "#bb9af7";
+  tknyt_base08 = "#7dcfff";
+  tknyt_base09 = "#414868";
+  tknyt_base0A = "#ff9e64";
+  tknyt_base0B = "#9ece6a";
+  tknyt_base0C = "#e0af68";
+  tknyt_base0D = "#7aa2f7";
+  tknyt_base0E = "#bb9af7";
+  tknyt_base0F = "#7dcfff";
+
+  uwu_base00 = "#232323";
+  uwu_base01 = "#f0f0f0";
+  uwu_base02 = "#262626";
+  uwu_base03 = "#d5bbbc";
+  uwu_base04 = "#bbd5be";
+  uwu_base05 = "#d5d5bb";
+  uwu_base06 = "#bcbbd5";
+  uwu_base07 = "#d5bbd3";
+  uwu_base08 = "#bbd5d4";
+  uwu_base09 = "#3d3d3d";
+  uwu_base0A = "#dcc7c8";
+  uwu_base0B = "#c7dcca";
+  uwu_base0C = "#dcdcc7";
+  uwu_base0D = "#c8c7dc";
+  uwu_base0E = "#dcc7db";
+  uwu_base0F = "#c7dcdc";
 }

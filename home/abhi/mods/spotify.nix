@@ -34,13 +34,13 @@
         subtext = stripHexPrefix colorpencil.base09;
         sidebarText = stripHexPrefix colorpencil.base01;
         main = stripHexPrefix colorpencil.base00;
-        sidebar = stripHexPrefix colorpencil.base06;
+        sidebar = stripHexPrefix colorpencil.base07;
         player = stripHexPrefix colorpencil.base00;
         card = stripHexPrefix colorpencil.base00;
         shadow = stripHexPrefix colorpencil.base02;
         selectedRow = stripHexPrefix colorpencil.base0A;
-        button = stripHexPrefix colorpencil.base06;
-        buttonActive = stripHexPrefix colorpencil.base06;
+        button = stripHexPrefix colorpencil.base07;
+        buttonActive = stripHexPrefix colorpencil.base07;
         buttonDisabled = stripHexPrefix colorpencil.base02;
         tabActive = stripHexPrefix colorpencil.base0A;
         notification = stripHexPrefix colorpencil.base0A;
