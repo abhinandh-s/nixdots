@@ -4,6 +4,7 @@
   imports =
     [
       ./hardware-configuration.nix
+      ./core
       ./mods
       ./userpkgs.nix
       ./envpkgs.nix
