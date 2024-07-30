@@ -58,7 +58,7 @@
 
           home-manager.nixosModules.home-manager
           {
-            home-manager.backupFileExtension = "backup";
+            home-manager.backupFileExtension = "backup1";
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
