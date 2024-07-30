@@ -7,7 +7,7 @@
     ./multimedia
     #./betterlockscreen.nix
     #./cava.nix
-    #./dunst.nix
+    ./dunst.nix
     #./emacs/emacs.nix
     #./fastfetch.nix
     ./firefox.nix
