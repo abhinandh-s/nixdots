@@ -12,9 +12,12 @@
 
     (dmenu.overrideAttrs (oldAttrs: rec {
       buildInputs = oldAttrs.buildInputs ++ [ harfbuzz ];
-    patches = [
+      # me added this now
+      src = ../../custom/overlays/dmenu;
+      patches = [
       # You can specify local patches
         #./path/to/local.diff
+
       # Fetch them directly from `st.suckless.org`
          (fetchpatch {
          url = "https://tools.suckless.org/dmenu/patches/center/dmenu-center-5.2.diff";
