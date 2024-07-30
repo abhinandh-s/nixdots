@@ -39,7 +39,7 @@
     ripgrep
     playerctl
     neofetch
-    unstable.librewolf
+    #unstable.librewolf
     #unstable.youtube-music
     xclip
     gcc
