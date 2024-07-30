@@ -4,12 +4,12 @@
 networking.hostName = "nixos"; # Define your hostname.
 
   networking = {
-    interfaces.wlp0s29u1u3 = {
-      ipv4.addresses = [{
-        address = "192.168.1.111";
-        prefixLength = 24;
-      }];
-    };
+    # interfaces.wlp0s29u1u3 = {
+    #   ipv4.addresses = [{
+    #     address = "192.168.1.111";
+    #     prefixLength = 24;
+    #   }];
+    # };
   };
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -38,13 +38,13 @@ networking.hostName = "nixos"; # Define your hostname.
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
-  services.vsftpd = {
-    enable = true;
-    localUsers = true;
-    writeEnable = true;
-    userlist = [ "abhi" ];
-    anonymousUser = true;
-    anonymousUserNoPassword = true;
-  };
+  # services.vsftpd = {
+  #   enable = true;
+  #   localUsers = true;
+  #   writeEnable = true;
+  #   userlist = [ "abhi" ];
+  #   anonymousUser = true;
+  #   anonymousUserNoPassword = true;
+  # };
 
 }
