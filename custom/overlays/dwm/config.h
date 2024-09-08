@@ -1,7 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx = 3; /* border pixel of windows */
+static const unsigned int borderpx = 0; /* border pixel of windows */
 static const unsigned int snap = 32;    /* snap pixel */
 static const unsigned int gappih = 20;  /* horiz inner gap between windows */
 static const unsigned int gappiv = 10;  /* vert inner gap between windows */
@@ -125,6 +125,7 @@ static const char *dmenucmd[] = {"rofi",
 // static const char *dmenucmd[] = { "rofi", "-show", "drun", NULL };
 static const char *termcmd[] = {"alacritty", NULL};
 static const char *termcmd2[] = {"st", NULL};
+static const char *bcmd1[] = {"librewolf", NULL};
 static const char *powercmd[] = {"powermenu.sh", NULL};
 
 #include "movestack.c"
@@ -134,8 +135,9 @@ static const Key keys[] = {
     /* modifier                     key        function        argument */
     {MODKEY, XK_d, spawn, {.v = dmenucmd}},
     {MODKEY, XK_e, spawn, {.v = powercmd}},
-    {MODKEY, XK_Return, spawn, {.v = termcmd2}},
-    {MODKEY | ShiftMask, XK_Return, spawn, {.v = termcmd}},
+    {MODKEY, XK_w, spawn, {.v = bcmd1}},
+    {MODKEY, XK_Return, spawn, {.v = termcmd}},
+    {MODKEY | ShiftMask, XK_Return, spawn, {.v = termcmd2}},
     {MODKEY, XK_s, scratchpad_show, {0}},
     {MODKEY | ShiftMask, XK_s, scratchpad_hide, {0}},
     {MODKEY, XK_equal, scratchpad_remove, {0}},

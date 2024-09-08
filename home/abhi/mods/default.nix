@@ -1,30 +1,27 @@
 { config, pkgs, ... }:
 {
   imports = [
-    ./alacritty.nix
-    ./bash.nix
+    ./aria2.nix
     # ./conky.nix
-    ./multimedia
+ #   ./multimedia
     #./betterlockscreen.nix
-    #./cava.nix
-    ./dunst.nix
+      #./cava.nix
     #./emacs/emacs.nix
-    #./fastfetch.nix
-    ./firefox.nix
-    ./git.nix
+    ./fastfetch.nix
     #./mimeapps.nix
-    #./newsboat.nix
+    ./newsboat.nix
     #./mpd.nix
-    #./ncmpcpp.nix
+ #   ./nautilus.nix
+    ./ncmpcpp.nix
     #./kitty.nix
-    ./rofi.nix
     ./slstatus.nix
     #./sxhkd.nix
+    ./xdgconfig.nix
     ./spotify.nix
-    #./spotify-adblock
-    #./qutebrowser.nix
-    #./yazi.nix
-    #./zathura.nix
+ #   ./thunderbird.nix
+    ./qutebrowser.nix
+    # ./yazi.nix
+    ./zathura.nix
   ];
 
   # services.emacs.enable = true;

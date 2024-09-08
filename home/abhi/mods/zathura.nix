@@ -7,7 +7,7 @@
     options = {
       selection-clipboard = "clipboard";
       # -- Theming ------------------------------------------------------
-      default-bg = "rgba(205,214,244,1)";
+      default-bg = "rgba(30,30,46,1)";
       default-fg = "rgba(30,30,46,1)";
       completion-bg = "rgba(49,50,68,1)";
       completion-fg = "rgba(205,214,244,1)";

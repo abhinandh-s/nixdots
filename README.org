@@ -1,1 +1,119 @@
 * My NixOs Config
+
+[abhi@nixos:~/nixdots]$ tree
+
+
+  ├── custom
+│   ├── overlays
+│   │   ├── betterlockscreen
+│   │   ├── dmenu
+│   │   ├── dwm
+│   │   ├── slstatus
+│   │   ├── spotify-adblock
+│   │   └── st
+│   ├── patches
+│   │   └── slstatus
+│   ├── shells
+│   │   ├── c
+│   │   ├── default
+│   │   ├── go
+│   │   ├── java
+│   │   ├── js
+│   │   ├── lua
+│   │   │   └── shell.nix
+│   │   ├── office
+│   │   │   └── shell.nix
+│   │   ├── python
+│   │   │   └── default.nix
+│   │   └── rust
+│   │       ├── flake.lock
+│   │       ├── flake.nix
+│   │       └── shell.nix
+│   └── themes
+│       ├── colorpencil
+│       │   ├── default.nix
+│       │   └── melle.nix
+│       └── rofi-themes
+│           ├── bin
+│           │   ├── launcher_d.sh
+│           │   ├── launcher_l.sh
+│           │   └── powermenu.sh
+│           ├── mpd-square.rasi
+│           ├── powermenu.rasi
+│           ├── windows11-grid-dark.rasi
+│           ├── windows11-grid-light.rasi
+│           ├── windows11-list-dark.rasi
+│           └── windows11-list-light.rasi
+├── flake.lock
+├── flake.nix
+├── home
+│   └── abhi
+│       ├── home.nix
+│       ├── mods
+│       │   ├── alacritty.nix
+│       │   ├── bash.nix
+│       │   ├── betterlockscreen.nix
+│       │   ├── cava.nix
+│       │   ├── conky.nix
+│       │   ├── default.nix
+│       │   ├── dunst.nix
+│       │   ├── emacs
+│       │   │   ├── emacs.nix
+│       │   │   └── init.el
+│       │   ├── fastfetch.nix
+│       │   ├── firefox.nix
+│       │   ├── git.nix
+│       │   ├── kitty.nix
+│       │   ├── mimeapps.nix
+│       │   ├── mpd.nix
+│       │   ├── multimedia
+│       │   │   ├── default.nix
+│       │   │   └── mpv.nix
+│       │   ├── nautilus.nix
+│       │   ├── ncmpcpp.nix
+│       │   ├── newsboat.nix
+│       │   ├── qutebrowser.nix
+│       │   ├── rofi.nix
+│       │   ├── slstatus.nix
+│       │   ├── spotify.nix
+│       │   ├── sxhkd.nix
+│       │   ├── xdgconfig.nix
+│       │   ├── yazi.nix
+│       │   └── zathura.nix
+│       └── pkgs.nix
+├── host
+│   └── abhi
+│       ├── configuration.nix
+│       ├── core
+│       │   ├── audio.nix
+│       │   ├── bootloader.nix
+│       │   ├── default.nix
+│       │   ├── fonts.nix
+│       │   ├── locale.nix
+│       │   ├── network.nix
+│       │   ├── polkit.nix
+│       │   └── xserver.nix
+│       ├── envpkgs.nix
+│       ├── hardware-configuration.nix
+│       ├── mods
+│       │   ├── default.nix
+│       │   ├── dmenu.nix
+│       │   ├── emacs.nix
+│       │   ├── ftp.nix
+│       │   ├── jellyfin.nix
+│       │   ├── kdeconnect.nix
+│       │   ├── mpd.nix
+│       │   ├── picom.nix
+│       │   ├── qt.nix
+│       │   ├── slstatus.nix
+│       │   ├── st.nix
+│       │   ├── syncthing.nix
+│       │   ├── userenv.nix
+│       │   ├── virtualmachines.nix
+│       │   ├── wireguard.nix
+│       │   └── xdg.nix
+│       └── userpkgs.nix
+├── LICENSE
+├── README.org
+└── secrets
+    └── secrets.yaml

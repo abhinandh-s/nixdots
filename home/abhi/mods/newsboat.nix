@@ -2,17 +2,12 @@
 {
   programs.newsboat = {
     enable = true;
-    autoReload = true;
+    browser = "librewolf";
+    autoReload = false;
     reloadTime = 60;
+    reloadThreads = 10;
     urls = [
-
-      {
-        tags = [
-          "nix"
-          "nixos"
-        ];
-        url = "https://nixos.org/blog/feed.xml";
-      }
+      { tags = [ "nixos" ]; url = "https://nixos.org/blog/feed.xml";}
 
       { tags = [ "articles" ]; url = "https://jamesclear.com/feed";}
       { tags = [ "articles" ]; url = "https://feeds.feedburner.com/collabfund";}
@@ -21,31 +16,25 @@
       { tags = [ "articles" ]; url = "https://tim.blog/feed/";}
 
       { tags = [ "youtube" ]; url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCJdmdUp5BrsWsYVQUylCMLg";}
+      { tags = [ "youtube" ]; url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCUMwY9iS8oMyWDYIe6_RmoA";}
+      { tags = [ "youtube" ]; url = "https://www.youtube.com/feeds/videos.xml?channel_id=UC2D2CMWXMOVWx7giW1n3LIg";}
 
+      { tags = [ "twitter" ]; url = "https://nitter.privacydev.net/MikaPikaZo/rss";}
+      { tags = [ "twitter" ]; url = "https://nitter.privacydev.net/arcolinux/rss";}
+      { tags = [ "twitter" ]; url = "https://nitter.privacydev.net/networkchuck/rss";}
+      { tags = [ "twitter" ]; url = "https://nitter.privacydev.net/osendeavour/rss";}
+      { tags = [ "twitter" ]; url = "https://nitter.privacydev.net/blackarchlinux/rss";}
+      { tags = [ "twitter" ]; url = "https://nitter.privacydev.net/grapheneos/rss";}
+      { tags = [ "twitter" ]; url = "https://nitter.privacydev.net/nothing/rss";}
+      { tags = [ "twitter" ]; url = "https://nitter.privacydev.net/elonmusk/rss";}
+      { tags = [ "twitter" ]; url = "https://nitter.privacydev.net/realtryhackme/rss";}
+      { tags = [ "twitter" ]; url = "https://nitter.privacydev.net/nixcraft/rss";}
+      { tags = [ "twitter" ]; url = "https://nitter.poast.org/naval/rss";}
+      { tags = [ "twitter" ]; url = "https://nitter.poast.org/_JohnHammond/rss";}
+      { tags = [ "twitter" ]; url = "https://nitter.poast.org/LiveOverflow/rss";}
+      { tags = [ "twitter" ]; url = "https://nitter.poast.org/metasploit/rss";}
 
-
-  { tags = [ "twitter" ]; url = "https://nitter.privacydev.net/MikaPikaZo/rss";}
-  { tags = [ "twitter" ]; url = "https://nitter.privacydev.net/arcolinux/rss";}
-  { tags = [ "twitter" ]; url = "https://nitter.privacydev.net/networkchuck/rss";}
-  { tags = [ "twitter" ]; url = "https://nitter.privacydev.net/osendeavour/rss";}
-  { tags = [ "twitter" ]; url = "https://nitter.privacydev.net/blackarchlinux/rss";}
-  { tags = [ "twitter" ]; url = "https://nitter.privacydev.net/grapheneos/rss";}
-  { tags = [ "twitter" ]; url = "https://nitter.privacydev.net/nothing/rss";}
-  { tags = [ "twitter" ]; url = "https://nitter.privacydev.net/elonmusk/rss";}
-  { tags = [ "twitter" ]; url = "https://nitter.privacydev.net/realtryhackme/rss";}
-  { tags = [ "twitter" ]; url = "https://nitter.privacydev.net/nixcraft/rss";}
-  { tags = [ "twitter" ]; url = "https://nitter.poast.org/naval/rss";}
-  { tags = [ "twitter" ]; url = "https://nitter.poast.org/_JohnHammond/rss";}
-  { tags = [ "twitter" ]; url = "https://nitter.poast.org/LiveOverflow/rss";}
-  { tags = [ "twitter" ]; url = "https://nitter.poast.org/metasploit/rss";}
-
-      {
-        tags = [
-          "articles"
-          "blogs"
-        ];
-        url = "https://feeds.feedburner.com/collabfund";
-      }
+      { tags = [ "blogs" ]; url = "https://feeds.feedburner.com/collabfund";}
     ];
 
 
@@ -86,6 +75,6 @@
       highlight article ":.*\\(link\\)$" cyan default
       highlight article ":.*\\(image\\)$" blue default
       highlight article ":.*\\(embedded flash\\)$" magenta default
-      '';
+    '';
   };
 }

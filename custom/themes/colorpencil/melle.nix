@@ -78,4 +78,91 @@
   uwu_base0D = "#c8c7dc";
   uwu_base0E = "#dcc7db";
   uwu_base0F = "#c7dcdc";
+
+
+
+  rose_pine_base00 = "#191724";
+  rose_pine_base01 = "#1f1d2e";
+  rose_pine_base02 = "#26233a";
+  rose_pine_base03 = "#6e6a86";
+  rose_pine_base04 = "#908caa";
+  rose_pine_base05 = "#e0def4";
+  rose_pine_base06 = "#e0def4";
+  rose_pine_base07 = "#524f67";
+  rose_pine_base08 = "#eb6f92";
+  rose_pine_base09 = "#f6c177";
+  rose_pine_base0A = "#ebbcba";
+  rose_pine_base0B = "#31748f";
+  rose_pine_base0C = "#9ccfd8";
+  rose_pine_base0D = "#c4a7e7";
+  rose_pine_base0E = "#f6c177";
+  rose_pine_base0F = "#524f67";
+
+kanagawa_base00 = "#1F1F28";
+kanagawa_base01 = "#16161D";
+kanagawa_base02 = "#223249";
+kanagawa_base03 = "#54546D";
+kanagawa_base04 = "#727169";
+kanagawa_base05 = "#DCD7BA";
+kanagawa_base06 = "#C8C093";
+kanagawa_base07 = "#717C7C";
+kanagawa_base08 = "#C34043";
+kanagawa_base09 = "#FFA066";
+kanagawa_base0A = "#C0A36E";
+kanagawa_base0B = "#76946A";
+kanagawa_base0C = "#6A9589";
+kanagawa_base0D = "#7E9CD8";
+kanagawa_base0E = "#957FB8";
+kanagawa_base0F = "#D27E99";
+
+ayu_dark_base00 = "#0F1419";
+ayu_dark_base01 = "#131721";
+ayu_dark_base02 = "#272D38";
+ayu_dark_base03 = "#3E4B59";
+ayu_dark_base04 = "#BFBDB6";
+ayu_dark_base05 = "#E6E1CF";
+ayu_dark_base06 = "#E6E1CF";
+ayu_dark_base07 = "#F3F4F5";
+ayu_dark_base08 = "#F07178";
+ayu_dark_base09 = "#FF8F40";
+ayu_dark_base0A = "#FFB454";
+ayu_dark_base0B = "#B8CC52";
+ayu_dark_base0C = "#95E6CB";
+ayu_dark_base0D = "#59C2FF";
+ayu_dark_base0E = "#D2A6FF";
+ayu_dark_base0F = "#E6B673";
+
+everforest_base00 = "#2f383e"; # bg0,       palette1 dark (medium)
+everforest_base01 = "#374247"; # bg1,       palette1 dark (medium)
+everforest_base02 = "#4a555b"; # bg3,       palette1 dark (medium)
+everforest_base03 = "#859289"; # grey1,     palette2 dark
+everforest_base04 = "#9da9a0"; # grey2,     palette2 dark
+everforest_base05 = "#d3c6aa"; # fg,        palette2 dark
+everforest_base06 = "#e4e1cd"; # bg3,       palette1 light (medium)
+everforest_base07 = "#fdf6e3"; # bg0,       palette1 light (medium)
+everforest_base08 = "#7fbbb3"; # blue,      palette2 dark
+everforest_base09 = "#d699b6"; # purple,    palette2 dark
+everforest_base0A = "#dbbc7f"; # yellow,    palette2 dark
+everforest_base0B = "#83c092"; # aqua,      palette2 dark
+everforest_base0C = "#e69875"; # orange,    palette2 dark
+everforest_base0D = "#a7c080"; # green,     palette2 dark
+everforest_base0E = "#e67e80"; # red,       palette2 dark
+everforest_base0F = "#eaedc8"; # bg_visual, palette1 dark (medium)
+
+everforest_dark_base00 = "#272e33"; # bg0,        Default background
+everforest_dark_base01 = "#2e383c"; # bg1,        Lighter background
+everforest_dark_base02 = "#414b50"; # bg3,        Selection background
+everforest_dark_base03 = "#859289"; # grey1,      Comments
+everforest_dark_base04 = "#9da9a0"; # grey2,      Dark foreground
+everforest_dark_base05 = "#d3c6aa"; # fg,         Default foreground
+everforest_dark_base06 = "#e4e1cd"; # bg3,        Light foreground
+everforest_dark_base07 = "#fdf6e3"; # bg0,        Light background
+everforest_dark_base08 = "#7fbbb3"; # blue
+everforest_dark_base09 = "#d699b6"; # purple
+everforest_dark_base0A = "#dbbc7f"; # yellow
+everforest_dark_base0B = "#83c092"; # aqua
+everforest_dark_base0C = "#e69875"; # orange
+everforest_dark_base0D = "#a7c080"; # green
+everforest_dark_base0E = "#e67e80"; # red
+everforest_dark_base0F = "#4C3743"; # bg_visual
 }
