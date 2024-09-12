@@ -3,9 +3,7 @@
   imports =
     [
       ./core
-      ./abhi/mods
-      #./userpkgs.nix
-      #./envpkgs.nix
+      ./mods
     ];
 
   boot.kernelModules = ["i2c-dev"];
