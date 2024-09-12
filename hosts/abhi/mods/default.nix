@@ -9,7 +9,6 @@
 		# ./nextclould.nix
 		./picom.nix
 		#./dmenu.nix
-		#	./slstatus.nix
 		./st.nix
 		./syncthing.nix
 		./qt.nix

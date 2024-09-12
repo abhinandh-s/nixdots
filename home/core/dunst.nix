@@ -20,12 +20,6 @@
         separator_height = 1;
         corner_radius = 10;
       };
-
-      # play_sound = {
-      #       summary = "*";
-      #       script = "/home/abhi/.local/bin/alert";
-      #     };
-
       urgency_normal = {
         background = "${colorpencil.uwu_base00}";
         foreground = "${colorpencil.uwu_base01}";

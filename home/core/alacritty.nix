@@ -1,10 +1,9 @@
 {
-  config,
-  pkgs,
-  colorpencil,
-  ...
+config,
+pkgs,
+colorpencil,
+...
 }:
-
 {
   programs.alacritty = {
     enable = true;
@@ -13,6 +12,7 @@
         TERM = "xterm-256color";
       };
       window = {
+        opacity = 0.85;
         padding = {
           x = 16;
           y = 16;
@@ -78,7 +78,7 @@
           mods = "Alt";
           action = "Paste";
         }
-         {
+        {
           key = "C";
           mods = "Control";
           action = "Copy";
@@ -99,12 +99,9 @@
         semantic_escape_chars = ",│`|:\"' ()[]{}<>";
         save_to_clipboard = true;
       };
-      # shell = {
-      #   program = "${pkgs.zsh}/bin/zsh";
-      #};
       colors = {
         primary = {
-          background = "${colorpencil.cat_crust}";
+          background = "${colorpencil.rose_pine_base00}";
           foreground = "${colorpencil.cat_text}";
         };
         cursor = {

@@ -5,7 +5,7 @@ in
     {
     programs.firefox = {
         enable = true;
-        package = pkgs.firefox-beta-bin;
+        package = pkgs.firefox;  # pkgs.firefox-beta-bin;
         profiles = {
             "abhi" = {
                 id = 0;
@@ -549,30 +549,8 @@ scrollbar{
  scrollbar-width: thin 
 }
 
-
-/* ------------------------------------------------------------------------------- */
-/* ------------------------------------------------- Icon only Tab ( not enabled ) */
-/* ------------------------------------------------------------------------------- */
-/* ------------------------------------------------------------------------------- */
-/* ------------------------------------------------------------------------------- */
-/* ------------------------------------------------------------------------------- */
-/* ------------------------------------------------------------------------------- */
-/* ------------------------------------------------------------------------------- */
-/* ------------------------------------------------------------------------------- */
-/* ------------------------------------------------------------------------------- */
-/* ------------------------------------------------------------------------------- */
-/* ------------------------------------------------------------------------------- */
-/* ------------------------------------------------------------------------------- */
-/* -------------------------------------------------------------------------------------------------------------------------- */
-/* -------------------------------------------------------------------------------------------------------------------------- */
-
 /* -------------------------------------------------------------------------------------------------------------------------- */
                 '';
-
-                # usreChrome
-                # Clean extensions menu
-                # 3. Removes Items from Tab Context Menu
-
             };
         };
         policies = {
@@ -595,16 +573,6 @@ scrollbar{
                         (extension "clearurls" "{74145f27-f039-47ce-a470-a662b129930a}")
                         (extension "catppuccin-mocha-lavender-git" "{8446b178-c865-4f5c-8ccc-1d7887811ae3}")
                     ];
-            # To add additional extensions, find it on addons.mozilla.org, find
-            # the short ID in the url (like https://addons.mozilla.org/en-US/firefox/addon/!SHORT_ID!/)
-            # Then, download the XPI by filling it in to the install_url template, unzip it,
-            # run `jq .browser_specific_settings.gecko.id manifest.json` or
-            # `jq .applications.gecko.id manifest.json` to get the UUID
-            #(extension "" "")
         };
-        # DefaultDownloadDirectory = "\${home}/Downloads";
-
-        # comment: You don’t need to get the UUID from the xpi. You can install it then find the UUID in about:debugging#/runtime/this-firefox.
-        # ref link: https://discourse.nixos.org/t/declare-firefox-extensions-and-settings/36265/17
     };
 }

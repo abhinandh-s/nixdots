@@ -25,16 +25,6 @@
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    nixos-cosmic = {
-      url = "github:lilyinstarlight/nixos-cosmic";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    nixvim = {
-        url = "github:nix-community/nixvim";
-        inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs = inputs@{
@@ -42,7 +32,6 @@
     nixpkgs,
     nixpkgs-unstable,
     nur,
-    nixos-cosmic,
     sops-nix,
     home-manager,
     sddm-sugar-candy-nix,
@@ -64,7 +53,7 @@
         specialArgs = { inherit inputs; };
         modules = [
           ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlay-unstable ]; })
-          ./hosts/abhi/configuration.nix
+          ./hosts/configuration.nix
 
           sops-nix.nixosModules.sops
 
@@ -77,18 +66,9 @@
             };
           }
 
-          nixos-cosmic.nixosModules.default
-          {
-            nix.settings = {
-              substituters = [ "https://cosmic.cachix.org/" ];
-              trusted-public-keys = [ "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE=" ];
-            };
-          }
-
-
           home-manager.nixosModules.home-manager
           {
-            home-manager.backupFileExtension = "444444444444";
+            home-manager.backupFileExtension = "999994444444";
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;

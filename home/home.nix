@@ -7,7 +7,7 @@
   home.sessionPath = [ "$HOME/.cargo/bin" ];
 
   imports = [
-    ./abhi/mods/default.nix
+    ./mods
     ./core
     ./pkgs.nix
   ];
@@ -17,12 +17,15 @@
   programs = {
     zsh = {
       enable = true;
+      initExtraFirst = "ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#7f849c'";
       enableCompletion = true;
       autosuggestion.enable = true;
       syntaxHighlighting.enable = true;
       shellAliases = {
         ll = "ls -l";
         gc = "git clone";
+        develop = "nix develop --command 'zsh'";
+        rdevelop = "cd ~/github/nixdots/custom/mods/shells/rust && nix develop --command 'zsh' && echo 'Environment ready!'";
         gitpush = "git add -A && git status && git commit -m '-' && git status && git push";
         update = "sudo nixos-rebuild switch --flake .";
       };
@@ -60,7 +63,7 @@
     gtk3.extraConfig.gtk-application-prefer-dark-theme = true;
   };
   programs.neovim.defaultEditor = true;
-  home.file.".background-image".source = ../assets/wallpaper/macos.png;
+  home.file.".background-image".source = ../assets/wallpaper/macos-blue.png;
 
   programs.home-manager.enable = true;
 
