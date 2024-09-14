@@ -12,7 +12,7 @@ colorpencil,
         TERM = "xterm-256color";
       };
       window = {
-        opacity = 0.85;
+        opacity = 0.80;
         padding = {
           x = 16;
           y = 16;

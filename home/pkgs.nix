@@ -1,8 +1,13 @@
 { config, pkgs, ... }:
 {
+
+  programs.eza = {
+    enable = true;
+    icons = true;
+    enableZshIntegration = true;
+  };
+
   home.packages = with pkgs; [
-
-
 
 
 

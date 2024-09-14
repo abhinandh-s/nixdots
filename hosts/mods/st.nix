@@ -4,7 +4,7 @@
     (st.overrideAttrs (oldAttrs: rec {
       # ligatures dependency
       buildInputs = oldAttrs.buildInputs ++ [ harfbuzz ];
-      src = ../../../custom/overlays/st;
+      src = ../../custom/overlays/st;
       patches = [
         # ligatures patch
         #   (fetchpatch {
@@ -13,7 +13,7 @@
         #})
       ];
       # Using a local file
-      configFile = writeText "config.def.h" (builtins.readFile ../../../custom/overlays/st/config.h);
+      configFile = writeText "config.def.h" (builtins.readFile ../../custom/overlays/st/config.h);
       postPatch = "${oldAttrs.postPatch}\n cp ${configFile} config.def.h";
     }))
   ];
