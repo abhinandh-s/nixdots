@@ -10,13 +10,6 @@ in
     })
 
 
-    (leftwm.overrideAttrs {
-      src = ../../custom/overlays/leftwm;
-      cargoPatches = ../../custom/overlays/leftwm/Cargo.lock;
-    })
-
-
-
     # brightness
     lxappearance
     feh

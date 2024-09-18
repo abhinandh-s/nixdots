@@ -7,7 +7,10 @@
     xkb.variant = "";
     xkb.options = "caps:escape_shifted_capslock";
     windowManager = {
-      qtile.enable = true;
+      qtile = {
+        enable = true;
+        backend = "x11";
+      };
       dwm.enable = true;
       leftwm.enable = true;
       awesome = {
@@ -20,8 +23,6 @@
       };
     };
   };
-
-
 
   services.xserver.windowManager.dwm.package = pkgs.dwm.overrideAttrs {
     src = ../../custom/overlays/dwm;

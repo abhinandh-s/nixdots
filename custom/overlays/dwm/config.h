@@ -119,8 +119,8 @@ static const char *dmenucmd[] = {"rofi",
                                  "~/.local/share/rofi/windows11-list-dark.rasi",
                                  NULL};
 // static const char *dmenucmd[] = { "rofi", "-show", "drun", NULL };
-static const char *termcmd[] = {"kitty", NULL};
-static const char *termcmd2[] = {"alacritty", NULL};
+static const char *termcmd[] = {"alacritty", NULL};
+static const char *termcmd2[] = {"kitty", NULL};
 static const char *bcmd1[] = {"librewolf", NULL};
 static const char *powercmd[] = {"powermenu.sh", NULL};
 

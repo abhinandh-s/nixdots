@@ -24,6 +24,10 @@
     alacritty
     tokyonight-gtk-theme
 
+    redshift
+    youtube-music
+    lynx
+
 
     qbittorrent
     ltex-ls
