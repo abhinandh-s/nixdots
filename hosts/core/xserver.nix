@@ -9,6 +9,7 @@
     windowManager = {
       qtile.enable = true;
       dwm.enable = true;
+      leftwm.enable = true;
       awesome = {
         enable = true;
         luaModules = with pkgs.luaPackages; [
@@ -18,6 +19,10 @@
 
       };
     };
+  };
+
+  services.xserver.windowManager.leftwm.package = pkgs.leftwm.overrideAttrs {
+    src = ../../custom/overlays/leftwm;
   };
 
   services.xserver.windowManager.dwm.package = pkgs.dwm.overrideAttrs {
