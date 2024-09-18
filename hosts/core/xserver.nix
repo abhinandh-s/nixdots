@@ -21,9 +21,7 @@
     };
   };
 
-  services.xserver.windowManager.leftwm.package = pkgs.leftwm.overrideAttrs {
-    src = ../../custom/overlays/leftwm;
-  };
+
 
   services.xserver.windowManager.dwm.package = pkgs.dwm.overrideAttrs {
     src = ../../custom/overlays/dwm;

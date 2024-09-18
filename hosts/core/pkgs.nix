@@ -9,9 +9,16 @@ in
       src = ../../custom/overlays/slstatus;
     })
 
+
+    (leftwm.overrideAttrs {
+      src = ../../custom/overlays/leftwm;
+    })
+
+
+
     # brightness
     lxappearance
-       feh
+    feh
     ddcutil
     # audio 
     pulsemixer
