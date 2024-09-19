@@ -23,23 +23,23 @@ static const char *colors[][3] = {
     [SchemeNorm] = {col_gray3, col_gray1, col_gray2},
     [SchemeSel] = {col_gray4, col_cyan, col_cyan},
     [SchemeStatus] = {col_gray3, col_gray1,
-                      "#000000"}, // Statusbar right {text,background,not used
-                                  // but cannot be empty}
+        "#000000"}, // Statusbar right {text,background,not used
+    // but cannot be empty}
     [SchemeTagsSel] = {col_gray1, col_cyan,
-                       "#000000"}, // Tagbar left selected {text,background,not
-                                   // used but cannot be empty}
+        "#000000"}, // Tagbar left selected {text,background,not
+    // used but cannot be empty}
     [SchemeTagsNorm] =
-        {col_gray3, col_gray1,
-         "#000000"}, // Tagbar left unselected {text,background,not used but
-                     // cannot be empty}
+    {col_gray3, col_gray1,
+        "#000000"}, // Tagbar left unselected {text,background,not used but
+    // cannot be empty}
     [SchemeInfoSel] =
-        {col_gray1, col_cyan,
-         "#000000"}, // infobar middle  selected {text,background,not used but
-                     // cannot be empty} org = col_gray4
+    {col_gray1, col_cyan,
+        "#000000"}, // infobar middle  selected {text,background,not used but
+    // cannot be empty} org = col_gray4
     [SchemeInfoNorm] =
-        {col_gray3, col_gray1,
-         "#000000"}, // infobar middle  unselected {text,background,not used but
-                     // cannot be empty}
+    {col_gray3, col_gray1,
+        "#000000"}, // infobar middle  unselected {text,background,not used but
+    // cannot be empty}
 };
 
 static const char *const autostart[] = {
@@ -72,7 +72,7 @@ static const int lockfullscreen =
     1; /* 1 will force focus on the fullscreen window */
 
 #define FORCE_VSPLIT                                                           \
-  1 /* nrowgrid layout: force two clients to always split vertically */
+1 /* nrowgrid layout: force two clients to always split vertically */
 #include "vanitygaps.c"
 
 static const Layout layouts[] = {
@@ -98,30 +98,33 @@ static const Layout layouts[] = {
 /* key definitions */
 #define MODKEY Mod4Mask
 #define TAGKEYS(KEY, TAG)                                                      \
-  {MODKEY, KEY, view, {.ui = 1 << TAG}},                                       \
-      {MODKEY | ControlMask, KEY, toggleview, {.ui = 1 << TAG}},               \
-      {MODKEY | ShiftMask, KEY, tag, {.ui = 1 << TAG}},                        \
-      {MODKEY | ControlMask | ShiftMask, KEY, toggletag, {.ui = 1 << TAG}},
+{MODKEY, KEY, view, {.ui = 1 << TAG}},                                       \
+    {MODKEY | ControlMask, KEY, toggleview, {.ui = 1 << TAG}},               \
+    {MODKEY | ShiftMask, KEY, tag, {.ui = 1 << TAG}},                        \
+    {MODKEY | ControlMask | ShiftMask, KEY, toggletag, {.ui = 1 << TAG}},
 
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
 #define SHCMD(cmd)                                                             \
-  {                                                                            \
+{                                                                            \
     .v = (const char *[]) { "/bin/sh", "-c", cmd, NULL }                       \
-  }
+}
 
 /* commands */
 static char dmenumon[2] =
     "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = {"rofi",
-                                 "-show",
-                                 "drun",
-                                 "-theme",
-                                 "~/.local/share/rofi/windows11-list-dark.rasi",
-                                 NULL};
+    "-show",
+    "drun",
+    "-theme",
+    "~/.local/share/rofi/windows11-list-dark.rasi",
+    NULL};
 // static const char *dmenucmd[] = { "rofi", "-show", "drun", NULL };
 static const char *termcmd[] = {"alacritty", NULL};
 static const char *termcmd2[] = {"kitty", NULL};
 static const char *bcmd1[] = {"librewolf", NULL};
+static const char *browserCmd[] = {"firefox", NULL};
+static const char *musicCmd[] = {"alacritty -e ncmpcpp", NULL};
+static const char *toggleMusicCmd[] = {"librewolf", NULL};
 static const char *powercmd[] = {"powermenu.sh", NULL};
 
 #include "movestack.c"

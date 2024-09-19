@@ -2,7 +2,7 @@
 {
   programs.ncmpcpp = {
     enable = true;
-    mpdMusicDir = "~/music";
+    # mpdMusicDir = "~/music";
     package = (pkgs.ncmpcpp.override { visualizerSupport = true; });
     settings = {
       allow_for_physical_item_deletion = "yes";
