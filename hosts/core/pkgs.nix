@@ -5,11 +5,6 @@ in
   environment.systemPackages = with pkgs; [
     cinnamon.nemo-with-extensions
 
-    (slstatus.overrideAttrs {
-      src = ../../custom/overlays/slstatus;
-    })
-
-
     # brightness
     lxappearance
     feh
