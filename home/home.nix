@@ -12,6 +12,32 @@
     ./pkgs.nix
   ];
 
+
+  home.file.".local/bin/slstatus".source = ../custom/bin/slstatus;
+  
+  # covered all options
+  services.redshift = {
+    enable = true;
+    tray = false;
+    package = pkgs.redshift;
+    provider = "manual"; # one of "manual", "geoclue2"
+    latitude = 9.5475023;
+    longitude = 76.7777895;
+    # dawnTime = "6:00-7:45"; # must be HH:MM in 24-hour format
+    # duskTime = "18:35-20:15";
+    # settings = {
+    #   redshift = {
+    #     adjustment-method = "randr";
+    #   };
+    #   randr = {
+    #     screen = 0;
+    #   };
+    # };
+    # temperature.night = 3700;
+    # temperature.day = 5500;
+    # enableVerboseLogging = false;
+  };
+
   programs.kitty = {
     enable = true;
     keybindings = {
@@ -55,6 +81,7 @@
         rdevelop = "cd ~/github/nixdots/custom/mods/shells/rust && nix develop --command 'zsh' && echo 'Environment ready!'";
         gitpush = "git add -A && git status && git commit -m '-' && git status && git push";
         update = "sudo nixos-rebuild switch --flake .";
+        z = "eza -lA --git-ignore --hyperlink --total-size --time-style=relative --time=modified -o -s modified";
       };
       history = {
         size = 10000;

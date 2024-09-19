@@ -9,7 +9,7 @@
     windowManager = {
       qtile = {
         enable = true;
-        backend = "x11";
+        backend = "wayland";
       };
       dwm.enable = true;
       leftwm.enable = true;

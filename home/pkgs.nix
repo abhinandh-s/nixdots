@@ -24,7 +24,7 @@
     alacritty
     tokyonight-gtk-theme
 
-    redshift
+    # redshift
     youtube-music
     lynx
 
