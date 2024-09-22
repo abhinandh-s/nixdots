@@ -49,7 +49,7 @@
 
   users.users.abhi = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "netdev" "root" "i2c" ];
+    extraGroups = [ "wheel" "networkmanager" "netdev" "root" "i2c" "mpd" ];
   };
 
   programs.neovim.defaultEditor = true;

@@ -4,7 +4,7 @@ in
 {
   environment.systemPackages = with pkgs; [
     cinnamon.nemo-with-extensions
-
+  alsa-utils
     # brightness
     lxappearance
     feh
