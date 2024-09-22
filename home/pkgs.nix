@@ -58,10 +58,4 @@ let
 in
   {
   home.packages = misc_packages ++ home_pkgs ++ lang_packages ++ theme_packages; 
-
-  programs.eza = {
-    enable = true;
-    icons = true;
-    enableZshIntegration = true;
-  };
 }
