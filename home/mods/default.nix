@@ -5,6 +5,7 @@
     ./ncmpcpp.nix
     ./spotify.nix
     ./newsboat.nix
+    ./nushell.nix
     ./zathura.nix
     ./qutebrowser.nix
     ./aria2.nix

@@ -7,7 +7,6 @@
     ./flameshot.nix
     ./firefox.nix
     ./git.nix
-    ./nushell.nix
     ./rofi.nix
   ];
 
