@@ -17,9 +17,9 @@
     driSupport32Bit = true;
   };
 
-  programs.zsh.enable = true;
-  environment.shells = with pkgs; [ zsh ];
-  users.defaultUserShell = pkgs.zsh;
+  # programs.nushell.enable = true;
+  environment.shells = with pkgs; [ nushellFull ];
+  users.defaultUserShell = pkgs.nushellFull;
 
   services.udisks2.enable = true;
 
