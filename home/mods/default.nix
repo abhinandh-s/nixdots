@@ -12,6 +12,11 @@
     ./xdgconfig.nix
     ./yazi.nix
     ./mpv.nix
+    ./redshift.nix
+    ./kitty.nix
+    ./zsh.nix
+    ./zoxide.nix
+    ./bat.nix
     #./betterlockscreen.nix
     #./cava.nix
     #./mimeapps.nix
