@@ -110,8 +110,7 @@ static const Layout layouts[] = {
 }
 
 /* commands */
-static char dmenumon[2] =
-    "0"; /* component of dmenucmd, manipulated in spawn() */
+static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = {"rofi",
     "-show",
     "drun",
@@ -126,12 +125,44 @@ static const char *browserCmd[] = {"firefox", NULL};
 static const char *musicCmd[] = {"alacritty -e ncmpcpp", NULL};
 static const char *toggleMusicCmd[] = {"librewolf", NULL};
 static const char *powercmd[] = {"powermenu.sh", NULL};
+static const char *screenShotCmd[] = {"flameshot", "full", NULL};
+static const char *screenShotCmd2[] = {"flameshot", "gui", NULL};
+static const char *brightnessUpCmd[] = {"brightness", "gui", NULL};
 
 #include "movestack.c"
 // #include "fibonacci.c"
 
 static const Key keys[] = {
     /* modifier                     key        function        argument */
+    {MODKEY, XK_Print, spawn, {.v = screenShotCmd2}},
+    {0, XK_Print, spawn, {.v = screenShotCmd}},
+    /* Function Keys */
+    {0, XK_F1, spawn, {.v = dmenucmd}},
+    {0, XK_F2, spawn, {.v = dmenucmd}},
+    {0, XK_F3, spawn, {.v = screenShotCmd}},
+    {0, XK_F4, spawn, {.v = screenShotCmd}},
+    {0, XK_F5, spawn, {.v = screenShotCmd}},
+    {0, XK_F6, spawn, {.v = screenShotCmd}},
+    {0, XK_F7, spawn, {.v = screenShotCmd}},
+    {0, XK_F8, spawn, {.v = screenShotCmd}},
+    {0, XK_F9, spawn, {.v = screenShotCmd}},
+    {0, XK_F10, spawn, {.v = screenShotCmd}},
+    {0, XK_F11, spawn, {.v = screenShotCmd}},
+    {0, XK_F12, spawn, {.v = screenShotCmd}},
+    /* Ctrl + Function Keys */
+    {ControlMask, XK_F1, spawn, {.v = dmenucmd}},
+    {ControlMask, XK_F2, spawn, {.v = dmenucmd}},
+    {ControlMask, XK_F3, spawn, {.v = screenShotCmd}},
+    {ControlMask, XK_F4, spawn, {.v = screenShotCmd}},
+    {ControlMask, XK_F5, spawn, {.v = screenShotCmd}},
+    {ControlMask, XK_F6, spawn, {.v = screenShotCmd}},
+    {ControlMask, XK_F7, spawn, {.v = screenShotCmd}},
+    {ControlMask, XK_F8, spawn, {.v = screenShotCmd}},
+    {ControlMask, XK_F9, spawn, {.v = screenShotCmd}},
+    {ControlMask, XK_F10, spawn, {.v = screenShotCmd}},
+    {ControlMask, XK_F11, spawn, {.v = screenShotCmd}},
+    {ControlMask, XK_F12, spawn, {.v = screenShotCmd}},
+
     {MODKEY, XK_d, spawn, {.v = dmenucmd}},
     {MODKEY, XK_e, spawn, {.v = powercmd}},
     {MODKEY, XK_w, spawn, {.v = bcmd1}},

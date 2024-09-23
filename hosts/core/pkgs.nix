@@ -1,30 +1,23 @@
-{ config, pkgs, ... }:
-let
-in
+{ pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
     cinnamon.nemo-with-extensions
-  alsa-utils
-    # brightness
+    alsa-utils
     lxappearance
     feh
     ddcutil
-    # audio 
     pulsemixer
     mpc-cli
-    # editor
     vim
-    # zip
+    zip
     unzip
     _7zz
-    # keys
     sops
     age
     gnupg
     pinentry-all # GnuPG’s interface to passphrase input
     cryptsetup
 
-    # utils
     vlc
     wget
     killall
