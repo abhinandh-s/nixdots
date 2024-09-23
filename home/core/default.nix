@@ -9,6 +9,7 @@
     ./git.nix
     ./rofi.nix
     ./symlinks.nix
+    ./theme.nix
   ];
 
 }
