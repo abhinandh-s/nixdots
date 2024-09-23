@@ -8,6 +8,7 @@
     ./firefox.nix
     ./git.nix
     ./rofi.nix
+    ./symlinks.nix
   ];
 
 }

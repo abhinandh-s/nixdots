@@ -1,4 +1,4 @@
-{ pkgs }:
+{ pkgs, ... }:
 {
 # covered all options
   services.redshift = {
