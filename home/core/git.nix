@@ -1,12 +1,25 @@
-{ config, pkgs, ... }:
+{ ... }:
 {
   programs.git = {
     enable = true;
     userName = "abhi";
     userEmail = "ugabhi@proton.me";
+    extraConfig = {
+      init = {
+        defaultBranch = "main";
+      };
+      # url = {
+      #   "https://github.com/" = {
+      #     insteadOf = [
+      #       "gh:"
+      #       "github:"
+      #     ];
+      #   };
+      # };
+    };
     aliases = {
-      co = "checkout";
-      gc = "git clone";
+      c = "commit -m 'Refactoring'";
+      cm = "commit -m";
       ga = "git add";
       gp = "git push";
       gs = "git status";

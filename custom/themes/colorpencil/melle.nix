@@ -19,14 +19,14 @@
   base0H = "#E6EAEE";
 
   cat_rosewater = "#f5e0dc";
-  cat_flamingo = "#f2cdcd";
-  cat_pink = "#f5c2e7";
-  cat_mauve = "#cba6f7";
-  cat_red = "#f38ba8";
-  cat_maroon = "#eba0ac";
-  cat_peach = "#fab387";
-  cat_yellow = "#f9e2af";
-  cat_green = "#a6e3a1";
+  cat_flamingo  = "#f2cdcd";
+  cat_pink      = "#f5c2e7";
+  cat_mauve     = "#cba6f7";
+  cat_red       = "#f38ba8";
+  cat_maroon    = "#eba0ac";
+  cat_peach     = "#fab387";
+  cat_yellow    = "#f9e2af";
+  cat_green     = "#a6e3a1";
   cat_teal = "#94e2d5";
   cat_sky = "#89dceb";
   cat_sapphire = "#74c7ec";

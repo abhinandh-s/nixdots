@@ -8,6 +8,15 @@ pkgs,
         package = pkgs.nushellFull;
         configFile = { 
             text = ''
+          alias update-nix = sudo nixos-rebuild switch --flake .
+          alias getrust = sudo nixos-rebuild switch --flake .
+          ll = ls -l
+          gc = git clone"
+          develop = nix develop --command 'nu'
+          gitpush = git add -A && git status && git commit -m '-' && git status && git push
+          l = eza -lA --git-ignore --hyperlink --total-size --time-style=relative --time=modified -o -s modified
+          getrust = cp ~/projects/github/nix-shells/rust/* .
+
           $env.config = {
             show_banner: false,
           }
