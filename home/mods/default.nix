@@ -17,6 +17,7 @@
     ./zsh.nix
     ./zoxide.nix
     ./bat.nix
+    ./eza.nix
     #./betterlockscreen.nix
     #./cava.nix
     #./mimeapps.nix

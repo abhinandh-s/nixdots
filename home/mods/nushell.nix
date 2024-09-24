@@ -6,16 +6,23 @@ pkgs,
     programs.nushell = {
         enable = true;
         package = pkgs.nushellFull;
+        shellAliases = {
+            ll = "ls -l";
+            l = "eza -lA --git-ignore --hyperlink --total-size --time-style=relative --time=modified -o -s modified";
+            gc = "git clone";
+            update-nix = "sudo nixos-rebuild switch --flake .";
+            getrust = "cp ~/projects/github/nix-shells/rust/* .";
+            develop = "nix develop --command nu";
+        };
+        #       envFile = ''
+        # $env.FOO = 'BAR'
+        #       '';
+        #       environmentVariables = {
+        #           # FOO = "BAR";
+        #           };
         configFile = { 
             text = ''
                 # -- Alias -------------------------------------- #
-alias update-nix = sudo nixos-rebuild switch --flake .
-alias getrust = cp ~/projects/github/nix-shells/rust/* .
-alias ll = ls -l
-alias gc = git clone
-alias develop = nix develop --command nu
-# alias gitpush = git add -A ; git commit -m '-' ; git push
-alias l = eza -lA --git-ignore --hyperlink --total-size --time-style=relative --time=modified -o -s modified
 
           $env.config = {
             show_banner: false,
