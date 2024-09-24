@@ -128,6 +128,9 @@ static const char *powercmd[] = {"powermenu.sh", NULL};
 static const char *screenShotCmd[] = {"flameshot", "full", NULL};
 static const char *screenShotCmd2[] = {"flameshot", "gui", NULL};
 static const char *brightnessUpCmd[] = {"brightness", "gui", NULL};
+static const char *volUpCmd[] = {"pulsemixer", "--change-volume", "+10", NULL};
+static const char *volDownCmd[] = {"pulsemixer", "--change-volume", "-10", NULL};
+static const char *volMuteCmd[] = {"pulsemixer", "--toggle-mute", NULL};
 
 #include "movestack.c"
 // #include "fibonacci.c"
@@ -138,9 +141,9 @@ static const Key keys[] = {
     {0, XK_Print, spawn, {.v = screenShotCmd}},
     /* Function Keys */
     {0, XK_F1, spawn, {.v = dmenucmd}},
-    {0, XK_F2, spawn, {.v = dmenucmd}},
-    {0, XK_F3, spawn, {.v = screenShotCmd}},
-    {0, XK_F4, spawn, {.v = screenShotCmd}},
+    {0, XK_F2, spawn, {.v = volDownCmd}},
+    {0, XK_F3, spawn, {.v = volUpCmd}},
+    {0, XK_F4, spawn, {.v = volMuteCmd}},
     {0, XK_F5, spawn, {.v = screenShotCmd}},
     {0, XK_F6, spawn, {.v = screenShotCmd}},
     {0, XK_F7, spawn, {.v = screenShotCmd}},
@@ -166,8 +169,8 @@ static const Key keys[] = {
     {MODKEY, XK_d, spawn, {.v = dmenucmd}},
     {MODKEY, XK_e, spawn, {.v = powercmd}},
     {MODKEY, XK_w, spawn, {.v = bcmd1}},
-    {MODKEY, XK_Return, spawn, {.v = termcmd}},
-    {MODKEY | ShiftMask, XK_Return, spawn, {.v = termcmd2}},
+    {MODKEY, XK_Return, spawn, {.v = termcmd2}},
+    {MODKEY | ShiftMask, XK_Return, spawn, {.v = termcmd}},
     {MODKEY, XK_s, scratchpad_show, {0}},
     {MODKEY | ShiftMask, XK_s, scratchpad_hide, {0}},
     {MODKEY, XK_equal, scratchpad_remove, {0}},

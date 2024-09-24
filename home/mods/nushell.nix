@@ -8,14 +8,14 @@ pkgs,
         package = pkgs.nushellFull;
         configFile = { 
             text = ''
-          alias update-nix = sudo nixos-rebuild switch --flake .
-          alias getrust = sudo nixos-rebuild switch --flake .
-          ll = ls -l
-          gc = git clone"
-          develop = nix develop --command 'nu'
-          gitpush = git add -A && git status && git commit -m '-' && git status && git push
-          l = eza -lA --git-ignore --hyperlink --total-size --time-style=relative --time=modified -o -s modified
-          getrust = cp ~/projects/github/nix-shells/rust/* .
+                # -- Alias -------------------------------------- #
+alias update-nix = sudo nixos-rebuild switch --flake .
+alias getrust = cp ~/projects/github/nix-shells/rust/* .
+alias ll = ls -l
+alias gc = git clone
+alias develop = nix develop --command nu
+# alias gitpush = git add -A ; git commit -m '-' ; git push
+alias l = eza -lA --git-ignore --hyperlink --total-size --time-style=relative --time=modified -o -s modified
 
           $env.config = {
             show_banner: false,
@@ -25,73 +25,6 @@ pkgs,
             table_mode: rounded
             use_ls_colors: true
           }
-          let config = {
-            color_config: {
-            # color for nushell primitives
-            separator: white
-            leading_trailing_space_bg: { attr: n } # no fg, no bg, attr none effectively turns this off
-            header: green_bold
-            empty: blue
-            # Closures can be used to choose colors for specific values.
-            # The value (in this case, a bool) is piped into the closure.
-            # eg) {|| if $in { 'light_cyan' } else { 'light_gray' } }
-            bool: light_cyan
-            int: white
-            filesize: cyan
-            duration: white
-            date: cyan
-            range: white
-            float: white
-            string: white
-            nothing: white
-            binary: white
-            cell-path: white
-            row_index: green_bold
-            record: white
-            list: white
-            block: white
-            hints: "#7f849c"
-            search_result: { bg: red fg: white }
-            shape_and: purple_bold
-            shape_binary: purple_bold
-            shape_block: blue_bold
-            shape_bool: light_cyan
-            shape_closure: green_bold
-            shape_custom: green
-            shape_datetime: cyan_bold
-            shape_directory: cyan
-            shape_external: cyan
-            shape_externalarg: green_bold
-            shape_external_resolved: light_yellow_bold
-            shape_filepath: cyan
-            shape_flag: blue_bold
-            shape_float: purple_bold
-            # shapes are used to change the cli syntax highlighting
-            shape_garbage: { fg: white bg: red attr: b}
-            shape_globpattern: cyan_bold
-            shape_int: purple_bold
-            shape_internalcall: cyan_bold
-            shape_keyword: cyan_bold
-            shape_list: cyan_bold
-            shape_literal: blue
-            shape_match_pattern: green
-            shape_matching_brackets: { attr: u }
-            shape_nothing: light_cyan
-            shape_operator: yellow
-            shape_or: purple_bold
-            shape_pipe: purple_bold
-            shape_range: yellow_bold
-            shape_record: cyan_bold
-            shape_redirection: purple_bold
-            shape_signature: green_bold
-            shape_string: green
-            shape_string_interpolation: cyan_bold
-            shape_table: blue_bold
-            shape_variable: purple
-            shape_vardecl: purple
-          }
-        }
-
 
         let dark_theme = {
             # color for nushell primitives
@@ -117,7 +50,7 @@ pkgs,
             record: white
             list: white
             block: white
-            hints: dark_gray
+            hints: "#7f849c"
             search_result: { bg: red fg: white }
             shape_and: purple_bold
             shape_binary: purple_bold
@@ -182,7 +115,7 @@ pkgs,
             record: dark_gray
             list: dark_gray
             block: dark_gray
-            hints: dark_gray
+            hints: "#7f849c"
             search_result: { fg: white bg: red }
             shape_and: purple_bold
             shape_binary: purple_bold

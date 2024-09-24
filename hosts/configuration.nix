@@ -53,7 +53,15 @@
   };
 
   programs.neovim.defaultEditor = true;
-  programs.nano.enable = true;
+  programs.nano.enable = false;
+
+  environment.variables = {
+    EDITOR = "nvim";
+    VISUAL = "nvim";
+    BROWSER = "firefox";
+    TERMINAL = "alacritty";
+  };
+
 
   users.extraGroups.vboxusers.members = [ "abhi" ];
   # programs.mtr.enable = true;

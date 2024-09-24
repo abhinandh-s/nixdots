@@ -1,5 +1,7 @@
 { config, ... }:
-
+# theme = Tomorrow Night, Twilight, Tokyo Night, Dracula
+# font.name = "Maple Mono";
+# font_family = "FiraCode Nerd Font Mono";
 {
   programs.kitty = {
     enable = true;
@@ -13,11 +15,11 @@
       "ctrl+c" = "copy_to_clipboard";
     };
     settings = {
-      font_family = "FiraCode Nerd Font Mono";
-      font_size = "12.6";
+      font_family = "Maple Mono";
+      font_size = "13";
       window_padding_width = 20;
       exe_search_path = "+/etc/profiles/per-user/${config.home.username}/bin";
-      shell = "zsh";
+      shell = "nu";
       editor = "nvim";
       copy_on_select = "clipboard";
       confirm_os_window_close = 0;

@@ -42,18 +42,26 @@ let
 
   home_pkgs = with pkgs; [
     alacritty
+    oculante # image viewer in rust
     lynx
     qbittorrent
     tutanota-desktop
     librewolf
     git
     kdePackages.okular
+    pulsemixer
     hut
     zathura
     unstable.neovim
     yazi
     telegram-desktop
     signal-desktop
+    bitwarden-desktop
+    (rbw.override {
+      withFzf = true;
+      withRofi = true;
+      withPass = false;
+    })
   ];
 in
   {
