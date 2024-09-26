@@ -286,6 +286,9 @@ in
                     # -- Pinned shortcuts
                     # --
                     "browser.newtabpage.pinned" = [
+                        { title = "Abhinandh"; url = "https://abhinandh.srht.site/";} #25
+                        { title = "My website"; url = "https://abhi-xyz.github.io/site/";} #20
+                        { title = "Github"; url = "https://github.com/abhi-xyz";} #8
                         { title = "NixOS"; url = "https://nixos.org";} #1
                         { title = "MyNixOs"; url = "https://mynixos.com";} #2
                         { title = "NixOS Search"; url = "https://search.nixos.org/packages";} #10
@@ -294,11 +297,13 @@ in
                         { title = "Arch WiKi"; url = "https://wiki.archlinux.org/title/Main_page";} #13
                         # { title = "Arch WiKi"; url = "https://wiki.archlinux.org/title/Main_page"; customScreenshotURL = ../../../assets/logos/pinterest.png;} #13
                         { title = "Rust Doc"; url = "https://doc.rust-lang.org/stable/book";} #3
+                        { title = "Rust stdlib Docs"; url = "https://doc.rust-lang.org/std/index.html";} #30
+                        { title = "Rust by Examples"; url = "https://doc.rust-lang.org/rust-by-example/index.html";} #31
+                        { title = "Rustlings"; url = "https://github.com/rust-lang/rustlings";} #32
                         { title = "Crates"; url = "https://crates.io";} #4
                         { title = "Youtube"; url = "https://www.youtube.com";} #5
                         { title = "Reddit"; url = "https://www.reddit.com";} #6
                         { title = "ChatGPT"; url = "https://chatgpt.com";} #7
-                        { title = "Github"; url = "https://github.com/abhi-xyz";} #8
                         { title = "Catppuccin"; url = "https://catppuccin.com/palette";} #9
                         { title = "X"; url = "https://x.com";} #11
                         { title = "Hianime"; url = "https://hianime.to/home";} #12
@@ -306,19 +311,14 @@ in
                         { title = "Nerd Icons"; url = "https://www.nerdfonts.com/cheat-sheet";} #17
                         { title = "Unsplash"; url = "https://unsplash.com/t/wallpapers";} #18
                         { title = "Pinterest"; url = "https://www.pinterest.com/";} #19
-                        { title = "My website"; url = "https://abhi-xyz.github.io/site/";} #20
                         { title = "Flipkart"; url = "https://www.flipkart.com/";} #21
                         { title = "Amazon"; url = "https://www.amazon.in/";} #22
                         { title = "proton mail"; url = "https://mail.proton.me/u/0/inbox";} #23
                         { title = "proton drive"; url = "https://drive.proton.me/u/0/o9nuqW7Gp1ylV4va0CoH_jprUWbtjIqbNW92RS7Cd-y74X10XrlOQQ7IJuN7kGpeGeNI0zxuVx5mxZdUXOWxpQ==/folder/Won0u630O7IEf1vKCNcuYoDCLcCnxTv6JLPxR3o_TH7ZJUTuz6OM72G04qm4Sp4roRmN9GwEPSvaFsBvBodCCQ==";} #24
-                        { title = "Abhinandh"; url = "https://abhinandh.srht.site/";} #25
                         { title = "Color Picker"; url = "https://hslpicker.com/";} #26
                         { title = "Localhost:8080"; url = "127.0.0.1:8080";} #27
                         { title = "Org-roam"; url = "https://www.orgroam.com/manual.html";} #28
                         { title = "Org mode"; url = "https://orgmode.org/manual/index.html#SEC_Contents";} #29
-                        { title = "Localhost:8080"; url = "localhost:8080";} #30
-                        { title = "Localhost:8080"; url = "localhost:8080";} #31
-                        { title = "Localhost:8080"; url = "localhost:8080";} #32
                     ];
                 };
 

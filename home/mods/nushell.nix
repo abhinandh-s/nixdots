@@ -1,5 +1,6 @@
 {
 pkgs,
+colorpencil,
 ...
 }:
 {
@@ -14,15 +15,103 @@ pkgs,
             getrust = "cp ~/projects/github/nix-shells/rust/* .";
             develop = "nix develop --command nu";
         };
-        #       envFile = ''
-        # $env.FOO = 'BAR'
-        #       '';
+        envFile = {
+            text = ''
+# Nushell Environment Config File
+# NOTE: I have useed \ special char to make things work 
+
+def create_left_prompt [] {
+    let dir = match (do --ignore-shell-errors { $env.PWD | path relative-to $nu.home-path }) {
+        null => $env.PWD
+        "" => "~"
+        $relative_pwd => ([~ $relative_pwd] | path join)
+    }
+
+    let path_color = (if (is-admin) { ansi red_bold } else { ansi green_bold })
+    let separator_color = (if (is-admin) { ansi light_red_bold } else { ansi light_green_bold })
+    let path_segment = $"($path_color)($dir)"
+
+    $path_segment | str replace --all (char path_sep) $"($separator_color)(char path_sep)($path_color)"
+}
+
+def create_right_prompt [] {
+    # create a right prompt in magenta with green separators and am/pm underlined
+    let time_segment = ([
+        (ansi reset)
+        (ansi magenta)
+        (date now | format date '%x %X') # try to respect user's locale
+    ] | str join | str replace --regex --all "([/:])" $"(ansi green)$\{1}(ansi magenta)" |
+        str replace --regex --all "([AP]M)" $"(ansi magenta_underline)$\{1}")
+
+    let last_exit_code = if ($env.LAST_EXIT_CODE != 0) {([
+        (ansi rb)
+        ($env.LAST_EXIT_CODE)
+    ] | str join)
+    } else { "" }
+
+    ([$last_exit_code, (char space), $time_segment] | str join)
+}
+
+# Use nushell functions to define your right and left prompt
+$env.PROMPT_COMMAND = {|| create_left_prompt }
+# FIXME: This default is not implemented in rust code as of 2023-09-08.
+$env.PROMPT_COMMAND_RIGHT = {|| create_right_prompt }
+
+# The prompt indicators are environmental variables that represent
+# the state of the prompt
+$env.PROMPT_INDICATOR = {|| "> " }
+$env.PROMPT_INDICATOR_VI_INSERT = {|| ": " }
+$env.PROMPT_INDICATOR_VI_NORMAL = {|| "> " }
+$env.PROMPT_MULTILINE_INDICATOR = {|| "::: " }
+
+# Specifies how environment variables are:
+# - converted from a string to a value on Nushell startup (from_string)
+# - converted from a value back to a string when running external commands (to_string)
+# Note: The conversions happen *after* config.nu is loaded
+$env.ENV_CONVERSIONS = {
+    "PATH": {
+        from_string: { |s| $s | split row (char esep) | path expand --no-symlink }
+        to_string: { |v| $v | path expand --no-symlink | str join (char esep) }
+    }
+    "Path": {
+        from_string: { |s| $s | split row (char esep) | path expand --no-symlink }
+        to_string: { |v| $v | path expand --no-symlink | str join (char esep) }
+    }
+}
+
+# Directories to search for scripts when calling source or use
+# The default for this is $nu.default-config-dir/scripts
+$env.NU_LIB_DIRS = [
+    ($nu.default-config-dir | path join 'scripts') # add <nushell-config-dir>/scripts
+]
+
+# Directories to search for plugin binaries when calling register
+# The default for this is $nu.default-config-dir/plugins
+$env.NU_PLUGIN_DIRS = [
+    ($nu.default-config-dir | path join 'plugins') # add <nushell-config-dir>/plugins
+]
+
+# To add entries to PATH (on Windows you might use Path), you can use the following pattern:
+# $env.PATH = ($env.PATH | split row (char esep) | prepend '/some/path')
+# An alternate way to add entries to $env.PATH is to use the custom command `path add`
+# which is built into the nushell stdlib:
+# use std "path add"
+# $env.PATH = ($env.PATH | split row (char esep))
+# path add /some/path
+# path add ($env.CARGO_HOME | path join "bin")
+# path add ($env.HOME | path join ".local" "bin")
+# $env.PATH = ($env.PATH | uniq)
+
+# To load from a custom file you can use:
+# source ($nu.default-config-dir | path join 'custom.nu')
+            '';
+        };
         #       environmentVariables = {
         #           # FOO = "BAR";
         #           };
         configFile = { 
             text = ''
-                # -- Alias -------------------------------------- #
+                # -- Config -------------------------------------- #
 
           $env.config = {
             show_banner: false,
@@ -34,36 +123,33 @@ pkgs,
           }
 
         let dark_theme = {
-            # color for nushell primitives
-            separator: white
             leading_trailing_space_bg: { attr: n } # no fg, no bg, attr none effectively turns this off
-            header: green_bold
-            empty: blue
-            # Closures can be used to choose colors for specific values.
-            # The value (in this case, a bool) is piped into the closure.
-            # eg) {|| if $in { 'light_cyan' } else { 'light_gray' } }
-            bool: light_cyan
-            int: white
-            filesize: cyan
-            duration: white
-            date: purple
-            range: white
-            float: white
-            string: white
-            nothing: white
-            binary: white
-            cell-path: white
-            row_index: green_bold
-            record: white
-            list: white
-            block: white
-            hints: "#7f849c"
-            search_result: { bg: red fg: white }
+            separator: "${colorpencil.cat_text}"
+            header: "${colorpencil.cat_green}"
+            empty: "${colorpencil.cat_sapphire}"
+            bool: "${colorpencil.cat_flamingo}"
+            int: "${colorpencil.cat_text}"
+            filesize: "${colorpencil.cat_blue}"
+            duration: "${colorpencil.cat_text}"
+            date: "${colorpencil.tknyt_base07}"
+            range: "${colorpencil.cat_text}"
+            float: "${colorpencil.cat_text}"
+            string: "${colorpencil.cat_text}"
+            nothing: "${colorpencil.cat_text}"
+            binary: "${colorpencil.cat_text}"
+            cell-path: "${colorpencil.cat_text}"
+            row_index: "${colorpencil.cat_green}"
+            record: "${colorpencil.cat_text}"
+            list: "${colorpencil.cat_text}"
+            block: "${colorpencil.cat_text}"
+            hints: "${colorpencil.cat_teal}"
+            search_result: { bg: "${colorpencil.cat_red}" fg: "${colorpencil.cat_text}" }
+
             shape_and: purple_bold
             shape_binary: purple_bold
             shape_block: blue_bold
             shape_bool: light_cyan
-            shape_closure: green_bold
+            shape_closure: "${colorpencil.cat_teal}"
             shape_custom: green
             shape_datetime: cyan_bold
             shape_directory: cyan
@@ -73,9 +159,10 @@ pkgs,
             shape_filepath: cyan
             shape_flag: blue_bold
             shape_float: purple_bold
+            
             # shapes are used to change the cli syntax highlighting
-            shape_garbage: { fg: white bg: red attr: b}
-            shape_globpattern: cyan_bold
+            shape_garbage: { fg: "${colorpencil.cat_text}" bg: "${colorpencil.cat_red}" attr: b}
+            shape_globpattern: "${colorpencil.cat_yellow}"
             shape_int: purple_bold
             shape_internalcall: cyan_bold
             shape_keyword: cyan_bold
@@ -97,73 +184,6 @@ pkgs,
             shape_variable: purple
             shape_vardecl: purple
         }
-
-        let light_theme = {
-            # color for nushell primitives
-            separator: dark_gray
-            leading_trailing_space_bg: { attr: n } # no fg, no bg, attr none effectively turns this off
-            header: green_bold
-            empty: blue
-            # Closures can be used to choose colors for specific values.
-            # The value (in this case, a bool) is piped into the closure.
-            # eg) {|| if $in { 'dark_cyan' } else { 'dark_gray' } }
-            bool: dark_cyan
-            int: dark_gray
-            filesize: cyan_bold
-            duration: dark_gray
-            date: purple
-            range: dark_gray
-            float: dark_gray
-            string: dark_gray
-            nothing: dark_gray
-            binary: dark_gray
-            cell-path: dark_gray
-            row_index: green_bold
-            record: dark_gray
-            list: dark_gray
-            block: dark_gray
-            hints: "#7f849c"
-            search_result: { fg: white bg: red }
-            shape_and: purple_bold
-            shape_binary: purple_bold
-            shape_block: blue_bold
-            shape_bool: light_cyan
-            shape_closure: green_bold
-            shape_custom: green
-            shape_datetime: cyan_bold
-            shape_directory: cyan
-            shape_external: cyan
-            shape_externalarg: green_bold
-            shape_external_resolved: light_purple_bold
-            shape_filepath: cyan
-            shape_flag: blue_bold
-            shape_float: purple_bold
-            # shapes are used to change the cli syntax highlighting
-            shape_garbage: { fg: white bg: red attr: b}
-            shape_globpattern: cyan_bold
-            shape_int: purple_bold
-            shape_internalcall: cyan_bold
-            shape_keyword: cyan_bold
-            shape_list: cyan_bold
-            shape_literal: blue
-            shape_match_pattern: green
-            shape_matching_brackets: { attr: u }
-            shape_nothing: light_cyan
-            shape_operator: yellow
-            shape_or: purple_bold
-            shape_pipe: purple_bold
-            shape_range: yellow_bold
-            shape_record: cyan_bold
-            shape_redirection: purple_bold
-            shape_signature: green_bold
-            shape_string: green
-            shape_string_interpolation: cyan_bold
-            shape_table: blue_bold
-            shape_variable: purple
-            shape_vardecl: purple
-        }
-
-
 
         # External completer example
         # let carapace_completer = {|spans|
@@ -225,7 +245,7 @@ pkgs,
             }
 
             history: {
-                max_size: 100_000 # Session has to be reloaded for this to take effect
+                max_size: 100_000 
                 sync_on_enter: true # Enable to share history between multiple sessions, else you have to close the session to write history to file
                 file_format: "plaintext" # "sqlite" or "plaintext"
                 isolation: false # only available with sqlite file_format. true enables history isolation, false disables it. true will allow the history to be isolated to the current session using up/down arrows. false will allow the history to be shared across all sessions.
@@ -235,7 +255,7 @@ pkgs,
                 case_sensitive: false # set to true to enable case-sensitive completions
                 quick: true    # set this to false to prevent auto-selecting completions when only one remains
                 partial: true    # set this to false to prevent partial filling of the prompt
-                algorithm: "prefix"    # prefix or fuzzy
+                algorithm: "fuzzy"    # default = prefix or fuzzy
                 external: {
                     enable: true # set to false to prevent nushell looking into $env.PATH to find more suggestions, `false` recommended for WSL users as this look up may be very slow
                     max_results: 100 # setting it lower can improve completion performance at the cost of omitting some options
@@ -246,20 +266,21 @@ pkgs,
 
             filesize: {
                 metric: false # true => KB, MB, GB (ISO standard), false => KiB, MiB, GiB (Windows standard)
-                format: "auto" # b, kb, kib, mb, mib, gb, gib, tb, tib, pb, pib, eb, eib, auto
+                format: "mb" # b, kb, kib, mb, mib, gb, gib, tb, tib, pb, pib, eb, eib, default = auto
             }
 
             cursor_shape: {
-                emacs: line # block, underscore, line, blink_block, blink_underscore, blink_line, inherit to skip setting cursor shape (line is the default)
-                vi_insert: block # block, underscore, line, blink_block, blink_underscore, blink_line, inherit to skip setting cursor shape (block is the default)
-                vi_normal: underscore # block, underscore, line, blink_block, blink_underscore, blink_line, inherit to skip setting cursor shape (underscore is the default)
+            # possible values => block, underscore, line, blink_block, blink_underscore, blink_line, inherit to skip setting cursor shape
+                emacs: line # line is the default
+                vi_insert: block # block is the default
+                vi_normal: underscore # underscore is the default
             }
 
-            color_config: $dark_theme # if you want a more interesting theme, you can replace the empty record with `$dark_theme`, `$light_theme` or another custom record
+            color_config: $dark_theme # defined above
             use_grid_icons: true
             footer_mode: "25" # always, never, number_of_rows, auto
             float_precision: 2 # the precision for displaying floats in tables
-            buffer_editor: "" # command that will be used to edit the current line buffer with ctrl+o, if unset fallback to $env.EDITOR and $env.VISUAL
+            buffer_editor: "nvim" # default = "" command that will be used to edit the current line buffer with ctrl+o, if unset fallback to $env.EDITOR and $env.VISUAL
             use_ansi_coloring: true
             bracketed_paste: true # enable bracketed paste, currently useless on windows
             edit_mode: emacs # emacs, vi
