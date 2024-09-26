@@ -4,7 +4,7 @@
 		./emacs.nix
 		./ftp.nix
 		#./kdeconnect.nix
-		./mpd.nix
+		#./mpd.nix
 		./jellyfin.nix
 		# ./nextclould.nix
 		./picom.nix

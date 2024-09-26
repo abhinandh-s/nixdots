@@ -18,6 +18,7 @@
     ./zoxide.nix
     ./bat.nix
     ./eza.nix
+    ./mpd.nix
     #./betterlockscreen.nix
     #./cava.nix
     #./mimeapps.nix

@@ -1,7 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx = 2; /* border pixel of windows */
+static const unsigned int borderpx = 3; /* border pixel of windows */
 static const unsigned int snap = 32;    /* snap pixel */
 static const unsigned int gappih = 10;  /* horiz inner gap between windows */
 static const unsigned int gappiv = 10;  /* vert inner gap between windows */
@@ -127,7 +127,8 @@ static const char *toggleMusicCmd[] = {"librewolf", NULL};
 static const char *powercmd[] = {"powermenu.sh", NULL};
 static const char *screenShotCmd[] = {"flameshot", "full", NULL};
 static const char *screenShotCmd2[] = {"flameshot", "gui", NULL};
-static const char *brightnessUpCmd[] = {"brightness", "gui", NULL};
+static const char *brightnessUpCmd[] = {"brightness", "-c", "+", "10", NULL};
+static const char *brightnessDownCmd[] = {"brightness", "-c", "-", "10", NULL};
 static const char *volUpCmd[] = {"pulsemixer", "--change-volume", "+10", NULL};
 static const char *volDownCmd[] = {"pulsemixer", "--change-volume", "-10", NULL};
 static const char *volMuteCmd[] = {"pulsemixer", "--toggle-mute", NULL};
@@ -154,8 +155,8 @@ static const Key keys[] = {
     {0, XK_F12, spawn, {.v = screenShotCmd}},
     /* Ctrl + Function Keys */
     {ControlMask, XK_F1, spawn, {.v = dmenucmd}},
-    {ControlMask, XK_F2, spawn, {.v = dmenucmd}},
-    {ControlMask, XK_F3, spawn, {.v = screenShotCmd}},
+    {ControlMask, XK_F2, spawn, {.v = brightnessDownCmd}},
+    {ControlMask, XK_F3, spawn, {.v = brightnessUpCmd}},
     {ControlMask, XK_F4, spawn, {.v = screenShotCmd}},
     {ControlMask, XK_F5, spawn, {.v = screenShotCmd}},
     {ControlMask, XK_F6, spawn, {.v = screenShotCmd}},

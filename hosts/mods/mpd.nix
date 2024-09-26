@@ -1,30 +1,35 @@
-{
-... 
+{...}: {
+  services.mpd = {
+    enable = true;
+    musicDirectory = "/home/abhi/music";
+    extraConfig = ''
+	audio_output {
+		type "pipewire"
+		name "My PipeWire Output"
+	}
+	audio_output {
+		type        "alsa"
+		name        "My ALSA"
+		device      "default"  # or "hw:0,0" based on your setup
+		mixer_type  "software"  # or "hardware" depending on your system<D-g>
+	}
+	audio_output {
+		type "pulse"
+		name "Pulseaudio"
+		mixer_type      "hardware"      # optional
+		mixer_device    "default"       # optional
+		mixer_control   "PCM"           # optional
+		mixer_index     "0"             # optional
+	}
+    '';
+    # Optional:
+    # network.listenAddress = "any"; # if you want to allow non-localhost connections
+    startWhenNeeded = true; # systemd feature: only start MPD service upon connection to its socket
+  };
 }
-:
-{
-	services.mpd = {
-		enable = true;
-		musicDirectory = "/path/to/music";
-		extraConfig = ''
-			audio_output {
-				type "pulse"
-				name "Pulseaudio"
-				mixer_type      "hardware"      # optional
-				mixer_device    "default"       # optional
-				mixer_control   "PCM"           # optional
-				mixer_index     "0"             # optional
-			}
-		audio_output {
-			type "pipewire"
-			name "My PipeWire Output"
-		}
-		'';
-		# Optional:
-		network.listenAddress = "any"; # if you want to allow non-localhost connections
-		startWhenNeeded = true; # systemd feature: only start MPD service upon connection to its socket
-	};
-}
+# services.mpd = {
+
+	# };
 
 # type         "pipewire"
 # name         "My PipeWire Output"
