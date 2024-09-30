@@ -108,6 +108,9 @@
       #{ key = "b"; command = [];}
       #{ key = "c"; command = [];}
       #{ key = "d"; command = [];}
+      #
+      # -- edit
+      #
       { key = "e"; command = ["edit_song"];}
       { key = "e"; command = ["edit_library_tag"];}
       { key = "e"; command = ["edit_library_album"];}
@@ -147,6 +150,7 @@
       #
       #{ key = "q"; command = [];}
       { key = "ctrl-r"; command = ["refetch_lyrics"];}
+      { key = "ctrl-l"; command = ["show_lyrics"];}
           #{ key = "q"; command = [];}
       #{ key = "q"; command = [];}
       #{ key = "q"; command = [];}

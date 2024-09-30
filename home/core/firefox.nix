@@ -568,7 +568,6 @@ scrollbar{
                         (extension "rsshub-radar" "i@diygod.me")
                         (extension "awesome-rss" "{97d566da-42c5-4ef4-a03b-5a2e5f7cbcb2}")
                         (extension "imagetotext-io" "{1ad6743a-129b-4f99-bab1-f1d168169499}")
-                        (extension "tree-style-tab" "treestyletab@piro.sakura.ne.jp")
                         (extension "ublock-origin" "uBlock0@raymondhill.net")
                         (extension "bitwarden-password-manager" "{446900e4-71c2-419f-a6a7-df9c091e268b}")
                         (extension "clearurls" "{74145f27-f039-47ce-a470-a662b129930a}")

@@ -1,17 +1,33 @@
 { config, ... }:
 {
   xdg = {
-    mime.enable = true;
+    mime = {
+      enable = true;
+      # addedAssociations = {
+      #   "image/*" = [
+      #     "oculante.desktop"
+      #   ]; # Images
+      # };
+      # removedAssociations = {
+      #   "audio/mp3" = [
+      #     "umpv.desktop"
+      #   ];
+      #   "application/pdf" = ["draw.desktop" "math.desktop " "org.kde.krita.desktop"]; # uff, now pdf wont get opened in libreoffice draw.
+      #   "video/*" = ["umpv.desktop"]; # Any video files
+      #   "image/*" = ["gimp.desktop"];
+      #   "inode/directory" = "codium.desktop";
+      # };
+    };
     mimeApps = {
       enable = true;
       defaultApplications = {
         "inode/directory" = ["nemo.desktop"]; # Directories
+        "text/*" = ["nvim.desktop"]; # Any text files
         "text/plain" = ["nvim.desktop"]; # Plain text
-        "application/vnd.openxmlformats-officedocument.wordprocessingml.document" = ["onlyoffice-desktopeditors.desktop"]; # .docx
+        "application/vnd.openxmlformats-officedocument.wordprocessingml.document" = ["writer.desktop"]; # .docx
         "application/vnd.openxmlformats-officedocument.presentationml.presentation" = ["onlyoffice-desktopeditors.desktop"]; # .pptx
         "application/pdf" = ["org.kde.okular.desktop" "zathura.desktop" "firefox.desktop"]; # .pdf
         "application/zip" = ["xarchiver.desktop"];
-        "text/*" = ["nvim.desktop"]; # Any text files
         "video/*" = ["mpv.desktop"]; # Any video files
         "x-scheme-handler/https" = ["firefox.desktop"]; # Links
         "x-scheme-handler/http" = ["firefox.desktop"]; # Links
@@ -22,8 +38,13 @@
         "image/svg+xml" = ["oculante.desktop"]; # Correct MIME type for SVG
         "image/jpeg" = ["oculante.desktop"];
       };
-      associations.added = {
-        # "application/octet-stream" = "flstudio.desktop;";
+      associations = {
+        added = {
+          # "application/octet-stream" = "flstudio.desktop;";
+        };
+        removed = {
+          # mimetype1 = "foo5.desktop"; # example
+        };
       };
     };
     userDirs = {
