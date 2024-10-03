@@ -21,6 +21,7 @@
   cat_rosewater = "#f5e0dc";
   cat_flamingo  = "#f2cdcd";
   cat_pink      = "#f5c2e7";
+  cat_pink2      = "#ffb3de";
   cat_mauve     = "#cba6f7";
   cat_red       = "#f38ba8";
   cat_maroon    = "#eba0ac";

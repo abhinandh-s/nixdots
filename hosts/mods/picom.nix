@@ -36,7 +36,7 @@
 			#################################
 			#             Shadows           #
 			#################################
-			shadow = true;
+			shadow = false;
 			shadow-radius = 15;
 
 			shadow-offset-x = -15;

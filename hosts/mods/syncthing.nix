@@ -10,7 +10,7 @@
       overrideFolders = true;     # overrides any folders added or deleted through the WebUI
       settings = {
         devices = {
-          "abhiRedmi" = { id = "LF2YTKF-EVNXLBP-6WQXGAL-L7W4RWO-6ZI5IWE-BOW5MPS-NSB33OL-CI4LTA5"; };
+          "abhiRedmi" = { id = "FNONC5Z-6MVFRAH-5S5NAGA-3FHVRDW-RQYXX5Z-KO3GL3M-WJU2MKI-VOSZPQC"; };
         };
         folders = {
           "docs" = {         # Name of folder in Syncthing, also the folder ID

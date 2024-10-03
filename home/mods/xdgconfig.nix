@@ -70,5 +70,21 @@
         XDG_ACADEMIC_CMA_CAPTURE_DIR = "${config.home.homeDirectory}/docs/academic/cma/capture";
       };
     };
+    desktopEntries = {
+      custom-conky = {
+        name = "custom-conky";
+        genericName = "Rise";
+        exec = "conky --daemonize --pause=1 -c ${config.home.homeDirectory}/.config/conky/system";
+        terminal = false;
+        categories = [ "Application" ];
+      };
+      custom-emacs = {
+        name = "custom-emacs";
+        genericName = "Rise";
+        exec = "emacs --daemon";
+        terminal = false;
+        categories = [ "Application" ];
+      };
+    };
   };
 }

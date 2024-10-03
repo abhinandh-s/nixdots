@@ -18,8 +18,8 @@
     src = pkgs.fetchFromSourcehut {
       owner = "~abhinandh";
       repo = "dwm";
-      rev = "5eb0555300516d088b77beec5d94acb88dfb037d";
-      sha256 = "sha256-ZHzMMffWKuU0WcPPYWJdHMWuZnAn9CF/0g4Xktsf+Ic=";
+      rev = "f813484c024af2748dece562a02b01f26e4671a2";
+      sha256 = "";
     };
   };
 

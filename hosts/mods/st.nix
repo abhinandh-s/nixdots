@@ -19,8 +19,8 @@
         #})
       ];
       # Using a local file
-      configFile = writeText "config.def.h" (builtins.readFile ../../custom/overlays/st/config.h);
-      postPatch = "${oldAttrs.postPatch}\n cp ${configFile} config.def.h";
+      # configFile = writeText "config.def.h" (builtins.readFile ../../custom/overlays/st/config.h);
+      # postPatch = "${oldAttrs.postPatch}\n cp ${configFile} config.def.h";
     }))
   ];
 }

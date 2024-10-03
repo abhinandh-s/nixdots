@@ -20,6 +20,8 @@
     ./eza.nix
     ./mpd.nix
     ./fish.nix
+    ./cava.nix
+    ./conky.nix
     #./betterlockscreen.nix
     #./cava.nix
     #./mimeapps.nix

@@ -26,7 +26,6 @@
     networkmanagerapplet
     tree
     htop
-    cava
     xsel # for clipboard
     openssl_3_3
     fzf
