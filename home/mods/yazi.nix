@@ -156,8 +156,8 @@ in
           { fg = "${colorpencil.cat_sky}"; mime = "image/*"; }
           { fg = "${colorpencil.cat_green}"; mime = "video/*"; }
           { fg = "${colorpencil.cat_mauve}"; mime = "audio/*"; }
-          # { fg = "${colorpencil.cat_blue}"; mime = "application/x-bzip"; } # from mynixos.com
-          { fg = "${colorpencil.cat_blue}"; mime = "application/{,g}zip"; }
+          { fg = "${colorpencil.cat_blue}"; mime = "application/x-bzip"; } # from mynixos.com
+          # { fg = "${colorpencil.cat_blue}"; mime = "application/{,g}zip"; }
           { fg = "${colorpencil.cat_blue}"; mime = "application/x-{tar,bzip*,7z-compressed,xz,rar}"; }
           # Fallback
           { name = "*"; fg = "#cdd6f4"; }

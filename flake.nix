@@ -4,7 +4,6 @@
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-24.05";
     nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
-    nur.url = "github:nix-community/NUR";
 
     sops-nix = {
       url = "github:Mic92/sops-nix";
@@ -31,7 +30,6 @@
     self,
     nixpkgs,
     nixpkgs-unstable,
-    nur,
     sops-nix,
     home-manager,
     sddm-sugar-candy-nix,
@@ -52,7 +50,7 @@
         inherit system;
         specialArgs = { inherit inputs; };
         modules = [
-          ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlay-unstable ]; })
+          ({ ... }: { nixpkgs.overlays = [ overlay-unstable ]; })
           ./hosts/configuration.nix
 
           sops-nix.nixosModules.sops
@@ -68,7 +66,7 @@
 
           home-manager.nixosModules.home-manager
           {
-            home-manager.backupFileExtension = "333333333322";
+            home-manager.backupFileExtension = "544444444444";
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;

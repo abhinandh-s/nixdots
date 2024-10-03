@@ -19,14 +19,14 @@
       font_size = "13";
       window_padding_width = 20;
       exe_search_path = "+/etc/profiles/per-user/${config.home.username}/bin";
-      shell = "nu";
+      shell = "fish";
       editor = "nvim";
       copy_on_select = "clipboard";
       confirm_os_window_close = 0;
       hide_window_decorations = "no";
-      background_opacity = "0.8";
+      background_opacity = "1.0";
       background_blur = 50;
-      notify_on_cmd_finish = "unfocused"; # Only send a notification when the window does not have keyboard focus.
+      notify_on_cmd_finish = "always"; # Only send a notification when the window does not have keyboard focus.
 
     };
     theme = "Tokyo Night";

@@ -1,6 +1,5 @@
 { ... }:
 let
-  # https://rsshub.app/picuki/profile/kartikaaryan/1
   instagramFeeds = users: map ( userNames: {
     tags = [ "instagram" ];
     url = "https://rsshub.app/picuki/profile/${userNames}";
@@ -17,10 +16,6 @@ let
     tags = [ "youtube" ];
     url = "https://rsshub.app/youtube/user/@${userNames}";
   }) users;
-  Twitter = userName: tags: {
-    tags = tags;
-    url = "https://nitter.privacydev.net/${userName}/rss";
-  };
   Youtube = userName: tags: {
     tags = tags;
     url = "https://rsshub.app/youtube/user/@${userName}";
@@ -36,10 +31,6 @@ let
     tags = tags;
     url = "https://rsshub.app/youtube/charts/${category}/${countryCode}/RightNow";
   };
-  Reddit = subRedditName: tags: {
-    tags = tags;
-    url = "https://www.reddit.com/r/${subRedditName}.rss";
-  };
   Spotify = category: name: id: {
     tags = [ "music" ];
     url = "https://rsshub.app/spotify/${category}/${id}";
@@ -54,6 +45,12 @@ in
     reloadThreads = 10;
     urls = [
       {tags = [ "articles" ]; url = "https://fortelabs.com/feed/";}
+      {tags = [ "articles" ]; url = "https://feeds.feedburner.com/collabfund";}
+      {tags = [ "articles" ]; url = "https://markmanson.net/feed";}
+      {tags = [ "articles" ]; url = "https://jamesclear.com/feed";}
+      {tags = [ "articles" ]; url = "http://calnewport.com/feed/";}
+      {tags = [ "articles" ]; url = "https://proton.me/blog/feed";}
+      {url = "--------------------------------------------------";}
 
       (Youtube "JFlaMusic" [ "youtube" "music" ])
       (Youtube "cmanishanthreghunath" [ "academics" ])
@@ -76,6 +73,8 @@ in
       (Spotify "artist" "The Chainsmokers"  "69GGBxA162lTqCwzJG5jLp")
     ]
       ++ youTubeFeeds [
+        "jonhoo"
+        "lundeveloper"
         "LukeSmithxyz"
         "NoBoilerplate"
         "letsgetrusty"
@@ -92,6 +91,14 @@ in
         "NetworkChuck"
         "mkbhd"
         "bugswriter_"
+        "DistroTube"
+        "LoiLiangYang"
+        "JerryRigEverything"
+        "EricMurphyxyz"
+        "librephoenix"
+        "LowLevel-TV"
+        "shal.e8033"
+        "Emergent_Mind"
       ]
       ++ twitterFeeds [
         "jonhoo"
@@ -112,11 +119,20 @@ in
       ]
       ++ instagramFeeds [
         "kartikaaryan"
+        "__.yshnav._"
+        "jishnu_jishnu_"
+        "alisha_c_jojan"
+        "krithi.shetty_official"
+        "shraddhakapoor"
+        "samyukthaviswanathan"
       ];
 
 
     # macro v set browser "setsid -f mpv" ; open-in-browser ; set browser firefox
     extraConfig = ''
+      browser "wget %u -P /home/abhi/pics/pictures/newsboat"
+      macro I set browser "feh %u"; open-in-browser; set browser firefox
+
       bind-key j down
       bind-key k up
       bind-key j next articlelist

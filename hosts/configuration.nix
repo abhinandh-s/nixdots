@@ -1,4 +1,4 @@
-{ config, lib, pkgs, inputs, ... }:
+{ pkgs, ... }:
 {
   imports =
     [
@@ -18,8 +18,9 @@
   };
 
   # programs.nushell.enable = true;
-  environment.shells = with pkgs; [ nushellFull ];
-  users.defaultUserShell = pkgs.nushellFull;
+  environment.shells = with pkgs; [ fish ];
+  users.defaultUserShell = pkgs.fish;
+  programs.fish.enable = true;
 
   services.udisks2.enable = true;
 

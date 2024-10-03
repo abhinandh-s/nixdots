@@ -42,7 +42,10 @@ let
 
   home_pkgs = with pkgs; [
     alacritty
+    fasd
     oculante # image viewer in rust
+    nomacs
+    kdePackages.gwenview
     lynx
     qbittorrent
     tutanota-desktop

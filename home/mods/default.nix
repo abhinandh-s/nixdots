@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ ... }:
 {
   imports = [
     ./fastfetch.nix
@@ -19,6 +19,7 @@
     ./bat.nix
     ./eza.nix
     ./mpd.nix
+    ./fish.nix
     #./betterlockscreen.nix
     #./cava.nix
     #./mimeapps.nix

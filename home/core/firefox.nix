@@ -489,14 +489,6 @@ menuitem.share-tab-url-item
 { display: none !important }
 
 /* -------------------------------------------------------------------------------------------------------------------------- */
-/* ------------------------------------------------------------------------------------------------- Tab icon is close button */
-/* -------------------------------------------------------------------------------------------------------------------------- */
-
-#TabsToolbar { visibility: collapse !important; }
-#sidebar-header { visibility: collapse !important; }
-#titlebar { appearance: none !important }
-
-/* -------------------------------------------------------------------------------------------------------------------------- */
 /* -------------------------------------------------------------------------------- Creates animated border around active tab */
 /* -------------------------------------------------------------------------------------------------------------------------- */
 
@@ -567,10 +559,8 @@ scrollbar{
                         (extension "darkreader" "addon@darkreader.org")
                         (extension "rsshub-radar" "i@diygod.me")
                         (extension "awesome-rss" "{97d566da-42c5-4ef4-a03b-5a2e5f7cbcb2}")
-                        (extension "imagetotext-io" "{1ad6743a-129b-4f99-bab1-f1d168169499}")
                         (extension "ublock-origin" "uBlock0@raymondhill.net")
                         (extension "bitwarden-password-manager" "{446900e4-71c2-419f-a6a7-df9c091e268b}")
-                        (extension "clearurls" "{74145f27-f039-47ce-a470-a662b129930a}")
                         (extension "catppuccin-mocha-teal" "{3f8844e2-3fc1-4104-9773-0f4bb98eab69}")
                     ];
         };

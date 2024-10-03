@@ -1,4 +1,4 @@
-{ config, pkgs, colorpencil, ... }:
+{ pkgs, colorpencil, ... }:
 {
   services.dunst = {
     enable = true;

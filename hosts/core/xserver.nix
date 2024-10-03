@@ -1,6 +1,5 @@
-{ config, lib, pkgs, ... }:
+{ lib, pkgs, ... }:
 {
-#  services.desktopManager.cosmic.enable = true;
   services.xserver = {
     enable = true;
     xkb.layout = "us";
@@ -12,29 +11,24 @@
         backend = "wayland";
       };
       dwm.enable = true;
-      leftwm.enable = true;
-      awesome = {
-        enable = true;
-        luaModules = with pkgs.luaPackages; [
-          luarocks # is the package manager for Lua modules
-          luadbi-mysql # Database abstraction layer
-        ];
-
-      };
+    };
+  };
+  services.xserver.windowManager.dwm.package = pkgs.dwm.overrideAttrs {
+    # src = ../../custom/overlays/dwm;
+    src = pkgs.fetchFromSourcehut {
+      owner = "~abhinandh";
+      repo = "dwm";
+      rev = "5eb0555300516d088b77beec5d94acb88dfb037d";
+      sha256 = "sha256-ZHzMMffWKuU0WcPPYWJdHMWuZnAn9CF/0g4Xktsf+Ic=";
     };
   };
 
-  services.xserver.windowManager.dwm.package = pkgs.dwm.overrideAttrs {
-    src = ../../custom/overlays/dwm;
-  };
-
   services.displayManager.sddm = {
-    enable = true; # Enable SDDM.
+    enable = true;
     sugarCandyNix = {
       enable = true; # This set SDDM's theme to "sddm-sugar-candy-nix".
       settings = {
         Background = lib.cleanSource ../../assets/wallpaper/wall-sddm.png;
-        #Background = lib.cleanSource ../../../assets/vivid_rainwld.jpg;
         ScreenWidth = 1920;
         ScreenHeight = 1080;
         FormPosition = "left";

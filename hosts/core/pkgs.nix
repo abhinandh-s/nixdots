@@ -9,6 +9,8 @@
     pulsemixer
     mpc-cli
     vim
+    xarchiver
+    ark
     zip
     unzip
     _7zz
