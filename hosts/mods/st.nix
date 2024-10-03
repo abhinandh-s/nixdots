@@ -4,7 +4,13 @@
     (st.overrideAttrs (oldAttrs: rec {
       # ligatures dependency
       buildInputs = oldAttrs.buildInputs ++ [ harfbuzz ];
-      src = ../../custom/overlays/st;
+      # src = ../../custom/overlays/st;
+      src = pkgs.fetchFromSourcehut {
+        owner = "~abhinandh";
+        repo = "st";
+        rev = "7acc2e3d2d0c930bb1c318c2320265d76d015504";
+        sha256 = "sha256-6GDLIVl0N1Dee08OPTGQpqTulGjvbE4E+va61RTJwEo=";
+      };
       patches = [
         # ligatures patch
         #   (fetchpatch {
