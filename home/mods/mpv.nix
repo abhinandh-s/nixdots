@@ -1,6 +1,4 @@
 {
-lib,
-config,
 pkgs,
 ...
 }:
@@ -17,11 +15,15 @@ pkgs,
       visualizer # Various audio visualization
     ];
     # config is making mpv slower :( , but why?
-    # config = {
-    #   profile = "high-quality";
-    #   ytdl-format = "bestvideo+bestaudio";
-    #   cache-default = 4000000;
-    # };
+    config = {
+      sub-auto = "fuzzy";
+      slang = "en,eng,enUS,en-US";
+      ytdl-raw-options = "ignore-config=,sub-lang=''\"en,eng,enUS,en-US''\",write-sub=,write-auto-sub=";
+      # profile = "high-quality";
+      ytdl-format = "bestvideo[height<=?240]+bestaudio/best";
+      # ytdl-format = "bestvideo+bestaudio";
+      # cache-default = 4000000;
+    };
     bindings = {
       WHEEL_UP = "seek 10";
       WHEEL_DOWN = "seek -10";

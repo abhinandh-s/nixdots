@@ -47,6 +47,8 @@ let
     nomacs
     kdePackages.gwenview
     lynx
+    urlscan
+    yt-dlp
     qbittorrent
     tutanota-desktop
     librewolf

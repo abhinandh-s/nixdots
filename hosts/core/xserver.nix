@@ -19,7 +19,7 @@
       owner = "~abhinandh";
       repo = "dwm";
       rev = "f813484c024af2748dece562a02b01f26e4671a2";
-      sha256 = "";
+      sha256 = "sha256-3unfimPsBOSG+zhzvQlNstqJgAyTop9b6XMA4h4M03c=";
     };
   };
 
