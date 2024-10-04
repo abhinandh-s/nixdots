@@ -50,7 +50,7 @@ in
       {tags = [ "articles" ]; url = "https://jamesclear.com/feed";}
       {tags = [ "articles" ]; url = "http://calnewport.com/feed/";}
       {tags = [ "articles" ]; url = "https://proton.me/blog/feed";}
-      {url = "--------------------------------------------------";}
+      {url = "---YOUTUBE-----------------------------------------------";}
 
       (Youtube "JFlaMusic" [ "youtube" "music" ])
       (Youtube "cmanishanthreghunath" [ "academics" ])
@@ -140,7 +140,7 @@ in
       macro d set browser "dmenuhandler" ; open-in-browser ; set browser linkhandler
       macro c set browser "echo %u | xclip -r -sel c" ; open-in-browser ; set browser linkhandler
       macro C set browser "youtube-viewer --comments=%u" ; open-in-browser ; set browser linkhandler
-      macro p set browser "peertubetorrent %u 480" ; open-in-browser ; set browser linkhandler
+      macro p set browser "wget %u -P /home/abhi/pics/pictures/newsboat" ; open-in-browser ; set browser linkhandler
       macro P set browser "peertubetorrent %u 1080" ; open-in-browser ; set browser linkhandler
       
       bind-key j down

@@ -22,6 +22,7 @@
     ./fish.nix
     ./cava.nix
     ./conky.nix
+    ./neomutt.nix
     #./betterlockscreen.nix
     #./cava.nix
     #./mimeapps.nix

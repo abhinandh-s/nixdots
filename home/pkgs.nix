@@ -45,10 +45,11 @@ let
     fasd
     oculante # image viewer in rust
     nomacs
+    neomutt
+    protonmail-bridge
     kdePackages.gwenview
     lynx
     urlscan
-    yt-dlp
     qbittorrent
     tutanota-desktop
     librewolf

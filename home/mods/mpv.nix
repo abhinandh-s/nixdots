@@ -18,9 +18,9 @@ pkgs,
     config = {
       sub-auto = "fuzzy";
       slang = "en,eng,enUS,en-US";
-      ytdl-raw-options = "ignore-config=,sub-lang=''\"en,eng,enUS,en-US''\",write-sub=,write-auto-sub=";
+      ytdl-raw-options = "";
       # profile = "high-quality";
-      ytdl-format = "bestvideo[height<=?240]+bestaudio/best";
+      ytdl-format = "bestvideo[height<=?480]+bestaudio/best";
       # ytdl-format = "bestvideo+bestaudio";
       # cache-default = 4000000;
     };
@@ -29,5 +29,25 @@ pkgs,
       WHEEL_DOWN = "seek -10";
       "Alt+0" = "set window-scale 0.5";
     };
+  };
+
+  programs.yt-dlp = {
+    enable = true;
+    package = pkgs.yt-dlp;
+    settings = {
+      embed-thumbnail = true;
+      embed-subs = true;
+      write-auto-sub = true; #
+      add-metadata = true; #
+      sub-langs = "all";
+      downloader = "aria2c";
+      downloader-args = "aria2c:'-c -x8 -s8 -k1M'";
+    };
+    extraConfig = ''
+      # --update
+      # -F
+      --ignore-errors
+      -o ~/videos/%(title)s.%(ext)s
+    '';
   };
 }

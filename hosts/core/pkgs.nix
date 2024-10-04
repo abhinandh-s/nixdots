@@ -3,6 +3,7 @@
   environment.systemPackages = with pkgs; [
     cinnamon.nemo-with-extensions
     alsa-utils
+    pass
     lxappearance
     feh
     ddcutil
@@ -17,7 +18,8 @@
     sops
     age
     gnupg
-    pinentry-all # GnuPG’s interface to passphrase input
+    pinentry-all
+    pinentry-tty# GnuPG’s interface to passphrase input
     cryptsetup
 
     vlc
