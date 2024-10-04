@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ lib, ... }:
 {
   home = {
     username = "abhi";
@@ -12,6 +12,7 @@
     ./pkgs.nix
   ];
 
+  my.colorpencil.option = "pink";
 
   programs = {
   };

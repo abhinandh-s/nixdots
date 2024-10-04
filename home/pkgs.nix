@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 let
   install_themes = true; 
   install_misc = true; # Change this to false to skip misc_packages
@@ -59,7 +59,6 @@ let
     hut
     zathura
     unstable.neovim
-    yazi
     telegram-desktop
     signal-desktop
     bitwarden-desktop
@@ -68,7 +67,12 @@ let
       withRofi = true;
       withPass = false;
     })
-  ];
+  ] ++ 
+    (if (config.programs.yazi.enable == true)
+      then with pkgs; [
+        imagemagickBig
+      ]
+    else []);
 in
   {
   home.packages = misc_packages ++ home_pkgs ++ lang_packages ++ theme_packages; 

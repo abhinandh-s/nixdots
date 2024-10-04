@@ -1,4 +1,29 @@
-{
+let
+  background = "#1a1b26";
+  text = "#cdd6f4";
+in 
+  {
+  pink = {
+    background = background;
+    text = text;
+    foreground = "#ffb3de";
+  };
+  red = {
+    background = background;
+    text = text;
+    foreground = "#f38ba8";
+  };
+  green = {
+    background = background;
+    text = text;
+    foreground = "#B3FFB3";
+  };
+  blue = {
+    background = background;
+    text = text;
+    foreground = "#89b4fa";
+  };
+
   base00 = "#11171D";
   base01 = "#E0E0E0";
   base02 = "#0D1217";
@@ -17,6 +42,7 @@
   base0F = "#F0D6FF";
   base0G = "#D6FFFF";
   base0H = "#E6EAEE";
+
 
   cat_rosewater = "#f5e0dc";
   cat_flamingo  = "#f2cdcd";
