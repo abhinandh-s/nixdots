@@ -11,7 +11,7 @@
       package = pkgs.fish;
       loginShellInit = "";
       shellInit = "set -U fish_greeting";
-      shellInitLast = "";
+      shellInitLast = "direnv hook fish | source";
       shellAbbrs = {
         l = "less";
         gco = "git checkout";

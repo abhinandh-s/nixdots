@@ -3,7 +3,7 @@
   imports = [
     ./fastfetch.nix
     ./ncmpcpp.nix
-    ./spotify.nix
+    # ./spotify.nix
     ./newsboat.nix
     ./nushell.nix
     ./zathura.nix
@@ -23,11 +23,9 @@
     ./cava.nix
     ./conky.nix
     ./neomutt.nix
+    ./kdeconnect.nix
+   
     #./betterlockscreen.nix
-    #./cava.nix
-    #./mimeapps.nix
-    #./mpd.nix
-    #./kitty.nix
     # ./slstatus.nix
     # ./thunderbird.nix
   ];

@@ -28,7 +28,7 @@
     sugarCandyNix = {
       enable = true; # This set SDDM's theme to "sddm-sugar-candy-nix".
       settings = {
-        Background = lib.cleanSource ../../assets/wallpaper/wall-sddm4k.avif;
+        Background = lib.cleanSource ../../assets/wallpaper/wall-sddm.jpg;
         ScreenWidth = 1920;
         ScreenHeight = 1080;
         FormPosition = "left";

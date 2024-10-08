@@ -9,6 +9,11 @@
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    
+    firefox-addons = {
+			url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+			inputs.nixpkgs.follows = "nixpkgs";
+		};
 
     home-manager = {
       url = "github:nix-community/home-manager/release-24.05";
@@ -31,6 +36,7 @@
     nixpkgs,
     nixpkgs-unstable,
     sops-nix,
+    firefox-addons,
     home-manager,
     sddm-sugar-candy-nix,
     spicetify-nix,
@@ -66,7 +72,7 @@
 
           home-manager.nixosModules.home-manager
           {
-            home-manager.backupFileExtension = "66655555555";
+            home-manager.backupFileExtension = "66666666666";
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
@@ -77,6 +83,9 @@
                 ];
                 _module.args.colorpencil = import ./custom/themes/colorpencil;
               };
+              sharedModules = [
+                inputs.sops-nix.homeManagerModules.sops
+              ];
               extraSpecialArgs = {
                 inherit self inputs;
               };

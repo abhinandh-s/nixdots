@@ -7,9 +7,9 @@
       General = {
         disabledTrayIcon = true;
         showStartupLaunchMessage = false;
-        savePath = "/home/abhi/pics/screenshots";
+        savePath = "/home/abhi/pics/dcim/Screenshots";
         savePathFixed = true;
-        saveAsFileExtension = ".png";
+        saveAsFileExtension = ".jpg";
         filenamePattern = "%F_%H-%M";
         drawThickness = 1;
         copyPathAfterSave = true;

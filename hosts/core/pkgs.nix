@@ -1,6 +1,10 @@
 { pkgs, ... }:
-{
+let
+  spotifyAdblock = pkgs.callPackage ../../custom/pkgs/spotify-adblock/default.nix {};
+in 
+  {
   environment.systemPackages = with pkgs; [
+    spotifyAdblock
     cinnamon.nemo-with-extensions
     alsa-utils
     pass

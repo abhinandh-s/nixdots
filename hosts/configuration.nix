@@ -23,6 +23,37 @@
   programs.fish.enable = true;
 
 
+  sops = {
+    defaultSopsFile = ./../secrets/secrets.yaml;
+    age.keyFile = "/home/abhi/.config/sops/age/keys.txt";
+    # This is the actual specification of the secrets.
+    secrets = {
+      neomutt-pass = {
+        owner = "abhi";
+        path = "/home/abhi/.config/neomutt/password";
+        mode = "4440"; # file permision
+      };
+      github_ssh_key = {
+        owner = "abhi";
+        path = "/home/abhi/.ssh/id_ed25519";
+        mode = "0600";
+      };
+      mobile_ssh_key = {
+        owner = "abhi";
+        path = "/home/abhi/.ssh/id_rsa";
+        mode = "4440";
+      };
+      example-key = {
+        owner = "abhi";
+        path = "/home/abhi/passward.pass";
+        mode = "4440";
+      };
+      "myservice/my_subdir/my_secret" = {};
+    };
+  };
+
+
+
 programs.gnupg.agent = {
    enable = true;
     # pinentryPackage = pkgs.pinentry-gnome3;
