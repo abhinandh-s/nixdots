@@ -1,0 +1,22 @@
+! 🗺️ ——— General remove rules ——— 🗺️ !
+!! -- Google
+! Consent dialog popup
+
+! Google consent, "before you continue"
+www.google.*##^script:has-text(consentCookiePayload)
+www.google.*##+js(acis, document.cookie, YES+)
+google.*##+js(aeld, DOMContentLoaded, CONSENT)
+||consent.google.com^
+
+! block subdomain request can generate breakage - disable network filter if you have any breakage:
+
+! ||consent.google.com^
+
+! "People also search for"
+
+google.*##[id^="eob_"]
+
+! Google login dialogs on various pages
+
+||accounts.google.com/gsi/*$xhr,script,3p
+
