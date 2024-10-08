@@ -1,3 +1,6 @@
+! Title: ➗ Abhi's custom filerlist
+! Version: 30September2024v1
+! Expires: 122 hours
 ! 🗺️ ——— General remove rules ——— 🗺️ !
 !! -- Google
 ! Consent dialog popup
@@ -20,3 +23,5 @@ google.*##[id^="eob_"]
 
 ||accounts.google.com/gsi/*$xhr,script,3p
 
+! youtube shorts
+www.youtube.com##ytd-browse[page-subtype="subscriptions"] ytd-rich-section-renderer:has([is-shorts]

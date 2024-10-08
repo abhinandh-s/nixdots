@@ -7,13 +7,13 @@ in
     package = pkgs.firefox;
     policies = lib.mkMerge [
       (import ./policies.nix {
-        inherit config;
-        inherit pkgs;
+        inherit config pkgs lib;
       })
       (import ./extensions.nix {
-        inherit lib;
-        #   inherit (lib) mkForce;
+        inherit config pkgs lib;
       })
+      {
+      }
     ];
     profiles = {
       "abhi" = {
@@ -165,6 +165,9 @@ in
             ];
           }
         ];
+        # -- INFO: icon = Can be fingerprint, briefcase, dollar, cart, vacation, gift, food, fruit, pet, tree, chill, circle, fence
+        # -- INFO: color =	Can be blue, turquoise, green, yellow, orange, red, pink, purple, toolbar
+
         containers = {
           dangerous = {
             color = "red";
@@ -173,7 +176,7 @@ in
           };
           coding = {
             color = "green";
-            icon = "chill"; # only few icons are available to see the list of available icons leave it blank or put any thing and rebuild nix wll then show the list of available icons.
+            icon = "chill"; 
             id = 3;
           };
           shopping = {

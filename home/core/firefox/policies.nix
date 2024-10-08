@@ -1,4 +1,7 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
+let
+    inherit (lib) mkForce;
+in 
 {
   AppAutoUpdate = false; # Disable automatic application update
   BackgroundAppUpdate = false; # Disable automatic application update in the background, when the application is not running.
@@ -17,18 +20,6 @@
     }
   ];
 
-
-  # # INFO: icon = Can be fingerprint, briefcase, dollar, cart, vacation, gift, food, fruit, pet, tree, chill, circle, fence
-  # # INFO: color =	Can be blue, turquoise, green, yellow, orange, red, pink, purple, toolbar
-  Containers = {
-    Default = [
-      {
-        name = "My container";
-        icon = "pet";
-        color = "turquoise";
-      }
-    ];
-  };
 
   Cookies = {
     Allow = ["http://example.org/"];
@@ -126,7 +117,7 @@ https://all.dns.mullvad.net/dns-query
     Search = false;
     TopSites = true;
     # SponsoredTopSites = false; # Fuck you
-    Highlights = true;
+    Highlights = false;
     Pocket = false;
     SponsoredPocket = false; # Fuck you
     Snippets = false;
@@ -164,7 +155,7 @@ https://all.dns.mullvad.net/dns-query
         handlers = [
           {
             name = "GNOME Document Viewer";
-            path = "${pkgs.evince}/bin/evince";
+            path = "${pkgs.zathura}/bin/zathura";
           }
         ];
       };
@@ -172,15 +163,6 @@ https://all.dns.mullvad.net/dns-query
   };
 
   HardwareAcceleration = true; 
-
-  # TODO: Custom Home Page 
-  Homepage = {
-    URL = "https://abhinandh.srht.site/#/";
-    Locked = true;
-    #     "Additional": ["http://example.org/",
-    #                    "http://example.edu/"],
-    StartPage = "homepage"; # "none" | "homepage" | "previous-session" | "homepage-locked"
-  };
 
   # Configures a list of bookmarks managed by an administrator that cannot be changed by the user.
   # The bookmarks are only added as a button on the personal toolbar. They are not in the bookmarks folder.
@@ -343,7 +325,7 @@ Preferences Affected: privacy.sanitize.sanitizeOnShutdown, privacy.clearOnShutdo
   UseSystemPrintDialog = true; # allow me to print in a4 size :)
 
   WebsiteFilter = {
-    Block = ["https://abhi-xyz.github.io/*"];
-    Exceptions = ["http://example.org/*"];
+    Block = ["http://example.org/*"];
+    Exceptions = ["http://example.org/articles/*"];
   };
 }

@@ -58,6 +58,7 @@ let
     librewolf
     git
     kdePackages.okular
+    evince
     pulsemixer
     hut
     zathura

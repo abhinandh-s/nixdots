@@ -1,7 +1,5 @@
 { lib, ... }:
-let
-    inherit (lib) mkForce;
-in {
+{
     ExtensionSettings = with builtins;
         let extension = shortId: uuid: defaultArea: {
             name = uuid;
@@ -14,14 +12,49 @@ in {
         };
         in listToAttrs [
                 (extension "*" "" "menupanel")
-                (extension "custom-new-tab-page" "custom-new-tab-page@mint.as" "menupanel")
                 (extension "darkreader" "addon@darkreader.org" "menupanel")
                 (extension "rsshub-radar" "i@diygod.me" "navbar")
                 (extension "awesome-rss" "{97d566da-42c5-4ef4-a03b-5a2e5f7cbcb2}" "menupanel")
                 (extension "ublock-origin" "uBlock0@raymondhill.net" "navbar")
                 (extension "bitwarden-password-manager" "{446900e4-71c2-419f-a6a7-df9c091e268b}" "menupanel")
-                (extension "catppuccin-mocha-teal" "{3f8844e2-3fc1-4104-9773-0f4bb98eab69}" "menupanel")
+                (extension "catppuccin-mocha-red" "{e4c06efe-4936-4ca0-87e2-4a47dc5fa5ee}" "menupanel")
+                # (extension "catppuccin-mocha-teal" "{3f8844e2-3fc1-4104-9773-0f4bb98eab69}" "menupanel")
             ];
+    "3rdparty".Extensions = {
+        "uBlock0@raymondhill.net".adminSettings = {
+            userSettings = rec {
+                uiTheme = "dark";
+                uiAccentCustom = true;
+                uiAccentCustom0 = "#f38ba8";
+                cloudStorageEnabled = lib.mkForce false; # Security liability?
+                importedLists = [
+                    "https://raw.githubusercontent.com/abhi-xyz/nixdots/refs/heads/master/custom/uBlockOrigin/filter.txt"
+                    "https://filters.adtidy.org/extension/ublock/filters/3.txt"
+                    "https://github.com/DandelionSprout/adfilt/raw/master/LegitimateURLShortener.txt"
+                ];
+                externalLists = lib.concatStringsSep "\n" importedLists;
+            };
+            selectedFilterLists = [
+                "CZE-0"
+                "adguard-generic"
+                "adguard-annoyance"
+                "adguard-social"
+                "adguard-spyware-url"
+                "easylist"
+                "easyprivacy"
+                "https://raw.githubusercontent.com/abhi-xyz/nixdots/refs/heads/master/custom/uBlockOrigin/filter.txt"
+                "https://github.com/DandelionSprout/adfilt/raw/master/LegitimateURLShortener.txt"
+                "plowe-0"
+                "ublock-abuse"
+                "ublock-badware"
+                "ublock-filters"
+                "ublock-privacy"
+                "ublock-quick-fixes"
+                "ublock-unbreak"
+                "urlhaus-1"
+            ];
+        };
+    };
 }
 
 
