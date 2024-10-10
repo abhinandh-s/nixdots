@@ -1,19 +1,11 @@
 { config, pkgs, ... }:
 let
-  install_themes = true; 
+  install_themes = false; 
   install_misc = true; # Change this to false to skip misc_packages
   install_languages = true;
 
   theme_packages = if install_themes then with pkgs; [ 
     tokyonight-gtk-theme
-    (whitesur-icon-theme.override {
-      themeVariants = ["all"];
-      alternativeIcons = true;
-    })
-    (catppuccin-papirus-folders.override {
-      accent = "lavender";
-      flavor = "mocha";
-    })
   ] else [];
 
   misc_packages = if install_misc then with pkgs; [ 
