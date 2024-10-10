@@ -1,10 +1,11 @@
 { pkgs, ... }:
 let
-  spotifyAdblock = pkgs.callPackage ../../custom/pkgs/spotify-adblock/default.nix {};
+  # spotifyAdblock = pkgs.callPackage ../../custom/pkgs/spotify-adblock/default.nix {};
+  clipCat = pkgs.callPackage ../../custom/pkgs/clipcat/default.nix {};
 in 
   {
   environment.systemPackages = with pkgs; [
-    spotifyAdblock
+    # clipCat
     cinnamon.nemo-with-extensions
     alsa-utils
     pass

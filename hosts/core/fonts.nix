@@ -1,6 +1,10 @@
 { pkgs, ... }:
+let
+    victorMono = pkgs.callPackage ../../custom/pkgs/victor-mono/default.nix {};
+in 
 {
 	fonts.packages = with pkgs; [
+		victorMono
 		maple-mono
 		jetbrains-mono # this is included in nerd fonts but some icons are not showing up
 		(nerdfonts.override {

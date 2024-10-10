@@ -43,6 +43,8 @@
     ...
     }:
     let
+      # to get random numbers
+      seed = builtins.readFile ./random.txt;
       system = "x86_64-linux";
       overlay-unstable = final: prev: {
         unstable = import nixpkgs-unstable {
@@ -72,7 +74,7 @@
 
           home-manager.nixosModules.home-manager
           {
-            home-manager.backupFileExtension = "66666666666";
+            home-manager.backupFileExtension = seed;
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;

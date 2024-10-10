@@ -1,7 +1,5 @@
 { config, pkgs, ... }:
 let
-
-
   install_themes = true; 
   install_misc = true; # Change this to false to skip misc_packages
   install_languages = true;
@@ -53,7 +51,6 @@ let
     lynx
     urlscan
     qbittorrent
-    spotify
     tutanota-desktop
     librewolf
     git
@@ -79,5 +76,5 @@ let
     else []);
 in
   {
-  home.packages = misc_packages ++ home_pkgs ++ lang_packages ++ theme_packages; 
+  home.packages = misc_packages ++ home_pkgs ++ lang_packages ++ theme_packages;
 }

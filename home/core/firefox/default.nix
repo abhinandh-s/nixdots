@@ -131,7 +131,7 @@ in
             { title = "Flipkart"; url = "https://www.flipkart.com/";} #21
             { title = "Amazon"; url = "https://www.amazon.in/";} #22
             { title = "proton mail"; url = "https://mail.proton.me/u/0/inbox";} #23
-            { title = "proton drive"; url = "https://drive.proton.me/u/0/o9nuqW7Gp1ylV4va0CoH_jprUWbtjIqbNW92RS7Cd-y74X10XrlOQQ7IJuN7kGpeGeNI0zxuVx5mxZdUXOWxpQ==/folder/Won0u630O7IEf1vKCNcuYoDCLcCnxTv6JLPxR3o_TH7ZJUTuz6OM72G04qm4Sp4roRmN9GwEPSvaFsBvBodCCQ==";} #24
+            { title = "proton drive"; url = "https://drive.proton.me/u/0/";} #24
             { title = "Color Picker"; url = "https://hslpicker.com/";} #26
             { title = "Localhost:8080"; url = "127.0.0.1:8080";} #27
             { title = "Org-roam"; url = "https://www.orgroam.com/manual.html";} #28

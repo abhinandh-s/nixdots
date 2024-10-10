@@ -8,7 +8,7 @@ in
   options.my.colorpencil.option = lib.mkOption {
     type = lib.types.str;
     default = "green";  # Default color is pink
-    description = "Select the color for the cava visualization (red, green, pink)";
+    description = "Select the color for the cava visualization (red, green, pink, blue)";
   };
 
   # Move the cava configuration under the `config` attribute

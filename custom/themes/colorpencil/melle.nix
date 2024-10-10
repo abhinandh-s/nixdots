@@ -1,26 +1,36 @@
 let
   background = "#1a1b26";
   text = "#cdd6f4";
+  subtext = "#bac2de";
+  shadow = "#45475a";
 in 
   {
   pink = {
     background = background;
     text = text;
+    subtext = subtext;
+    shadow = shadow;
     foreground = "#ffb3de";
   };
   red = {
     background = background;
     text = text;
+    subtext = subtext;
+    shadow = shadow;
     foreground = "#f38ba8";
   };
   green = {
     background = background;
     text = text;
+    subtext = subtext;
+    shadow = shadow;
     foreground = "#B3FFB3";
   };
   blue = {
     background = background;
     text = text;
+    subtext = subtext;
+    shadow = shadow;
     foreground = "#89b4fa";
   };
 
@@ -47,7 +57,7 @@ in
   cat_rosewater = "#f5e0dc";
   cat_flamingo  = "#f2cdcd";
   cat_pink      = "#f5c2e7";
-  cat_pink2      = "#ffb3de";
+  cat_pink2     = "#ffb3de";
   cat_mauve     = "#cba6f7";
   cat_red       = "#f38ba8";
   cat_maroon    = "#eba0ac";

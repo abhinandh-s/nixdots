@@ -4,11 +4,13 @@
 let
   neomuttConfig = ''
     # ================  IMPORTS ====================
+    
     source ~/.config/neomutt/password
     source ~/.config/neomutt/colors
     # source ~/.config/neomutt/keymaps
 
     # ================  IMAP ====================
+    
     set imap_user = abinand516@gmail.com
     set spoolfile = imaps://imap.gmail.com/INBOX
     set folder = imaps://imap.gmail.com/
@@ -18,13 +20,16 @@ let
     set header_cache = "~/.mutt/cache/headers"
     set message_cachedir = "~/.mutt/cache/bodies"
     set certificate_file = "~/.mutt/certificates"
+    
     # ================  SMTP  ====================
+    
     set smtp_url = "smtp://abinand516@smtp.gmail.com:587/"
     set smtp_pass = $imap_pass
     set ssl_force_tls = yes 
     # Require encrypted connection
 
     # ================  Composition  ====================
+    
     set editor = "nvim"
     set edit_headers = yes  
     # See the headers when editing
@@ -34,9 +39,11 @@ let
     set realname = "Abhinandh S"
     set from = "abinand516@gmail.com"
     set use_from = yes
+  
   '';
 
   colorsheme = ''
+  
     # vim: filetype=muttrc
 
     # From: https://github.com/altercation/mutt-colors-solarized/blob/master/mutt-colors-solarized-dark-16.muttrc
@@ -53,7 +60,8 @@ let
     color indicator     brightblack     white      # selection
     color tree          cyan            default    # arrow in threads
  
-    # basic monocolor screen -----------------------------------------------------------------
+    # basic monocolor screen ------------------------------------------------
+
     mono  bold          bold
     mono  underline     underline
     mono  indicator     reverse

@@ -18,6 +18,7 @@
                 (extension "ublock-origin" "uBlock0@raymondhill.net" "navbar")
                 (extension "bitwarden-password-manager" "{446900e4-71c2-419f-a6a7-df9c091e268b}" "menupanel")
                 (extension "catppuccin-mocha-red" "{e4c06efe-4936-4ca0-87e2-4a47dc5fa5ee}" "menupanel")
+                (extension "proton-pass" "78272b6fa58f4a1abaac99321d503a20@proton.me" "navbar")
                 # (extension "catppuccin-mocha-teal" "{3f8844e2-3fc1-4104-9773-0f4bb98eab69}" "menupanel")
             ];
     "3rdparty".Extensions = {

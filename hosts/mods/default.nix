@@ -7,7 +7,7 @@
 		./emacs.nix
 		./direnv.nix
 		./ftp.nix
-		#./kdeconnect.nix
+		./kdeconnect.nix
 		./jellyfin.nix
 		./picom.nix
 		./st.nix
@@ -15,6 +15,7 @@
 		./qt.nix
 		./userenv.nix
 		./xdg.nix
+		./clipcat.nix
 	];
 }
 

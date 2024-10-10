@@ -18,9 +18,10 @@
     src = pkgs.fetchFromSourcehut {
       owner = "~abhinandh";
       repo = "dwm";
-      rev = "f813484c024af2748dece562a02b01f26e4671a2";
-      sha256 = "sha256-3unfimPsBOSG+zhzvQlNstqJgAyTop9b6XMA4h4M03c=";
+      rev = "951774d4495f8cccbf19b806f04941a18f217ef4";
+      sha256 = "sha256-hVlzNkAS6PjbCZVhO6D1u7a8XA8YhFIrYTRMlPWjyXA=";
     };
+    # configFile = pkgs.writeText "config.def.h" (builtins.readFile ../../custom/configs/dwm/config.h);
   };
 
   services.displayManager.sddm = {

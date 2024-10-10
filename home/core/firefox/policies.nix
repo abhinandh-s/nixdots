@@ -84,6 +84,8 @@ https://extended.dns.mullvad.net/dns-query
 https://family.dns.mullvad.net/dns-query
 https://all.dns.mullvad.net/dns-query
 
+Check for DNS leak => https://mullvad.net/en/check
+
 */
 
   DNSOverHTTPS = {

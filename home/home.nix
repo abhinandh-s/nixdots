@@ -1,5 +1,14 @@
-{ lib, ... }:
-{
+{ pkgs, lib, ... }:
+
+  {
+
+
+
+
+
+
+
+
   home = {
     username = "abhi";
     homeDirectory = "/home/abhi";
@@ -12,7 +21,7 @@
     ./pkgs.nix
   ];
 
-  my.colorpencil.option = "pink";
+  my.colorpencil.option = "red";
 
   programs = {
   };

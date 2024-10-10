@@ -2,9 +2,13 @@
 inputs,
 pkgs,
 colorpencil,
+config,
 ...
 }:
-{
+let
+  selectedColor = builtins.getAttr (config.my.colorpencil.option) colorpencil;
+in
+  {
   programs.spicetify =
     let
       stripHexPrefix = color: builtins.substring 1 6 color;
@@ -27,26 +31,25 @@ colorpencil,
       enabledCustomApps = with spicePkgs.apps; [
         newReleases
         lyricsPlus
-        ncsVisualizer
       ];
       colorScheme = "custom";
       customColorScheme = {
-        text = stripHexPrefix colorpencil.base01;
-        subtext = stripHexPrefix colorpencil.base09;
-        sidebarText = stripHexPrefix colorpencil.base01;
-        main = stripHexPrefix colorpencil.base00;
-        sidebar = stripHexPrefix colorpencil.base07;
-        player = stripHexPrefix colorpencil.base00;
-        card = stripHexPrefix colorpencil.base00;
-        shadow = stripHexPrefix colorpencil.base02;
-        selectedRow = stripHexPrefix colorpencil.base0A;
-        button = stripHexPrefix colorpencil.base07;
-        buttonActive = stripHexPrefix colorpencil.base07;
-        buttonDisabled = stripHexPrefix colorpencil.base02;
-        tabActive = stripHexPrefix colorpencil.base0A;
-        notification = stripHexPrefix colorpencil.base0A;
-        notificationError = stripHexPrefix colorpencil.base03;
-        misc = stripHexPrefix colorpencil.base01;
+        text = stripHexPrefix selectedColor.text; # text
+        subtext = stripHexPrefix selectedColor.subtext; 
+        sidebarText = stripHexPrefix selectedColor.text;
+        main = stripHexPrefix selectedColor.background;
+        sidebar = stripHexPrefix selectedColor.foreground;
+        player = stripHexPrefix selectedColor.background;
+        card = stripHexPrefix selectedColor.background;
+        shadow = stripHexPrefix selectedColor.shadow;
+        selectedRow = stripHexPrefix selectedColor.foreground;
+        button = stripHexPrefix selectedColor.foreground;
+        buttonActive = stripHexPrefix selectedColor.text;
+        buttonDisabled = stripHexPrefix selectedColor.shadow;
+        tabActive = stripHexPrefix selectedColor.shadow;
+        notification = stripHexPrefix selectedColor.background;
+        notificationError = stripHexPrefix selectedColor.foreground;
+        misc = stripHexPrefix selectedColor.text;
       };
     };
   xdg.desktopEntries = {
