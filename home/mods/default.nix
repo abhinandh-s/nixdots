@@ -26,6 +26,7 @@
     ./betterlockscreen.nix
     ./kdeconnect.nix
     ./dropbox.nix
+    ./youtube-music.nix
     # ./thunderbird.nix
   ];
 }

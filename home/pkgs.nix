@@ -13,7 +13,9 @@ let
     inkscape-with-extensions
     krita
     libreoffice-fresh
-    youtube-music
+    (calibre.override {
+      unrarSupport = true;
+    })
   ] else [];
 
   lang_packages = if install_languages then with pkgs; [ 
