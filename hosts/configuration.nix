@@ -119,6 +119,9 @@ programs.gnupg.agent = {
     settings = {
       auto-optimise-store = true;
       experimental-features = [ "nix-command" "flakes" ];
+      system-features = [
+        "big-parallel"
+      ];
     };
     gc = {
       # automatic = true;

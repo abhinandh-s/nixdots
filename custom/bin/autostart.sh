@@ -2,3 +2,4 @@
 
 conky --daemonize --pause=1 -c ~/.config/conky/system &
 
+maestral start &

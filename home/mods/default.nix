@@ -24,6 +24,8 @@
     ./conky.nix
     ./neomutt.nix
     ./betterlockscreen.nix
+    ./kdeconnect.nix
+    ./dropbox.nix
     # ./thunderbird.nix
   ];
 }

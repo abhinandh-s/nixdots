@@ -1,6 +1,7 @@
-{ pkgs, ...}:{
-  programs.kdeconnect = {
+{ pkgs, config, ...}:{
+  services.kdeconnect = {
     enable = true;
     package = pkgs.kdePackages.kdeconnect-kde;
+    indicator = true;
   };
 }

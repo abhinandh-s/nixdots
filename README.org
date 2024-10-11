@@ -1,2 +1,38 @@
-* My NixOs Config with Flakes
+* My NixOs Configuration with Flakes, SOPS, and Home Manager
 
+** Repository Structure
+.
+├── assets
+│   ├── logos
+│   └── wallpaper
+├── custom
+│   ├── bin
+│   ├── configs
+│   │   └── dwm
+│   ├── conky
+│   ├── options
+│   ├── pkgs
+│   │   ├── spotify-adblock
+│   │   └── victor-mono
+│   ├── themes
+│   │   ├── colorpencil
+│   │   └── rofi-themes
+│   │       ├── bin
+│   │       └── shared
+│   └── uBlockOrigin
+├── home
+│   ├── core
+│   │   └── firefox
+│   ├── mods
+│   └── wip
+├── hosts
+│   ├── core
+│   └── mods
+└── secrets
+
+
+#+begin_QUOTE
+
+
+
+#+END_QUOTE

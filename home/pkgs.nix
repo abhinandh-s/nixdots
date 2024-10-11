@@ -34,8 +34,8 @@ let
 
   home_pkgs = with pkgs; [
     alacritty
+    maestral # dropbox
     fasd
-    oculante # image viewer in rust
     nomacs
     neomutt
     protonmail-bridge
@@ -55,11 +55,7 @@ let
     telegram-desktop
     signal-desktop
     bitwarden-desktop
-    (rbw.override {
-      withFzf = true;
-      withRofi = true;
-      withPass = false;
-    })
+    thunderbird
   ] ++ 
     (if (config.programs.yazi.enable == true)
       then with pkgs; [
