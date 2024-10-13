@@ -10,6 +10,7 @@
 		./pkgs.nix
 		./polkit.nix
 		./xserver.nix
+		./secrets.nix
 	];
 }
 
