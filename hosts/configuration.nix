@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 {
   imports =
     [
@@ -46,13 +46,18 @@
     age.keyFile = "/home/abhi/.config/sops/age/keys.txt";
     # This is the actual specification of the secrets.
     secrets = {
+      y-key = {
+        owner = "abhi";
+        path = "/home/abhi/.local/share/age/key.txt";
+        mode = "0600";
+      };
       srht_access_token = {
         owner = "abhi";
         path = "/home/abhi/.config/hut/config";
         mode = "0600";
       };
-        neomutt-pass = {
-          owner = "abhi";
+      neomutt-pass = {
+        owner = "abhi";
         path = "/home/abhi/.config/neomutt/password";
         mode = "4440"; # file permision
       };
@@ -65,11 +70,6 @@
         owner = "abhi";
         path = "/home/abhi/.ssh/id_rsa";
         mode = "0644"; # owner = rw- , group = r--, others = r--
-      };
-      example-key = {
-        owner = "abhi";
-        path = "/home/abhi/passward.pass";
-        mode = "0644";
       };
       "kde_connect/trusted_device_keys" = {
         owner = "abhi";
@@ -91,12 +91,12 @@
 
 
 
-programs.mtr.enable = true; # A network diagnostics tool
-programs.gnupg.agent = {
-   enable = true;
+  programs.mtr.enable = true; # A network diagnostics tool
+  programs.gnupg.agent = {
+    enable = true;
     # pinentryPackage = pkgs.pinentry-gnome3;
-   enableSSHSupport = true;
-};
+    enableSSHSupport = true;
+  };
 
   services.udisks2 = {
     enable = true;
@@ -107,7 +107,7 @@ programs.gnupg.agent = {
     {  users = [ "abhi" ];
       commands = [
         { command = "ALL" ;
-          options= [ "NOPASSWD" ]; # not working its still asking for pass every time i mount my harddisk
+          options= [ "NOPASSWD" ]; # not working its still asking for pass every time i mount my harddisk, but now it not asking any password for sudo in terminal!
         }
       ];
     }
@@ -130,9 +130,15 @@ programs.gnupg.agent = {
     };
   };
 
+  sops.secrets.abhi_password.neededForUsers = true;
+
   users = {
+    mutableUsers = false;
+    # If set to true, you are free to add new users and groups to the system with the ordinary useradd and groupadd commands.
+    # must set to false for sops
     users.abhi = {
       isNormalUser = true;
+      hashedPasswordFile = config.sops.secrets.abhi_password.path;
       extraGroups = [ "wheel" "networkmanager" "netdev" "root" "i2c" "mpd" "audio" ];
     };
     extraGroups.vboxusers.members = [ "abhi" ];
