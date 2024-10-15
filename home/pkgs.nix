@@ -48,7 +48,6 @@ let
     tutanota-desktop
     librewolf
     git
-    kdePackages.okular
     evince
     pulsemixer
     hut
@@ -56,8 +55,25 @@ let
     unstable.neovim
     telegram-desktop
     signal-desktop
-    bitwarden-desktop
+    #  bitwarden-desktop
     thunderbird
+    (slstatus.override {
+      conf = builtins.readFile ../custom/configs/slstatus/config.h;
+    })
+    (writeShellScriptBin "enc.sh" /*bash*/ ''
+      ${age}/bin/age -e -r age1jmcmqq4jpzcutzeajxavlapee57rhp3gzprlc5se8vvsk9ej3ezq7nh94p $1 > $1.age 
+      '')
+      (writeShellScriptBin "dec.sh" /*bash*/ ''
+      ${age}/bin/age -d -i ~/.local/share/age/key.txt $1 > $2 
+      '')
+    /*   (slstatus.overrideAttrs (oldAttrs: {
+src = pkgs.fetchFromSourcehut {
+owner = "~abhinandh";
+repo = "slstatus";
+        rev = "e8d248ddf4ecec7d4784d7c9d475f47feafb88db";
+        sha256 = "sha256-ion5y2VJZIdms9FhMq8Rc8c2pL69DfLV3c/DC+ppZI0=";
+      };
+    })) */
   ] ++ 
     (if (config.programs.yazi.enable == true)
       then with pkgs; [

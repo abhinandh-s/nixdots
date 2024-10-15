@@ -24,6 +24,7 @@
     # configFile = pkgs.writeText "config.def.h" (builtins.readFile ../../custom/configs/dwm/config.h);
   };
 
+
   services.displayManager.sddm = {
     enable = true;
     sugarCandyNix = {

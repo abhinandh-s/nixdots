@@ -4,16 +4,22 @@
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-24.05";
     nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
+    nur.url = "github:nix-community/NUR";
 
     sops-nix = {
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    
+
+    agenix = {
+      url = "github:ryantm/agenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     firefox-addons = {
-			url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
-			inputs.nixpkgs.follows = "nixpkgs";
-		};
+      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     home-manager = {
       url = "github:nix-community/home-manager/release-24.05";
@@ -33,9 +39,11 @@
 
   outputs = inputs@{
     self,
+    nur,
     nixpkgs,
     nixpkgs-unstable,
     sops-nix,
+    agenix,
     firefox-addons,
     home-manager,
     sddm-sugar-candy-nix,
@@ -62,6 +70,8 @@
           ./hosts/configuration.nix
 
           sops-nix.nixosModules.sops
+          agenix.nixosModules.default
+          nur.nixosModules.nur
 
           sddm-sugar-candy-nix.nixosModules.default
           {
@@ -82,6 +92,7 @@
                 imports = [
                   ./home/home.nix
                   spicetify-nix.homeManagerModules.default
+                  agenix.homeManagerModules.default
                 ];
                 _module.args.colorpencil = import ./custom/themes/colorpencil;
               };

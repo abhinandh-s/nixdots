@@ -2,6 +2,7 @@
 {
   imports = [
     ./firefox
+    ./secrets.nix
     ./alacritty.nix
     ./bash.nix
     ./dunst.nix
@@ -11,5 +12,4 @@
     ./symlinks.nix
     ./theme.nix
   ];
-
 }

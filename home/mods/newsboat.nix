@@ -145,7 +145,7 @@ in
       macro C set browser "youtube-viewer --comments=%u" ; open-in-browser ; set browser linkhandler
       macro p set browser "wget %u -P /home/abhi/pics/pictures/newsboat" ; open-in-browser ; set browser linkhandler
       macro P set browser "peertubetorrent %u 1080" ; open-in-browser ; set browser linkhandler
-      
+
       bind-key j down
       bind-key k up
       bind-key j next articlelist

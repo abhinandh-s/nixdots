@@ -11,7 +11,7 @@ in
     pass
     lxappearance
     feh
-    ddcutil
+    # ddcutil
     pulsemixer
     mpc-cli
     vim
@@ -30,7 +30,7 @@ in
     vlc
     wget
     killall
-    networkmanagerapplet
+    # networkmanagerapplet
     tree
     htop
     xsel # for clipboard
