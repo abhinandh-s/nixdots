@@ -1,35 +1,58 @@
-* My NixOs Configuration with Flakes, SOPS, and Home Manager
 
-** Repository Structure
-#+begin_src bash
+#+TITLE: My NixOS Configuration with Flakes, SOPS, and Home Manager
+#+AUTHOR: [Your Name]
+#+DATE: [Date]
+#+OPTIONS: ^:nil
 
+* Introduction
+This repository contains my personal NixOS configuration, leveraging Nix Flakes, SOPS for secret management, and Home Manager for user-specific configurations. It serves as a comprehensive setup that ensures a reproducible environment across my devices.
+
+* Repository Structure
+
+#+BEGIN_SRC bash
 .
 ├── assets
-│   ├── logos
-│   └── wallpaper
+│   ├── logos
+│   └── wallpaper
 ├── custom
-│   ├── bin
-│   ├── configs
-│   │   └── dwm
-│   ├── conky
-│   ├── options
-│   ├── pkgs
-│   │   ├── spotify-adblock
-│   │   └── victor-mono
-│   ├── themes
-│   │   ├── colorpencil
-│   │   └── rofi-themes
-│   │       ├── bin
-│   │       └── shared
-│   └── uBlockOrigin
+│   ├── bin
+│   ├── configs
+│   │   └── dwm
+│   ├── conky
+│   ├── options
+│   ├── pkgs
+│   │   ├── spotify-adblock
+│   │   └── victor-mono
+│   ├── themes
+│   │   ├── colorpencil
+│   │   └── rofi-themes
+│   │       ├── bin
+│   │       └── shared
+│   └── uBlockOrigin
 ├── home
-│   ├── core
-│   │   └── firefox
-│   ├── mods
-│   └── wip
+│   ├── core
+│   │   └── firefox
+│   ├── mods
+│   └── wip
 ├── hosts
-│   ├── core
-│   └── mods
+│   ├── core
+│   └── mods
 └── secrets
+#+END_SRC
 
-#+end_src
+* Features
+
+** Flakes
+- Utilizes Nix Flakes for precise dependency management, ensuring consistent environments across installations.
+
+** Home Manager
+- Configures user-specific software, allowing for personalized settings and applications tailored to my workflow.
+
+** SOPS-nix
+- Employs SOPS for managing secrets at both root and user levels, ensuring sensitive information is securely stored and accessed.
+
+* Installation Instructions
+- I do not recommend installing this configuration as-is or using any other Nix configuration directly from repositories. Doing so may lead to a sense of incompleteness and confusion about your system's setup.
+
+- If you're a beginner, take some time to study this and other people's configuration files. Implement changes and features on your own to gain a deeper understanding of how NixOS works. This hands-on approach will help you build a more meaningful and personalized setup.
+
