@@ -1,6 +1,8 @@
 * My NixOs Configuration with Flakes, SOPS, and Home Manager
 
 ** Repository Structure
+#+begin_src bash
+
 .
 ├── assets
 │   ├── logos
@@ -30,9 +32,4 @@
 │   └── mods
 └── secrets
 
-
-#+begin_QUOTE
-
-
-
-#+END_QUOTE
+#+end_src
