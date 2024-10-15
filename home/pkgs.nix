@@ -1,10 +1,10 @@
 { config, pkgs, ... }:
 let
-  install_themes = false; 
+  install_base = false; 
   install_misc = true; # Change this to false to skip misc_packages
   install_languages = true;
 
-  theme_packages = if install_themes then with pkgs; [ 
+  base_packages = if install_base then with pkgs; [ 
     tokyonight-gtk-theme
   ] else [];
 
@@ -37,7 +37,6 @@ let
   home_pkgs = with pkgs; [
     alacritty
     maestral # dropbox
-    fasd
     nomacs
     neomutt
     protonmail-bridge
@@ -66,21 +65,16 @@ let
       (writeShellScriptBin "dec.sh" /*bash*/ ''
       ${age}/bin/age -d -i ~/.local/share/age/key.txt $1 > $2 
       '')
-    /*   (slstatus.overrideAttrs (oldAttrs: {
-src = pkgs.fetchFromSourcehut {
-owner = "~abhinandh";
-repo = "slstatus";
-        rev = "e8d248ddf4ecec7d4784d7c9d475f47feafb88db";
-        sha256 = "sha256-ion5y2VJZIdms9FhMq8Rc8c2pL69DfLV3c/DC+ppZI0=";
-      };
-    })) */
-  ] ++ 
-    (if (config.programs.yazi.enable == true)
+  ] ++ (if (config.programs.yazi.enable == true)
       then with pkgs; [
         imagemagickBig
+      ]
+    else []) ++ (if (config.programs.fish.enable == true)
+      then with pkgs; [
+        fasd
       ]
     else []);
 in
   {
-  home.packages = misc_packages ++ home_pkgs ++ lang_packages ++ theme_packages;
+  home.packages = misc_packages ++ home_pkgs ++ lang_packages ++ base_packages;
 }
