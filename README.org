@@ -51,7 +51,8 @@ This repository contains my personal NixOS configuration, leveraging Nix Flakes,
 ** SOPS-nix
 - Employs SOPS for managing secrets at both root and user levels, ensuring sensitive information is securely stored and accessed.
 
-* Installation Instructions
+* Warning
+
 - I do not recommend installing this configuration as-is or using any other Nix configuration directly from repositories. Doing so may lead to a sense of incompleteness and confusion about your system's setup.
 
 - If you're a beginner, take some time to study this and other people's configuration files. Implement changes and features on your own to gain a deeper understanding of how NixOS works. This hands-on approach will help you build a more meaningful and personalized setup.

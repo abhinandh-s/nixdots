@@ -21,6 +21,7 @@
         };
       };
       shellAliases = {
+        fe = "fzf -e | xargs -r nvim";
         redmi-r = "rsync -P -av -e 'ssh -p 5000'";
         redmi-s = "ssh abhi@192.168.1.100 -p 5000";
         ll = "ls -l";
@@ -28,7 +29,8 @@
         gc = "git clone";
         update-nix = "sudo nixos-rebuild switch --flake .";
         getrust = "cp ~/projects/github/nix-shells/rust/* .";
-        develop = "nix develop --command nu";
+        getenv = "cp ~/projects/github/nix-shells/rust/.envrc .";
+        develop = "nix develop --command fish";
         "..." = "cd ../..";
       };
       plugins = [

@@ -1,10 +1,17 @@
-{ pkgs, lib, ... }:
-
-  {
-
-
-
-
+{
+  pkgs,
+  lib,
+  ...
+}: {
+  services.sxhkd = {
+    enable = true;
+    keybindings = {
+      "super + u" = "alacritty";
+      # "super + shift + {r,c}" = "i3-msg {restart,reload}";
+      # "super + {s,w}" = "i3-msg {stacking,tabbed}";
+      # "super + F1" = pkgs.writeShellScript "script" "echo $USER";
+    };
+  };
 
   home = {
     username = "abhi";
@@ -44,7 +51,7 @@
         AlphaChannel = ["A"];
         RGBChannel = ["U"];
         RGBAChannel = ["C"];
-        ResetView = ["V"]; 
+        ResetView = ["V"];
         ZoomOut = ["Minus"];
         ZoomIn = ["Equals"];
         ZoomActualSize = ["Key1"];
@@ -117,8 +124,6 @@
     };
   };
 
-
-
   xdg.userDirs = {
     enable = true;
     createDirectories = true;
@@ -127,5 +132,4 @@
   programs.neovim.defaultEditor = true;
 
   programs.home-manager.enable = true;
-
 }

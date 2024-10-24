@@ -5,7 +5,7 @@
       ./ncmpcpp.nix
       ./spotify.nix
       ./newsboat.nix
-         ./nushell.nix
+      ./nushell.nix
       ./zathura.nix
       ./qutebrowser.nix
       ./aria2.nix
@@ -14,7 +14,7 @@
       ./mpv.nix
       ./redshift.nix
       ./kitty.nix
-         ./zsh.nix
+      ./zsh.nix
       ./zoxide.nix
       ./bat.nix
       ./eza.nix

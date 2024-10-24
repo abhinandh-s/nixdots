@@ -2,9 +2,16 @@
 {
   imports =
     [
-      ./core
+      ./hardware-configuration.nix
       ./mods
     ];
+
+  services.clipcat = {
+    enable = true;
+    package = pkgs.clipcat;
+  };
+
+
 
   boot.kernelModules = ["i2c-dev"];
   services.udev.extraRules = ''
@@ -63,16 +70,6 @@
     mountOnMedia = true; 
   };
 
-  security.sudo.extraRules= [
-    {
-      users = [ "abhi" ];
-      commands = [
-        { command = "ALL" ;
-          options= [ "NOPASSWD" ]; # not working its still asking for pass every time i mount my harddisk, but now it not asking any password for sudo in terminal!
-        }
-      ];
-    }
-  ];
 
   nixpkgs.config.allowUnfree = true;
 
@@ -91,32 +88,7 @@
     };
   };
 
-  sops.secrets.abhi_password.neededForUsers = true;
-  sops.secrets.abhinav_password.neededForUsers = true;
-  sops.secrets.caretaker_password.neededForUsers = true;
 
-  users = {
-    defaultUserShell = pkgs.fish;
-    mutableUsers = false;
-# If set to true, you are free to add new users and groups to the system with the ordinary useradd and groupadd commands.
-# must set to false for sops
-    users.abhi = {
-	    isNormalUser = true;
-	    hashedPasswordFile = config.sops.secrets.abhi_password.path;
-	    extraGroups = [ "wheel" "networkmanager" "netdev" "root" "i2c" "mpd" "audio" ];
-    };
-    users.abhinav = {
-	    isNormalUser = true;
-	    hashedPasswordFile = config.sops.secrets.abhinav_password.path;
-	    extraGroups = [ "wheel" "networkmanager" "netdev" "root" "i2c" "mpd" "audio" ];
-    };
-    users.caretaker = {
-	    isNormalUser = true;
-	    hashedPasswordFile = config.sops.secrets.caretaker_password.path;
-	    extraGroups = [ "wheel" "networkmanager" "netdev" "root" "i2c" "mpd" "audio" ];
-    };
-    extraGroups.vboxusers.members = [ "abhi" ];
-  };
 
   programs.neovim.defaultEditor = true;
   programs.nano.enable = false;

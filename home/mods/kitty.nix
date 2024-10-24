@@ -1,4 +1,4 @@
-{ config, ... }:
+{config, ...}:
 # theme = Tomorrow Night, Twilight, Tokyo Night, Dracula
 # font.name = "Maple Mono";
 # font_family = "FiraCode Nerd Font Mono";
@@ -11,7 +11,7 @@
       "alt+2" = "goto_tab 2";
       "alt+3" = "goto_tab 3";
       "alt+4" = "goto_tab 4";
-      "ctrl+v" = "paste_from_clipboard";
+      "ctrl+p" = "paste_from_clipboard";
       "ctrl+c" = "copy_to_clipboard";
     };
     settings = {
@@ -27,7 +27,6 @@
       background_opacity = "1.0";
       background_blur = 50;
       notify_on_cmd_finish = "always"; # Only send a notification when the window does not have keyboard focus.
-
     };
     theme = "Tokyo Night";
   };
