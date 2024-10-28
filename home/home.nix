@@ -3,16 +3,6 @@
   lib,
   ...
 }: {
-  services.sxhkd = {
-    enable = true;
-    keybindings = {
-      "super + u" = "alacritty";
-      # "super + shift + {r,c}" = "i3-msg {restart,reload}";
-      # "super + {s,w}" = "i3-msg {stacking,tabbed}";
-      # "super + F1" = pkgs.writeShellScript "script" "echo $USER";
-    };
-  };
-
   home = {
     username = "abhi";
     homeDirectory = "/home/abhi";

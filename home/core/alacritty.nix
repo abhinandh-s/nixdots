@@ -1,8 +1,8 @@
 {
-config,
-pkgs,
-colorpencil,
-...
+  config,
+  pkgs,
+  colorpencil,
+  ...
 }:
 {
   programs.alacritty = {
@@ -12,7 +12,7 @@ colorpencil,
         TERM = "xterm-256color";
       };
       window = {
-        opacity = 0.80;
+        opacity = 1.0;
         padding = {
           x = 16;
           y = 16;
@@ -48,7 +48,7 @@ colorpencil,
         };
         glyph_offset = {
           x = 0;
-          y = config.programs.alacritty.settings.font.offset.y / 2;
+          y = 2;
         };
         builtin_box_drawing = true;
       };
@@ -123,6 +123,16 @@ colorpencil,
           white = "${colorpencil.base09}";
         };
         bright = {
+          black = "${colorpencil.cat_base}";
+          red = "${colorpencil.cat_red}";
+          green = "${colorpencil.cat_green}";
+          yellow = "${colorpencil.cat_yellow}";
+          blue = "${colorpencil.cat_blue}";
+          magenta = "${colorpencil.cat_pink}";
+          cyan = "${colorpencil.cat_sky}";
+          white = "${colorpencil.cat_text}";
+        };
+        dim = {
           black = "${colorpencil.cat_base}";
           red = "${colorpencil.cat_red}";
           green = "${colorpencil.cat_green}";

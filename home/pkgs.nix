@@ -40,6 +40,8 @@
         luajitPackages.jsregexp
         nodePackages_latest.nodejs
         unstable.nixd
+        unstable.nil
+        nixfmt-rfc-style
         alejandra
         pandoc
         ltex-ls
@@ -84,6 +86,13 @@
         */
         ''
           ${fzf}/bin/fzf -e --cycle --walker-skip=.git,.direnv | xargs -r nvim
+        '')
+      (writeShellScriptBin "fo"
+        /*
+        bash
+        */
+        ''
+          ${fzf}/bin/fzf -e --cycle --walker-skip=.git,.direnv | xargs -r xdg-open
         '')
       (writeShellScriptBin "fzfr"
         /*

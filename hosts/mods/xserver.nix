@@ -1,5 +1,8 @@
-{ lib, pkgs, ... }:
 {
+  lib,
+  pkgs,
+  ...
+}: {
   services.xserver = {
     enable = true;
     xkb.layout = "us";
@@ -18,12 +21,12 @@
     src = pkgs.fetchFromSourcehut {
       owner = "~abhinandh";
       repo = "dwm";
-      rev = "951774d4495f8cccbf19b806f04941a18f217ef4";
-      sha256 = "sha256-hVlzNkAS6PjbCZVhO6D1u7a8XA8YhFIrYTRMlPWjyXA=";
+      rev = "0031712dcf6dd51de6d347bdf7f7c6b57bdeb6e3";
+      sha256 = "sha256-R5r8CwE33XsxwJflEd2KKea4RyYC0ob9cyGyx6VO78E=";
     };
+    # conf = builtins.readFile ../../custom/configs/dwm/config.h;
     # configFile = pkgs.writeText "config.def.h" (builtins.readFile ../../custom/configs/dwm/config.h);
   };
-
 
   services.displayManager.sddm = {
     enable = true;

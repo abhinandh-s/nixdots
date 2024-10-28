@@ -9,10 +9,12 @@ test:
   @echo " "
   @cat random.txt
   @echo " "
+  @git add -A
   sudo nixos-rebuild test -v --flake .
 
 build:
   shuf -i 100-99999999 -n 1 > random.txt
+  git add -A
   sudo nixos-rebuild switch --flake .
 
 push:

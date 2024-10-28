@@ -1,5 +1,4 @@
-{ pkgs,... }:
-{
+{pkgs, ...}: {
   programs = {
     fzf.enableFishIntegration = true;
     eza.enableFishIntegration = true;
@@ -10,7 +9,10 @@
       enable = true;
       package = pkgs.fish;
       loginShellInit = "";
-      shellInit = "set -U fish_greeting";
+      shellInit = ''
+        set -U fish_greeting
+        set -g fish_color_autosuggestion "838ba7"
+      '';
       shellInitLast = "direnv hook fish | source";
       shellAbbrs = {
         l = "less";
@@ -21,6 +23,8 @@
         };
       };
       shellAliases = {
+        ".." = "cd ..";
+        "..." = "cd ../..";
         fe = "fzf -e | xargs -r nvim";
         redmi-r = "rsync -P -av -e 'ssh -p 5000'";
         redmi-s = "ssh abhi@192.168.1.100 -p 5000";
@@ -28,10 +32,9 @@
         l = "eza -lA --git-ignore --hyperlink --total-size --time-style=relative --time=modified -o -s modified";
         gc = "git clone";
         update-nix = "sudo nixos-rebuild switch --flake .";
-        getrust = "cp ~/projects/github/nix-shells/rust/* .";
+        getrust = "cp ~/templates/nix-shells/rust/* .";
         getenv = "cp ~/projects/github/nix-shells/rust/.envrc .";
         develop = "nix develop --command fish";
-        "..." = "cd ../..";
       };
       plugins = [
         {

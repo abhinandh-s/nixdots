@@ -19,27 +19,14 @@ static const char col_gray3[] = "#bbbbbb";
 static const char col_gray4[] = "#eeeeee";
 static const char col_cyan[] = "#94e2d5"; /* #cba6f7 #94e2d5 #f38ba8 */
 static const char *colors[][3] = {
-    /*               fg         bg         border   */
-    [SchemeNorm] = {col_gray3, col_gray1, col_gray2},
-    [SchemeSel] = {col_gray4, col_cyan, col_cyan},
-    [SchemeStatus] = {col_gray3, col_gray1,
-        "#000000"}, // Statusbar right {text,background,not used
-    // but cannot be empty}
-    [SchemeTagsSel] = {col_gray1, col_cyan,
-        "#000000"}, // Tagbar left selected {text,background,not
-    // used but cannot be empty}
-    [SchemeTagsNorm] =
-    {col_gray3, col_gray1,
-        "#000000"}, // Tagbar left unselected {text,background,not used but
-    // cannot be empty}
-    [SchemeInfoSel] =
-    {col_gray1, col_cyan,
-        "#000000"}, // infobar middle  selected {text,background,not used but
-    // cannot be empty} org = col_gray4
-    [SchemeInfoNorm] =
-    {col_gray3, col_gray1,
-        "#000000"}, // infobar middle  unselected {text,background,not used but
-    // cannot be empty}
+    /*                  fg         bg         border   */
+    [SchemeNorm]     = {col_gray3, col_gray1, col_gray2},
+    [SchemeSel]      = {col_gray4, col_cyan,  col_cyan},
+    [SchemeStatus]   = {col_gray3, col_gray1, "#000000"}, // Statusbar right {text,background,not used but cannot be empty}
+    [SchemeTagsSel]  = {col_gray1, col_cyan,  "#000000"}, // Tagbar left selected {text,background, not used but cannot be empty}
+    [SchemeTagsNorm] = {col_gray3, col_gray1, "#000000"}, // Tagbar left unselected {text,background,not used but cannot be empty}
+    [SchemeInfoSel]  = {col_gray1, col_cyan,  "#000000"}, // infobar middle  selected {text,background,not used but cannot be empty} org = col_gray4
+    [SchemeInfoNorm] = {col_gray3, col_gray1, "#000000"}, // infobar middle  unselected {text,background,not used but cannot be empty}
 };
 
 static const char *const autostart[] = {
@@ -64,12 +51,9 @@ static const Rule rules[] = {
 /* layout(s) */
 static const float mfact = 0.55; /* factor of master area size [0.05..0.95] */
 static const int nmaster = 1;    /* number of clients in master area */
-static const int resizehints =
-    1; /* 1 means respect size hints in tiled resizals */
-static const int attachbelow =
-    1; /* 1 means attach after the currently active window */
-static const int lockfullscreen =
-    1; /* 1 will force focus on the fullscreen window */
+static const int resizehints = 1; /* 1 means respect size hints in tiled resizals */
+static const int attachbelow = 1; /* 1 means attach after the currently active window */
+static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
 
 #define FORCE_VSPLIT                                                           \
 1 /* nrowgrid layout: force two clients to always split vertically */
@@ -141,6 +125,7 @@ static const char *musicSeekBackwardCmd[] = {"mpc", "seek", "-10", NULL};
 static const char *bitwardenRofiCmd[] = {"custom-rbw-rofi", NULL};
 static const char *clipcatCmd[] = {"clipcat-menu", NULL};
 static const char *mpdSidebarCmd[] = {"mpd.sh", NULL};
+static const char *lockCmd[] = {"betterlockscreen", "-l", NULL};
 
 
 #include "movestack.c"
@@ -151,7 +136,7 @@ static const Key keys[] = {
     {MODKEY, XK_Print, spawn, {.v = screenShotCmd2}},
     {0, XK_Print, spawn, {.v = screenShotCmd}},
     /* Function Keys */
-    {0, XK_F1, spawn, {.v = dmenucmd}},
+    {0, XK_F1, spawn, {.v = mpdSidebarCmd}},
     {0, XK_F2, spawn, {.v = volDownCmd}},
     {0, XK_F3, spawn, {.v = volUpCmd}},
     {0, XK_F4, spawn, {.v = volMuteCmd}},
@@ -159,10 +144,10 @@ static const Key keys[] = {
     {0, XK_F6, spawn, {.v = musicPrevCmd}},
     {0, XK_F7, spawn, {.v = musicTogglePlayCmd}},
     {0, XK_F8, spawn, {.v = musicNextCmd}},
-    {0, XK_F9, spawn, {.v = screenShotCmd}},
+    {0, XK_F9, spawn, {.v = clipcatCmd}},
     {0, XK_F10, spawn, {.v = screenShotCmd}},
-    {0, XK_F11, spawn, {.v = screenShotCmd}},
-    {0, XK_F12, spawn, {.v = screenShotCmd}},
+    {0, XK_F11, spawn, {.v = lockCmd}},
+    {0, XK_F12, spawn, {.v = bitwardenRofiCmd}},
     /* Ctrl + Function Keys */
     {ControlMask, XK_F1, spawn, {.v = mpdSidebarCmd}},
     {ControlMask, XK_F2, spawn, {.v = brightnessDownCmd}},
@@ -177,16 +162,18 @@ static const Key keys[] = {
     {ControlMask, XK_F11, spawn, {.v = screenShotCmd}},
     {ControlMask, XK_F12, spawn, {.v = bitwardenRofiCmd}},
 
+    {MODKEY, XK_a, focusstack, {.i = +1}},
+    {MODKEY, XK_b, togglebar, {0}},
+    {MODKEY, XK_c, spawn, {.v = clipcatCmd}},
+   // {MODKEY, XK_c, setlayout, {.v = &layouts[3]}},
     {MODKEY, XK_d, spawn, {.v = dmenucmd}},
     {MODKEY, XK_e, spawn, {.v = powercmd}},
     {MODKEY, XK_w, spawn, {.v = bcmd1}},
-    {MODKEY, XK_Return, spawn, {.v = termcmd2}},
-    {MODKEY | ShiftMask, XK_Return, spawn, {.v = termcmd}},
-    {MODKEY, XK_s, scratchpad_show, {0}},
+    {MODKEY, XK_Return, spawn, {.v = termcmd}},
+    {MODKEY | ShiftMask, XK_Return, spawn, {.v = termcmd2}},            //
+    {MODKEY, XK_s, scratchpad_show, {0}},                              // scratchpad toggle
     {MODKEY | ShiftMask, XK_s, scratchpad_hide, {0}},
     {MODKEY, XK_equal, scratchpad_remove, {0}},
-    {MODKEY, XK_b, togglebar, {0}},
-    {MODKEY, XK_a, focusstack, {.i = +1}},
     {MODKEY, XK_k, focusstack, {.i = -1}},
     {MODKEY, XK_i, incnmaster, {.i = +1}},
     {MODKEY, XK_p, incnmaster, {.i = -1}},
@@ -194,6 +181,7 @@ static const Key keys[] = {
     {MODKEY, XK_l, setmfact, {.f = +0.05}},
     {MODKEY | ShiftMask, XK_j, movestack, {.i = +1}},
     {MODKEY, XK_Tab, movestack, {.i = -1}},
+    
     {MODKEY | ShiftMask, XK_Return, zoom, {0}},
     {MODKEY | Mod4Mask, XK_u, incrgaps, {.i = +1}},
     {MODKEY | Mod4Mask | ShiftMask, XK_u, incrgaps, {.i = -1}},
@@ -211,12 +199,12 @@ static const Key keys[] = {
     {MODKEY | Mod4Mask | ShiftMask, XK_9, incrovgaps, {.i = -1}},
     {MODKEY | Mod4Mask, XK_0, togglegaps, {0}},
     {MODKEY | Mod4Mask | ShiftMask, XK_0, defaultgaps, {0}},
+    
     {MODKEY, XK_v, view, {0}},
     {MODKEY, XK_q, killclient, {0}},
     {MODKEY, XK_t, setlayout, {.v = &layouts[0]}},
     {MODKEY | ShiftMask, XK_f, setlayout, {.v = &layouts[1]}},
     {MODKEY, XK_m, setlayout, {.v = &layouts[2]}},
-    {MODKEY, XK_c, setlayout, {.v = &layouts[3]}},
     {MODKEY, XK_r, setlayout, {.v = &layouts[3]}},
     {MODKEY | ShiftMask, XK_r, setlayout, {.v = &layouts[4]}},
     {MODKEY, XK_space, setlayout, {0}},

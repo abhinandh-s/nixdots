@@ -57,9 +57,5 @@ in
     xorg.libX11
     xorg.libXft
     xorg.libXinerama
-
-    jellyfin
-    jellyfin-web
-    jellyfin-ffmpeg
   ];
 }

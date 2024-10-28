@@ -1,8 +1,7 @@
-{ pkgs, ... }:
-{
-# covered all options
+{pkgs, ...}: {
+  # covered all options
   services.redshift = {
-    enable = true;
+    enable = false;
     tray = false;
     package = pkgs.redshift;
     provider = "manual"; # one of "manual", "geoclue2"
