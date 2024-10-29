@@ -17,6 +17,19 @@ build:
   git add -A
   sudo nixos-rebuild switch --flake .
 
+otter-t:
+  cp flake.nix.test flake.nix 
+  shuf -i 100-99999999 -n 1 > random.txt
+  git add -A
+  sudo nixos-rebuild switch --flake .
+
+otter-r:
+  cp flake.nix.bak flake.nix 
+  shuf -i 100-99999999 -n 1 > random.txt
+  git add -A
+  sudo nixos-rebuild switch --flake .
+
+
 push:
   git gc
   git status

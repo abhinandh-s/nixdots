@@ -1,6 +1,7 @@
 {
   pkgs,
   lib,
+  inputs,
   ...
 }: {
   home = {
@@ -11,11 +12,13 @@
 
   imports = [
     ./mods
-    ./core
     ./pkgs.nix
     ../custom/options/rbw.nix
     ../custom/options/oculante.nix
   ];
+
+
+  program.otter.enable = true;
 
   my.colorpencil.option = "red";
 

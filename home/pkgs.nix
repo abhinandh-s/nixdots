@@ -60,12 +60,12 @@
       nomacs
       neomutt
       clipcat
-      protonmail-bridge
+      # protonmail-bridge
       kdePackages.gwenview
       lynx
       urlscan
       qbittorrent
-      tutanota-desktop
+      # tutanota-desktop
       librewolf
       git
       evince
@@ -74,9 +74,9 @@
       zathura
       unstable.neovim
       telegram-desktop
-      signal-desktop
+      # signal-desktop
       #  bitwarden-desktop
-      thunderbird
+      # thunderbird
       (slstatus.override {
         conf = builtins.readFile ../custom/configs/slstatus/config.h;
       })

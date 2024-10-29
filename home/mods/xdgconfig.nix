@@ -1,6 +1,5 @@
 { config, pkgs, ... }:
 let
-    spotifyAdblock = pkgs.callPackage ../../custom/pkgs/spotify-adblock/default.nix {};
 in 
 {
   xdg = {
@@ -73,13 +72,6 @@ in
         exec = "emacs --daemon";
         terminal = false;
         categories = [ "Application" ];
-      };
-      custom-spotify = {
-        name = "Spotify (adblock)";
-        genericName = "music";
-        exec = "env LD_PRELOAD=${spotifyAdblock}/lib/spotifyadblock.so spotify %U";
-        terminal = false;
-        categories = [ "Audio" "Music" "Player" "AudioVideo" ];
       };
     };
   };

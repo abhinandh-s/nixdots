@@ -1,6 +1,5 @@
 { pkgs, ... }:
 let
-  # spotifyAdblock = pkgs.callPackage ../../custom/pkgs/spotify-adblock/default.nix {};
   clipCat = pkgs.callPackage ../../custom/pkgs/clipcat/default.nix {};
 in 
   {

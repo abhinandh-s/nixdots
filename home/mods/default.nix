@@ -1,8 +1,18 @@
-{...}: {
+{ ... }:
+{
   imports = [
+    ./firefox
+    ./secrets.nix
+    ./alacritty.nix
+    ./bash.nix
+    ./dunst.nix
+    ./flameshot.nix
+    ./git.nix
+    ./rofi.nix
+    ./symlinks.nix
+    ./theme.nix
     ./fastfetch.nix
     ./ncmpcpp.nix
-    ./spotify.nix
     ./newsboat.nix
     ./nushell.nix
     ./zathura.nix
@@ -28,5 +38,6 @@
     ./youtube-music.nix
     ./obs.nix
     # ./thunderbird.nix
+
   ];
 }

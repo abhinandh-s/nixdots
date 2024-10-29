@@ -21,7 +21,6 @@ This repository contains my personal NixOS configuration, leveraging Nix Flakes,
 │   ├── conky
 │   ├── options
 │   ├── pkgs
-│   │   ├── spotify-adblock
 │   │   └── victor-mono
 │   ├── themes
 │   │   ├── colorpencil
