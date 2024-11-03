@@ -1,9 +1,13 @@
-{ ... }:
+{ config, ... }:
 {
   programs.git = {
     enable = true;
-    userName = "abhi";
+    userName = "Abhinandh S";
     userEmail = "ugabhi@proton.me";
+    signing = {
+      signByDefault = true;
+      key = "DB0C262FD077239B2047E7E1DB9F128969F8F68F";
+    };
     extraConfig = {
       init = {
         defaultBranch = "main";

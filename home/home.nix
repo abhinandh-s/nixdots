@@ -3,7 +3,8 @@
   lib,
   inputs,
   ...
-}: {
+}:
+{
   home = {
     username = "abhi";
     homeDirectory = "/home/abhi";
@@ -17,69 +18,134 @@
     ../custom/options/oculante.nix
   ];
 
-
-  program.otter.enable = true;
+  program.brightness.enable = true;
+  program.otter = {
+    enable = true;
+    settings = {
+      directories = {
+        images = {
+          path = "/home/abhi/pics/pictures/images";
+          tree = false;
+        };
+        documents = {
+          path = "/home/abhi/docs/lib";
+          tree = false;
+        };
+        videos = {
+          path = "/home/abhi/videos";
+          tree = true;
+        };
+        archives = {
+          path = "/home/abhi/archive";
+          tree = false;
+        };
+      };
+      input_dirs = {
+        dirs = [
+          "/home/abhi/videos"
+          "/home/abhi/archive"
+          "/home/abhi/downloads"
+        ];
+      };
+    };
+  };
 
   my.colorpencil.option = "red";
 
   programs.oculante = {
     enable = true;
     settings = {
-      accent_color = [250 131 202];
-      background_color = [0 0 0];
+      accent_color = [
+        250
+        131
+        202
+      ];
+      background_color = [
+        0
+        0
+        0
+      ];
       vsync = true;
       force_redraw = false;
       shortcuts = {
-        AlwaysOnTop = ["T"];
-        Fullscreen = ["F"];
-        InfoMode = ["I"];
-        EditMode = ["E"];
-        NextImage = ["Right"];
-        FirstImage = ["Home"];
-        LastImage = ["End"];
-        PreviousImage = ["Left"];
-        RedChannel = ["R"];
-        GreenChannel = ["G"];
-        BlueChannel = ["B"];
-        AlphaChannel = ["A"];
-        RGBChannel = ["U"];
-        RGBAChannel = ["C"];
-        ResetView = ["V"];
-        ZoomOut = ["Minus"];
-        ZoomIn = ["Equals"];
-        ZoomActualSize = ["Key1"];
-        ZoomDouble = ["Key2"];
-        ZoomThree = ["Key3"];
-        ZoomFour = ["Key4"];
-        ZoomFive = ["Key5"];
-        CompareNext = ["C" "LShift"];
-        PanLeft = ["LShift" "Left"];
-        PanRight = ["LShift" "Right"];
-        PanUp = ["LShift" "Up"];
-        PanDown = ["Down" "LShift"];
-        DeleteFile = ["Delete"];
-        LosslessRotateRight = ["RBracket"];
-        LosslessRotateLeft = ["LBracket"];
-        Copy = ["C" "LControl"];
-        Paste = ["LControl" "V"];
-        Browse = ["LControl" "O"];
-        Quit = ["Q"];
-        ZenMode = ["Z"];
+        AlwaysOnTop = [ "T" ];
+        Fullscreen = [ "F" ];
+        InfoMode = [ "I" ];
+        EditMode = [ "E" ];
+        NextImage = [ "Right" ];
+        FirstImage = [ "Home" ];
+        LastImage = [ "End" ];
+        PreviousImage = [ "Left" ];
+        RedChannel = [ "R" ];
+        GreenChannel = [ "G" ];
+        BlueChannel = [ "B" ];
+        AlphaChannel = [ "A" ];
+        RGBChannel = [ "U" ];
+        RGBAChannel = [ "C" ];
+        ResetView = [ "V" ];
+        ZoomOut = [ "Minus" ];
+        ZoomIn = [ "Equals" ];
+        ZoomActualSize = [ "Key1" ];
+        ZoomDouble = [ "Key2" ];
+        ZoomThree = [ "Key3" ];
+        ZoomFour = [ "Key4" ];
+        ZoomFive = [ "Key5" ];
+        CompareNext = [
+          "C"
+          "LShift"
+        ];
+        PanLeft = [
+          "LShift"
+          "Left"
+        ];
+        PanRight = [
+          "LShift"
+          "Right"
+        ];
+        PanUp = [
+          "LShift"
+          "Up"
+        ];
+        PanDown = [
+          "Down"
+          "LShift"
+        ];
+        DeleteFile = [ "Delete" ];
+        LosslessRotateRight = [ "RBracket" ];
+        LosslessRotateLeft = [ "LBracket" ];
+        Copy = [
+          "C"
+          "LControl"
+        ];
+        Paste = [
+          "LControl"
+          "V"
+        ];
+        Browse = [
+          "LControl"
+          "O"
+        ];
+        Quit = [ "Q" ];
+        ZenMode = [ "Z" ];
       };
       keep_view = false;
       max_cache = 30;
       show_scrub_bar = false;
       wrap_folder = true;
       keep_edits = false;
-      favourite_images = [
-        "/home/abhi/projects/github/nixdots/assets/wallpaper/wallpaper-pink.avif"
-      ];
+      favourite_images = [ "/home/abhi/projects/github/nixdots/assets/wallpaper/wallpaper-pink.avif" ];
       title_format = "{APP} | {VERSION} | {FULLPATH}";
       info_enabled = true;
       edit_enabled = false;
       window_geometry = [
-        [1061 37]
-        [782 469]
+        [
+          1061
+          37
+        ]
+        [
+          782
+          469
+        ]
       ];
       last_open_directory = "/home/abhi";
       show_checker_background = false;
@@ -98,11 +164,13 @@
 
   services.rbw = {
     enable = true;
-    package = with pkgs; (rbw.override {
-      withFzf = true;
-      withRofi = true;
-      withPass = false;
-    });
+    package =
+      with pkgs;
+      (rbw.override {
+        withFzf = true;
+        withRofi = true;
+        withPass = false;
+      });
     settings = {
       email = "ugabhi@proton.me";
       sync_interval = 3600;

@@ -1,4 +1,3 @@
-
 {
   description = "Abhi's NixOS Configuration";
 
@@ -21,18 +20,31 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-   otter = { url = "github:abhi-xyz/otter"; };
+    otter = {
+      url = "github:abhi-xyz/otter";
+      #      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    brightness = {
+      url = "github:abhi-xyz/brightness";
+    };
+    lyricz = {
+      url = "github:abhi-xyz/lyricz";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = inputs@{
-    self,
-    otter,
-    nixpkgs,
-    nixpkgs-unstable,
-    sops-nix,
-    home-manager,
-    sddm-sugar-candy-nix,
-    ...
+  outputs =
+    inputs@{
+      self,
+    lyricz,
+      otter,
+      brightness,
+      nixpkgs,
+      nixpkgs-unstable,
+      sops-nix,
+      home-manager,
+      sddm-sugar-candy-nix,
+      ...
     }:
     let
       # to get random numbers
@@ -45,23 +57,30 @@
         };
 
       };
-    in {
+    in
+    {
       nixosConfigurations."nixos" = nixpkgs.lib.nixosSystem {
         inherit system;
-        specialArgs = { inherit inputs; };
+        specialArgs = {
+          inherit inputs;
+        };
         modules = [
-          ({ ... }: { nixpkgs.overlays = [ overlay-unstable ]; })
+          (
+            { ... }:
+            {
+              nixpkgs.overlays = [ overlay-unstable ];
+            }
+          )
           ./hosts/configuration.nix
 
           #          otter.nixosModules.default
           sops-nix.nixosModules.sops
+          lyricz.nixosModules.lyricz
 
           sddm-sugar-candy-nix.nixosModules.default
           {
             nixpkgs = {
-              overlays = [
-                sddm-sugar-candy-nix.overlays.default
-              ];
+              overlays = [ sddm-sugar-candy-nix.overlays.default ];
             };
           }
 
@@ -75,13 +94,12 @@
                 imports = [
                   ./home/home.nix
                   otter.homeManagerModules.otter
+                  brightness.homeManagerModules.brightness
                   #                  agenix.homeManagerModules.default
                 ];
                 _module.args.colorpencil = import ./custom/themes/colorpencil;
               };
-              sharedModules = [
-                inputs.sops-nix.homeManagerModules.sops
-              ];
+              sharedModules = [ inputs.sops-nix.homeManagerModules.sops ];
               extraSpecialArgs = {
                 inherit self inputs;
               };

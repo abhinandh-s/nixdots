@@ -23,3 +23,12 @@ push:
   git add -A
   git commit -m "Refactoring"
   git push
+
+update-otter:
+  sudo nix flake lock --update-input otter
+
+update-lyricz:
+  sudo nix flake lock --update-input lyricz
+
+update-brightness:
+  sudo nix flake lock --update-input brightness

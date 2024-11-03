@@ -10,6 +10,15 @@
 
 boot.kernelPackages = pkgs.linuxPackages_zen;
 
+  program.lyricz = {
+    enable = true;
+    settings = {
+      dir = {
+        image = true;
+      };
+      input = "test";
+    };
+  };
 
 
   services.clipcat = {

@@ -1,23 +1,38 @@
 {
-  config,
-  pkgs,
-  ...
+config,
+pkgs,
+...
 }: let
-  install_base = false;
+  install_base = true;
   install_misc = true; # Change this to false to skip misc_packages
   install_languages = true;
 
   base_packages =
     if install_base
-    then
+      then
       with pkgs; [
-        tokyonight-gtk-theme
+        (vscode-with-extensions.override {
+          vscodeExtensions = with vscode-extensions; [
+            bbenoist.nix
+            skellock.just
+            tal7aouy.icons
+            ban.spellright
+            serayuzgur.crates
+            enkia.tokyo-night
+            oderwat.indent-rainbow
+            techtheawesome.rust-yew
+            rust-lang.rust-analyzer
+            bradlc.vscode-tailwindcss
+            asvetliakov.vscode-neovim
+          ];
+        })
+        # tokyonight-gtk-theme
       ]
     else [];
 
   misc_packages =
     if install_misc
-    then
+      then
       with pkgs; [
         gimp-with-plugins
         inkscape-with-extensions
