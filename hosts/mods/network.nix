@@ -53,8 +53,12 @@ psk=9e2b7d851682746ce121cd1c93d49813eab11b6c94746c8c46afe93883d703f0
       enable = lib.mkForce true;
       allowedTCPPorts = [ 80 443 ];
       allowedTCPPortRanges = [
+        { from = 1714; to = 1764; } # KDE Connect
         { from = 4000; to = 4007; }
         { from = 8000; to = 8010; }
+      ];
+      allowedUDPPortRanges = [
+        { from = 1714; to = 1764; } # KDE Connect
       ];
     };
   };
@@ -62,22 +66,6 @@ psk=9e2b7d851682746ce121cd1c93d49813eab11b6c94746c8c46afe93883d703f0
   services.openssh.enable = true; # this will open TCP port 22 (ssh)
 
 }
-
-#   # Open ports in the firewall
-#   firewall = {
-#     enable = true;
-#     allowedTCPPorts = [ 53 21 ];
-#     allowedUDPPorts = [ 53 51820 ];
-#     allowedTCPPortRanges = [
-#       { from = 1714; to = 1764; } # KDE Connect
-#       {from = 51000; to = 51999; }
-#     ];
-#     allowedUDPPortRanges = [
-#       { from = 1714; to = 1764; } # KDE Connect
-#     ];
-#   };
-
-# Or disable the firewall altogether.
 
 # services.vsftpd = {
 #   enable = true;
