@@ -4,9 +4,6 @@
   ...
 }: {
   sops.secrets.abhi_password.neededForUsers = true;
-  sops.secrets.abhinav_password.neededForUsers = true;
-  sops.secrets.caretaker_password.neededForUsers = true;
-
   users = {
     defaultUserShell = pkgs.fish;
     mutableUsers = false;
@@ -18,13 +15,7 @@
         hashedPasswordFile = config.sops.secrets.abhi_password.path;
         extraGroups = ["wheel" "networkmanager" "netdev" "root" "i2c" "mpd" "audio"];
       };
-      caretaker = {
-        isNormalUser = true;
-        hashedPasswordFile = config.sops.secrets.caretaker_password.path;
-        extraGroups = ["wheel" "networkmanager" "netdev" "root" "i2c" "mpd" "audio"];
-      };
     };
-
     extraGroups.vboxusers.members = ["abhi"];
   };
   security.sudo.extraRules = [
@@ -33,7 +24,7 @@
       commands = [
         {
           command = "ALL";
-          options = ["NOPASSWD"]; # not working its still asking for pass every time i mount my harddisk, but now it not asking any password for sudo in terminal!
+          options = ["NOPASSWD"]; # not working its still asking for pass every time i mount my hardDisk, but now it not asking any password for sudo in terminal!
         }
       ];
     }

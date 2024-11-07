@@ -11,22 +11,7 @@ pkgs,
     if install_base
       then
       with pkgs; [
-        (vscode-with-extensions.override {
-          vscodeExtensions = with vscode-extensions; [
-            bbenoist.nix
-            skellock.just
-            tal7aouy.icons
-            ban.spellright
-            serayuzgur.crates
-            enkia.tokyo-night
-            oderwat.indent-rainbow
-            techtheawesome.rust-yew
-            rust-lang.rust-analyzer
-            bradlc.vscode-tailwindcss
-            asvetliakov.vscode-neovim
-          ];
-        })
-        # tokyonight-gtk-theme
+        tokyonight-gtk-theme
       ]
     else [];
 
@@ -53,17 +38,10 @@ pkgs,
         lua
         luajitPackages.luarocks
         luajitPackages.jsregexp
-        nodePackages_latest.nodejs
         unstable.nixd
-        unstable.nil
         nixfmt-rfc-style
         alejandra
-        pandoc
-        ltex-ls
-        languagetool
         tree-sitter
-        texlive.combined.scheme-full
-        tree-sitter-grammars.tree-sitter-latex
       ]
     else [];
 
@@ -75,12 +53,10 @@ pkgs,
       nomacs
       neomutt
       clipcat
-      # protonmail-bridge
       kdePackages.gwenview
       lynx
       urlscan
-      qbittorrent
-      # tutanota-desktop
+      # qbittorrent # is marked as insecure, Known issues: Potential Remote Code Execution https://www.openwall.com/lists/oss-security/2024/10/30/4
       librewolf
       git
       evince
@@ -89,9 +65,6 @@ pkgs,
       zathura
       unstable.neovim
       telegram-desktop
-      # signal-desktop
-      #  bitwarden-desktop
-      # thunderbird
       (slstatus.override {
         conf = builtins.readFile ../custom/configs/slstatus/config.h;
       })

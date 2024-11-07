@@ -32,3 +32,18 @@ update-lyricz:
 
 update-brightness:
   sudo nix flake lock --update-input brightness
+
+update-firefox:
+  sudo nix flake lock --update-input firefox
+
+update-nixpkgs:
+  sudo nix flake lock --update-input nixpkgs
+
+update-nixpkgs-unstable:
+  sudo nix flake lock --update-input nixpkgs-unstable
+
+update-home-manager:
+  sudo nix flake lock --update-input home-manager
+
+
+

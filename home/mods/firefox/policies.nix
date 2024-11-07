@@ -3,14 +3,18 @@ let
     inherit (lib) mkForce;
 in 
 {
-  AppAutoUpdate = false; # Disable automatic application update
-  BackgroundAppUpdate = false; # Disable automatic application update in the background, when the application is not running.
+  AppAutoUpdate = false;
+  BackgroundAppUpdate = false; 
   BlockAboutAddons = false;
   BlockAboutConfig = false;
   BlockAboutProfiles = false;
   BlockAboutSupport = true;
   CaptivePortal = false;
   Bookmarks = [
+    {
+      name = "kernel.org";
+      url = "https://www.kernel.org";
+    }
     {
       Title = "Example";
       URL = "https://example.com";
@@ -118,7 +122,7 @@ Check for DNS leak => https://mullvad.net/en/check
   FirefoxHome = {
     Search = false;
     TopSites = true;
-    # SponsoredTopSites = false; # Fuck you
+    SponsoredTopSites = false; # Fuck you
     Highlights = false;
     Pocket = false;
     SponsoredPocket = false; # Fuck you
@@ -303,12 +307,10 @@ Preferences Affected: privacy.sanitize.sanitizeOnShutdown, privacy.clearOnShutdo
       }
     ];
   };
-  # -------------------------------------------
 
   SearchSuggestEnabled = true;
   ShowHomeButton = true;
   StartDownloadsInTempDirectory = true;
-
   # Web page translation is done completely on the client, so there is no data or privacy risk.
   TranslateEnabled = true;
 
@@ -327,7 +329,7 @@ Preferences Affected: privacy.sanitize.sanitizeOnShutdown, privacy.clearOnShutdo
   UseSystemPrintDialog = true; # allow me to print in a4 size :)
 
   WebsiteFilter = {
-    Block = ["http://example.org/*"];
-    Exceptions = ["http://example.org/articles/*"];
+    Block = [ "http://example.org/*" ];
+    Exceptions = [ "http://example.org/articles/*" ];
   };
 }

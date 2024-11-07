@@ -5,7 +5,7 @@
 # 4. removes pinned icon indicator on home page
 # 5. changed home page icon width & height to 0, means no icon only text
 
-''
+/*rust*/''
 
 /*================ GLOBAL COLORS ================*/
 

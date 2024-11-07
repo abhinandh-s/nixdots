@@ -25,6 +25,8 @@
       shellAliases = {
         ".." = "cd ..";
         "..." = "cd ../..";
+        "usb-mount" = "udisksctl mount -b /dev/disk/by-label/usb";
+        "server-mount" = "udisksctl mount -b /dev/disk/by-label/server";
         fe = "fzf -e | xargs -r nvim";
         redmi-r = "rsync -P -av -e 'ssh -p 5000'";
         redmi-s = "ssh abhi@192.168.1.100 -p 5000";

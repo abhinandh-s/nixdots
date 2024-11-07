@@ -14,7 +14,6 @@
 		./users.nix
 		./xserver.nix
 		./secrets.nix
-		./emacs.nix
 		./direnv.nix
 		./ftp.nix
 		./jellyfin.nix

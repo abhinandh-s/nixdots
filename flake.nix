@@ -20,9 +20,14 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    firefox = {
+      url = "github:nix-community/flake-firefox-nightly";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     otter = {
       url = "github:abhi-xyz/otter";
-      #      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     brightness = {
       url = "github:abhi-xyz/brightness";
@@ -35,27 +40,25 @@
 
   outputs =
     inputs@{
-      self,
+    self,
     lyricz,
-      otter,
-      brightness,
-      nixpkgs,
-      nixpkgs-unstable,
-      sops-nix,
-      home-manager,
-      sddm-sugar-candy-nix,
-      ...
+    otter,
+    brightness,
+    nixpkgs,
+    nixpkgs-unstable,
+    sops-nix,
+    home-manager,
+    sddm-sugar-candy-nix,
+    ...
     }:
     let
-      # to get random numbers
-      seed = builtins.readFile ./random.txt;
+      randomNumber = builtins.readFile ./random.txt; # to keep home-manager.backupFileExtension happy
       system = "x86_64-linux";
       overlay-unstable = final: prev: {
         unstable = import nixpkgs-unstable {
           inherit system;
           config.allowUnfree = true;
         };
-
       };
     in
     {
@@ -73,7 +76,6 @@
           )
           ./hosts/configuration.nix
 
-          #          otter.nixosModules.default
           sops-nix.nixosModules.sops
           lyricz.nixosModules.lyricz
 
@@ -86,7 +88,7 @@
 
           home-manager.nixosModules.home-manager
           {
-            home-manager.backupFileExtension = seed;
+            home-manager.backupFileExtension = randomNumber;
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
@@ -95,7 +97,6 @@
                   ./home/home.nix
                   otter.homeManagerModules.otter
                   brightness.homeManagerModules.brightness
-                  #                  agenix.homeManagerModules.default
                 ];
                 _module.args.colorpencil = import ./custom/themes/colorpencil;
               };
