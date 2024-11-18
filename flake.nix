@@ -25,6 +25,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    roxide = {
+      url = "github:abhi-xyz/roxide";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     otter = {
       url = "github:abhi-xyz/otter";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -32,16 +37,17 @@
     brightness = {
       url = "github:abhi-xyz/brightness";
     };
-    lyricz = {
-      url = "github:abhi-xyz/lyricz";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # lyricz = {
+    # url = "github:abhi-xyz/lyricz";
+    # inputs.nixpkgs.follows = "nixpkgs";
+    # };
   };
 
   outputs =
     inputs@{
     self,
-    lyricz,
+    roxide,
+  # lyricz,
     otter,
     brightness,
     nixpkgs,
@@ -77,8 +83,8 @@
           ./hosts/configuration.nix
 
           sops-nix.nixosModules.sops
-          lyricz.nixosModules.lyricz
-
+          roxide.nixosModules.roxide
+      #  lyricz.nixosModules.lyricz
           sddm-sugar-candy-nix.nixosModules.default
           {
             nixpkgs = {
@@ -95,6 +101,7 @@
               users.abhi = {
                 imports = [
                   ./home/home.nix
+                  roxide.homeManagerModules.roxide
                   otter.homeManagerModules.otter
                   brightness.homeManagerModules.brightness
                 ];

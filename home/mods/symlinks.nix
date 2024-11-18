@@ -1,4 +1,4 @@
-{ ... }
+{ config, ... }
 :
 let
   kdeconnect_config = ''[General]
@@ -11,6 +11,5 @@ in
     ".local/bin/autostart.sh".source = ../../custom/bin/autostart.sh;
     ".ssh/id_ed25519.pub".source = ../../secrets/id_ed25519.pub;
     ".config/kdeconnect/config".text = kdeconnect_config;
-
   };
 }

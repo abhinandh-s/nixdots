@@ -102,7 +102,7 @@
     { title = "ChatGPT"; url = "https://chatgpt.com";} #7
     { title = "Catppuccin"; url = "https://catppuccin.com/palette";} #9
     { title = "X"; url = "https://x.com";} #11
-    { title = "Hianime"; url = "https://hianime.to/home";} #12
+    { title = "Dropbox"; url = "https://www.dropbox.com/home";} #12
     { title = "Jellyfin Server"; url = "http://localhost:8096/web/index.html#/home.html";} #16
     { title = "Nerd Icons"; url = "https://www.nerdfonts.com/cheat-sheet";} #17
     { title = "Unsplash"; url = "https://unsplash.com/t/wallpapers";} #18

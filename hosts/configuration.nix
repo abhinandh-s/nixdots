@@ -10,6 +10,8 @@
 
 boot.kernelPackages = pkgs.linuxPackages_zen;
 
+program.roxide.enable = true;
+  /*
   program.lyricz = {
     enable = true;
     settings = {
@@ -19,17 +21,23 @@ boot.kernelPackages = pkgs.linuxPackages_zen;
       input = "test";
     };
   };
-
+*/
 
   services.clipcat = {
     enable = true;
     package = pkgs.clipcat;
   };
 
-  virtualisation.virtualbox.host.enable = true;
-  virtualisation.virtualbox.host.enableExtensionPack = true;
-  virtualisation.virtualbox.guest.enable = true;
-  virtualisation.virtualbox.guest.draganddrop = true;
+  # virtualisation.virtualbox = {
+  #   host = {
+  #     enable = true;
+  #     enableExtensionPack = true;
+  #   };
+  #   guest = {
+  #     enable = true;
+  #     draganddrop = true;
+  #   };
+  # };
 
   boot.kernelModules = ["i2c-dev"];
   services.udev.extraRules = ''
@@ -53,15 +61,6 @@ boot.kernelPackages = pkgs.linuxPackages_zen;
   };
 
   programs.fish.enable = true;
-
-  #   system.userActivationScripts = { homeManagerBackupSetup = {
-  #     text = ''
-  #    #   mkdir -p ~/.local/share/homeManagerBackupSetup
-  #    #   ${pkgs.coreutils.all}/bin/shuf -i 1000-99999999 -n 1 > ~/.local/share/homeManagerBackupSetup/random.txt"
-  #     '';
-  #     deps = [];
-  #   };
-  # };
 
   xdg.terminal-exec = {
     enable = true;

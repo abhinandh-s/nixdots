@@ -15,16 +15,16 @@
     ./fastfetch.nix
     ./ncmpcpp.nix
     ./newsboat.nix
-    ./nushell.nix
+    # ./nushell.nix
     ./zathura.nix
-    ./qutebrowser.nix
-    ./aria2.nix
+    # ./qutebrowser.nix
+    # ./aria2.nix
     ./xdgconfig.nix
     ./yazi.nix
     ./mpv.nix
     ./redshift.nix
     ./kitty.nix
-    ./zsh.nix
+    # ./zsh.nix
     ./zoxide.nix
     ./bat.nix
     ./eza.nix
@@ -36,9 +36,8 @@
     ./betterlockscreen.nix
     ./kdeconnect.nix
     ./dropbox.nix
-    ./youtube-music.nix
+    # ./youtube-music.nix
     ./obs.nix
     # ./thunderbird.nix
-
   ];
 }

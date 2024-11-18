@@ -2,17 +2,18 @@
 {
   services.jellyfin = {
     enable = true;
-    package = pkgs.jellyfin;
+    package = pkgs.unstable.jellyfin;
     group = "jellyfin";
     user = "abhi";  
-    #  openFirewall = true;
-    logDir = "/media/server/jellyfin/state/log";
-    cacheDir = "/media/server/jellyfin/state/cache";
-    dataDir = "/media/server/jellyfin/state/data";
-    configDir = "/media/server/jellyfin/state/config";
-
+    openFirewall = true;
+/*
+    logDir = "/home/abhi/.jellyfin/state/log";
+    cacheDir = "/home/abhi/.jellyfin/state/cache";
+    dataDir = "/home/abhi/.jellyfin/state/data";
+    configDir = "/home/abhi/.jellyfin/state/config";
+*/
   };
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages = with pkgs.unstable; [
     jellyfin
     jellyfin-web
     jellyfin-ffmpeg

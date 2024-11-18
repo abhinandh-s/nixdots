@@ -11,7 +11,7 @@ pkgs,
     if install_base
       then
       with pkgs; [
-        tokyonight-gtk-theme
+        # tokyonight-gtk-theme
       ]
     else [];
 
@@ -19,9 +19,6 @@ pkgs,
     if install_misc
       then
       with pkgs; [
-        gimp-with-plugins
-        inkscape-with-extensions
-        krita
         libreoffice-fresh
         (calibre.override {
           unrarSupport = true;
@@ -33,7 +30,7 @@ pkgs,
     if install_languages
     then
       with pkgs; [
-        python3
+        # python3
         lua-language-server
         lua
         luajitPackages.luarocks
@@ -55,8 +52,6 @@ pkgs,
       clipcat
       kdePackages.gwenview
       lynx
-      urlscan
-      # qbittorrent # is marked as insecure, Known issues: Potential Remote Code Execution https://www.openwall.com/lists/oss-security/2024/10/30/4
       librewolf
       git
       evince

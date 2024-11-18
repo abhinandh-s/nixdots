@@ -23,6 +23,7 @@
         };
       };
       shellAliases = {
+        r = "roxide";
         ".." = "cd ..";
         "..." = "cd ../..";
         "usb-mount" = "udisksctl mount -b /dev/disk/by-label/usb";

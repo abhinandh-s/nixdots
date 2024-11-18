@@ -8,9 +8,7 @@ in
     cinnamon.nemo-with-extensions
     alsa-utils
     pass
-    lxappearance
     feh
-    # ddcutil
     pulsemixer
     mpc-cli
     vim
@@ -29,9 +27,7 @@ in
     vlc
     wget
     killall
-    # networkmanagerapplet
     tree
-    htop
     xsel # for clipboard
     openssl_3_3
     fzf
