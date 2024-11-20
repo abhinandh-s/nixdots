@@ -6,20 +6,12 @@
     userEmail = "ugabhi@proton.me";
     signing = {
       signByDefault = true;
-      key = "DB0C262FD077239B2047E7E1DB9F128969F8F68F";
+      key = "F0267B9AC219D809ED315ADCC7BDA2250EB4B330";
     };
     extraConfig = {
       init = {
         defaultBranch = "main";
       };
-      # url = {
-      #   "https://github.com/" = {
-      #     insteadOf = [
-      #       "gh:"
-      #       "github:"
-      #     ];
-      #   };
-      # };
     };
     aliases = {
       c = "commit -m 'Refactoring'";
