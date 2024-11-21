@@ -89,7 +89,7 @@
     { title = "NixOS"; url = "https://nixos.org";} #1
     { title = "MyNixOs"; url = "https://mynixos.com";} #2
     { title = "NixOS Search"; url = "https://search.nixos.org/packages";} #10
-    { title = "Nix Pills"; url = "https://nixos.org/guides/nix-pills/";} #15
+    { title = "figma"; url = "https://www.figma.com/files/team/";} #15
     { title = "NixOS WiKi"; url = "https://nixos.wiki/";} #14
     { title = "Arch WiKi"; url = "https://wiki.archlinux.org/title/Main_page";} #13
     { title = "Rust Doc"; url = "https://doc.rust-lang.org/stable/book";} #3
