@@ -11,6 +11,7 @@
       loginShellInit = "";
       shellInit = ''
         set -U fish_greeting
+        set -U fish_user_paths $HOME/.cargo/bin $fish_user_paths
         set -g fish_color_autosuggestion "838ba7"
       '';
       shellInitLast = "direnv hook fish | source";

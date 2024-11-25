@@ -1,4 +1,4 @@
-{ config , ... }:
+{ ... }:
 {
   # This is using a rec (recursive) expression to set and access XDG_BIN_HOME within the expression
   # For more on rec expressions see https://nix.dev/tutorials/first-steps/nix-language#recursive-attribute-set-rec
@@ -9,9 +9,10 @@
     XDG_STATE_HOME  = "$HOME/.local/state";
     # Not officially in the specification
     XDG_BIN_HOME = "$HOME/.local/bin";
+    CARGO_BIN_HOME = "$HOME/.cargo/bin";
     PATH = [ 
       "${XDG_BIN_HOME}"
+      "${CARGO_BIN_HOME}"
     ];
   };
-  # /home/abhi/.cargo/bin
 }

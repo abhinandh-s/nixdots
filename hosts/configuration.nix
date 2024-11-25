@@ -10,7 +10,7 @@
 
 boot.kernelPackages = pkgs.linuxPackages_zen;
 
-program.roxide.enable = true;
+  # program.roxide.enable = true;
   /*
   program.lyricz = {
     enable = true;
