@@ -1,13 +1,8 @@
-{
-config,
-pkgs,
-...
-}
-:
-{
-	qt = {
-		enable = true;
-		platformTheme = "gtk2";
-		style = "gtk2";
-	};
+{...}
+: {
+  qt = {
+    enable = true;
+    platformTheme = "gtk2";
+    style = "gtk2";
+  };
 }

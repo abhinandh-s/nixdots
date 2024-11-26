@@ -14,7 +14,7 @@ in
         "text/plain" = ["nvim.desktop"]; # Plain text
         "application/vnd.openxmlformats-officedocument.wordprocessingml.document" = ["writer.desktop"]; # .docx
         "application/vnd.openxmlformats-officedocument.presentationml.presentation" = ["onlyoffice-desktopeditors.desktop"]; # .pptx
-        "application/pdf" = ["org.kde.okular.desktop" "zathura.desktop" "firefox.desktop"]; # .pdf
+        "application/pdf" = ["org.gnome.Evince.desktop" "org.kde.okular.desktop" "zathura.desktop" "firefox.desktop"]; # .pdf
         "application/zip" = ["xarchiver.desktop"];
         "video/*" = ["mpv.desktop"]; # Any video files
         "x-scheme-handler/https" = ["firefox.desktop"]; # Links
