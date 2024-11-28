@@ -44,6 +44,7 @@ in
     reloadTime = 60;
     reloadThreads = 10;
     urls = [
+      {tags = [ "articles" ]; url = "https://abhinandhs.in/feed.atom";}
       {tags = [ "articles" ]; url = "https://fortelabs.com/feed/";}
       {tags = [ "articles" ]; url = "https://feeds.feedburner.com/collabfund";}
       {tags = [ "articles" ]; url = "https://markmanson.net/feed";}

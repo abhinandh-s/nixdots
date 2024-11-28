@@ -1,29 +1,17 @@
-{ pkgs, lib, ... }:
-let
-    inherit (lib) mkForce;
-in 
 {
+  pkgs,
+  lib,
+  ...
+}: let
+  inherit (lib) mkForce;
+in {
   AppAutoUpdate = false;
-  BackgroundAppUpdate = false; 
+  BackgroundAppUpdate = false;
   BlockAboutAddons = false;
   BlockAboutConfig = false;
   BlockAboutProfiles = false;
   BlockAboutSupport = true;
   CaptivePortal = false;
-  Bookmarks = [
-    {
-      name = "kernel.org";
-      url = "https://www.kernel.org";
-    }
-    {
-      Title = "Example";
-      URL = "https://example.com";
-      Favicon = "https://example.com/favicon.ico";
-      Placement = "toolbar";
-      Folder = "FolderName";
-    }
-  ];
-
 
   Cookies = {
     Allow = ["http://example.org/"];
@@ -55,49 +43,48 @@ in
   DisplayBookmarksToolbar = "never"; # "always" | "never" | "newtab"
   DisplayMenuBar = "never"; # "always", "never", "default-on", "default-off"
 
-/*
+  /*
 
-Ref: https://mullvad.net/en/help/dns-over-https-and-dns-over-tls#browsers
+  Ref: https://mullvad.net/en/help/dns-over-https-and-dns-over-tls#browsers
 
-DNS service uses DNS over HTTPS (DoH) and DNS over TLS (DoT). This protects your DNS queries from being snooped on by third parties when not connected to our VPN service as your DNS queries are encrypted between your device and our DNS server.
+  DNS service uses DNS over HTTPS (DoH) and DNS over TLS (DoT). This protects your DNS queries from being snooped on by third parties when not connected to our VPN service as your DNS queries are encrypted between your device and our DNS server.
 
-This service is primarily meant to be used when you are disconnected from our VPN service, or on devices where it's not possible or desirable to connect to the VPN. When you are already connected to our VPN service the security benefits of using encrypted DNS is negligible and it will always be slower than using the DNS resolver on the VPN server that you are connected to.
+  This service is primarily meant to be used when you are disconnected from our VPN service, or on devices where it's not possible or desirable to connect to the VPN. When you are already connected to our VPN service the security benefits of using encrypted DNS is negligible and it will always be slower than using the DNS resolver on the VPN server that you are connected to.
 
-Firefox (desktop version)
+  Firefox (desktop version)
 
-Hostname        	 | Ads 	| Trackers | Malware | Adult | Gambling | Social media |
+  Hostname        	       | Ads 	\ Trackers | Malware | Adult | Gambling | Social media |
+                           \      \          \
+  dns.mullvad.net 	  	   \   	  \  	       \
+  adblock.dns.mullvad.net  \   	  \   ✅     \   ✅
+  base.dns.mullvad.net 	   \   ✅ \	  ✅     \   ✅
+  extended.dns.mullvad.net \   	  \   ✅     \   ✅        ✅ 	  	       ✅
+  family.dns.mullvad.net 	 \      \   ✅     \   ✅        ✅        ✅ 	 ✅
+  all.dns.mullvad.net    	 \      \   ✅     \   ✅        ✅        ✅  	 ✅ 	       ✅
 
-dns.mullvad.net 	  	  	    	   
-adblock.dns.mullvad.net 	     ✅        ✅   	  	  	 
-base.dns.mullvad.net 	   ✅ 	     ✅        ✅   	  	 
-extended.dns.mullvad.net 	     ✅        ✅        ✅ 	  	       ✅
-family.dns.mullvad.net 	   ✅        ✅        ✅        ✅ 	 ✅ 	 
-all.dns.mullvad.net    	   ✅        ✅        ✅        ✅  	 ✅ 	       ✅
+  Click on the menu button in the top right corner and select Settings.
+  Click on Privacy & Security in the left column.
+  Scroll down to the bottom.
+  Under Enable secure DNS using select Max Protection.
+  Under Choose provider click on the drop down list and select Custom.
+  In the text field that appears, paste one of the following, then press Enter on your keyboard to set it.
 
-Click on the menu button in the top right corner and select Settings.
-Click on Privacy & Security in the left column.
-Scroll down to the bottom.
-Under Enable secure DNS using select Max Protection.
-Under Choose provider click on the drop down list and select Custom.
-In the text field that appears, paste one of the following, then press Enter on your keyboard to set it. 
+  https://dns.mullvad.net/dns-query
+  https://adblock.dns.mullvad.net/dns-query
+  https://base.dns.mullvad.net/dns-query
+  https://extended.dns.mullvad.net/dns-query
+  https://family.dns.mullvad.net/dns-query
+  https://all.dns.mullvad.net/dns-query
 
-https://dns.mullvad.net/dns-query
-https://adblock.dns.mullvad.net/dns-query
-https://base.dns.mullvad.net/dns-query
-https://extended.dns.mullvad.net/dns-query
-https://family.dns.mullvad.net/dns-query
-https://all.dns.mullvad.net/dns-query
-
-Check for DNS leak => https://mullvad.net/en/check
-
-*/
+  Check for DNS leak => https://mullvad.net/en/check
+  */
 
   DNSOverHTTPS = {
-    Enabled =  true; # | false;
+    Enabled = true;
     ProviderURL = "https://family.dns.mullvad.net/dns-query";
-    Locked = true; # | false,
+    Locked = true;
     ExcludedDomains = ["example.com"];
-    Fallback = true; # true | false,
+    Fallback = true;
   };
 
   DontCheckDefaultBrowser = true; # Stop being attention whore
@@ -147,53 +134,29 @@ Check for DNS leak => https://mullvad.net/en/check
       mailto = {
         action = "useHelperApp";
         ask = true;
-        handlers = [{
-          name = "Gmail"; # Proton Mail
-          uriTemplate = "https://mail.google.com/mail/?extsrc=mailto&url=%s";
-        }];
+        handlers = [
+          {
+            name = "Gmail"; # Proton Mail
+            uriTemplate = "https://mail.google.com/mail/?extsrc=mailto&url=%s";
+          }
+        ];
       };
     };
     extensions = {
       pdf = {
         action = "useHelperApp";
         ask = true;
-        # FIXME-QA(Krey): Should only happen on GNOME
         handlers = [
           {
             name = "GNOME Document Viewer";
-            path = "${pkgs.zathura}/bin/zathura";
+            path = "${pkgs.evince}/bin/evince";
           }
         ];
       };
     };
   };
 
-  HardwareAcceleration = true; 
-
-  # Configures a list of bookmarks managed by an administrator that cannot be changed by the user.
-  # The bookmarks are only added as a button on the personal toolbar. They are not in the bookmarks folder.
-  ManagedBookmarks = [
-    {
-      toplevel_name = "My managed bookmarks folder";
-    }
-    {
-      url = "example.com";
-      name = "Example";
-    }
-    {
-      name = "Mozilla links";
-      children = [
-        {
-          url = "https://mozilla.org";
-          name = "Mozilla.org";
-        }
-        {
-          url = "https://support.mozilla.org/";
-          name = "SUMO";
-        }
-      ];
-    }
-  ];
+  HardwareAcceleration = true;
 
   ManualAppUpdateOnly = true;
   NoDefaultBookmarks = true;
@@ -218,24 +181,24 @@ Check for DNS leak => https://mullvad.net/en/check
       BlockNewRequests = true;
       Locked = true;
     };
-    # 	Location = {
-    # 		Allow = [https =//example.org];
-    # 		Block = [https =//example.edu];
-    # 		BlockNewRequests = true;
-    # 		Locked = true
-    # 	};
+    Location = {
+      # 		Allow = [https =//example.org];
+      # 		Block = [https =//example.edu];
+      BlockNewRequests = true;
+      Locked = true;
+    };
     Notifications = {
-      Allow = ["http://localhost:8096/web/*"]; # Jellyfin
+      Allow = ["http://localhost:8096/*"]; # Jellyfin
       Block = ["https://google.com/*"];
       BlockNewRequests = true;
       Locked = true;
     };
-    # 	Autoplay = {
-    # 		Allow = [https =//example.org];
-    # 		Block = [https =//example.edu];
-    # 		Default = allow-audio-video | block-audio | block-audio-video;
-    # 		Locked = true
-    # 	};
+    Autoplay = {
+      # 		Allow = [https =//example.org];
+      # 		Block = [https =//example.edu];
+      Default = "block-audio"; # allow-audio-video | block-audio | block-audio-video;
+      Locked = true;
+    };
   };
 
   PictureInPicture = {
@@ -244,7 +207,7 @@ Check for DNS leak => https://mullvad.net/en/check
   };
 
   PopupBlocking = {
-    Allow = ["https://google.com/*"];
+    Allow = ["https://example.com/*"];
     Default = true;
     Locked = true;
   };
@@ -281,9 +244,8 @@ Check for DNS leak => https://mullvad.net/en/check
   };
   /*
 
-Preferences Affected: privacy.sanitize.sanitizeOnShutdown, privacy.clearOnShutdown.cache, privacy.clearOnShutdown.cookies, privacy.clearOnShutdown.downloads, privacy.clearOnShutdown.formdata, privacy.clearOnShutdown.history, privacy.clearOnShutdown.sessions, privacy.clearOnShutdown.siteSettings, privacy.clearOnShutdown.offlineApps
-
-*/
+  Preferences Affected: privacy.sanitize.sanitizeOnShutdown, privacy.clearOnShutdown.cache, privacy.clearOnShutdown.cookies, privacy.clearOnShutdown.downloads, privacy.clearOnShutdown.formdata, privacy.clearOnShutdown.history, privacy.clearOnShutdown.sessions, privacy.clearOnShutdown.siteSettings, privacy.clearOnShutdown.offlineApps
+  */
 
   SearchBar = "separate"; # "unified" | "separate"
 
@@ -329,7 +291,7 @@ Preferences Affected: privacy.sanitize.sanitizeOnShutdown, privacy.clearOnShutdo
   UseSystemPrintDialog = true; # allow me to print in a4 size :)
 
   WebsiteFilter = {
-    Block = [ "http://example.org/*" ];
-    Exceptions = [ "http://example.org/articles/*" ];
+    Block = ["http://example.org/*"];
+    Exceptions = ["http://example.org/articles/*"];
   };
 }

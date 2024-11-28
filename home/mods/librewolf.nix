@@ -1,9 +1,10 @@
-{ pkgs, ... }:
-
-{
+{pkgs, ...}: {
   programs.librewolf = {
     package = pkgs.librewolf;
     settings = {
+      "sidebar.revamp" = true;
+      "sidebar.verticalTabs" = true;
+
       # Enable letterboxing
       "privacy.resistFingerprinting.letterboxing" = true;
 

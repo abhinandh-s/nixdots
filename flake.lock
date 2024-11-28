@@ -147,6 +147,26 @@
         "type": "github"
       }
     },
+    "nix-fonts": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1732613535,
+        "narHash": "sha256-7QwoLJxg6wW4nD8m40jixp3JFaIdO184qmBhun6QHS8=",
+        "owner": "abhi-xyz",
+        "repo": "nix-fonts",
+        "rev": "a5e79ecafb1c79aab328672824be64de0bafc81c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "abhi-xyz",
+        "repo": "nix-fonts",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1729880355,
@@ -249,6 +269,7 @@
         "brightness": "brightness",
         "firefox": "firefox",
         "home-manager": "home-manager",
+        "nix-fonts": "nix-fonts",
         "nixpkgs": "nixpkgs_2",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "otter": "otter",

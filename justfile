@@ -16,6 +16,7 @@ build:
   shuf -i 100-99999999 -n 1 > random.txt
   git add -A
   sudo nixos-rebuild switch --flake .
+  sudo nix-store --optimise
 
 push:
   git gc
