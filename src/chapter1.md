@@ -7,6 +7,14 @@ fn add() {
 ```
 
 ```nix
+{...}:
+let
+in 
+{
+}
+```
+
+```nix
 {
   description = "Abhi's NixOS Configuration";
 
