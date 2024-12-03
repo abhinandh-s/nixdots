@@ -1,5 +1,11 @@
 # Chapter 1
 
+```rust
+fn add() {
+    println!("hello");
+}
+```
+
 ```nix
 {
   description = "Abhi's NixOS Configuration";
