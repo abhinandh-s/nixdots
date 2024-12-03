@@ -4,6 +4,8 @@ author = "Abhinandh S"
 description = "This is a detailed description of the book."
 language = "en"
 
+[build]
+build-dir = "docs"
 # Optional settings for customization
 # theme = "light"  # "dark" for dark theme or "light" for light theme
 
