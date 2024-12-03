@@ -28,6 +28,6 @@
       background_blur = 50;
       notify_on_cmd_finish = "always"; # Only send a notification when the window does not have keyboard focus.
     };
-    theme = "Tokyo Night";
+    # themeFile = "Tokyo Night";
   };
 }

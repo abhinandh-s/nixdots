@@ -24,9 +24,10 @@
         };
       };
       shellAliases = {
-        r = "roxide";
+        # r = "roxide";
         ".." = "cd ..";
         "..." = "cd ../..";
+        rdev = "nix develop ~/dev/github/roxide/nix/dev --command fish";
         "usb-mount" = "udisksctl mount -b /dev/disk/by-label/usb";
         "server-mount" = "udisksctl mount -b /dev/disk/by-label/server";
         fe = "fzf -e | xargs -r nvim";

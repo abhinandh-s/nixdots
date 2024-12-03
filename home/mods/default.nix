@@ -1,7 +1,9 @@
 { ... }:
 {
   imports = [
+    ./fish.nix
     # ./emacs.nix
+    ../../custom/themes/rofi-themes/powermenu.nix
     ./firefox
     ./secrets.nix
     ./alacritty.nix
@@ -21,7 +23,7 @@
     # ./aria2.nix
     ./xdgconfig.nix
     ./yazi.nix
-    ./mpv.nix
+    # ./mpv.nix
     ./redshift.nix
     ./kitty.nix
     # ./zsh.nix
@@ -29,7 +31,6 @@
     ./bat.nix
     ./eza.nix
     ./mpd.nix
-    ./fish.nix
     ./cava.nix
     ./conky.nix
     ./neomutt.nix

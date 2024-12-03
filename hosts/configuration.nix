@@ -44,14 +44,13 @@ boot.kernelPackages = pkgs.linuxPackages_zen;
     KERNEL=="i2c-[0-9]*", GROUP="i2c", MODE="0660"
   '';
 
-  hardware.opengl = {
+  hardware.graphics = {
     enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
+    enable32Bit = true;
   };
 
   environment = {
-    shells = with pkgs; [fish];
+    shells = with pkgs; [ fish ];
     variables = {
       EDITOR = "nvim";
       VISUAL = "nvim";

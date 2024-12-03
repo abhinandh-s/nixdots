@@ -30,7 +30,7 @@ pkgs,
     if install_languages
     then
       with pkgs; [
-        # python3
+        python3
         lua-language-server
         lua
         luajitPackages.luarocks

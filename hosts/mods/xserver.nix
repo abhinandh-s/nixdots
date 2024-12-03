@@ -9,10 +9,7 @@
     xkb.variant = "";
     xkb.options = "caps:escape_shifted_capslock";
     windowManager = {
-      qtile = {
-        enable = true;
-        backend = "wayland";
-      };
+      # qtile.enable = true;
       dwm.enable = true;
     };
   };

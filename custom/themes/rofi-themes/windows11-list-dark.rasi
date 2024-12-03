@@ -7,7 +7,7 @@
   bg3    : #393939bf;
   fg0    : #ffffff;
   fg1    : #cecece;
-  accent : #60cdff;
+  accent : #e52e71;
   urgent : @accent;
 
   background-color : transparent;

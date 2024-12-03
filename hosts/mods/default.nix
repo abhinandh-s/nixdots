@@ -17,7 +17,7 @@
 		./direnv.nix
 		./ftp.nix
 		./jellyfin.nix
-		./picom.nix
+    # ./picom.nix
 		./st.nix
 		./syncthing.nix
 		./qt.nix

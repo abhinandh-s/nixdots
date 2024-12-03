@@ -10,6 +10,7 @@ in {
     subtext = subtext;
     shadow = shadow;
     foreground = "#ffb3de";
+    cherry = "#e52e71";
   };
   red = {
     background = background;
@@ -17,6 +18,7 @@ in {
     subtext = subtext;
     shadow = shadow;
     foreground = "#f38ba8";
+    cherry = "#e52e71";
   };
   green = {
     background = background;

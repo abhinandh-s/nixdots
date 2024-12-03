@@ -10,7 +10,7 @@
           right = 1;
         };
       };
-      display = {
+      display.size = {
         binaryPrefix = "si";
         color = "blue";
         separator = " -> ";

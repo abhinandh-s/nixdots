@@ -18,7 +18,4 @@
     jellyfin-web
     jellyfin-ffmpeg
   ];
-  hardware.opengl = {
-    enable = true;
-  };
 }

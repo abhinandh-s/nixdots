@@ -5,7 +5,7 @@ in
   {
   environment.systemPackages = with pkgs; [
     # clipCat
-    cinnamon.nemo-with-extensions
+    nemo-with-extensions
     alsa-utils
     pass
     feh
