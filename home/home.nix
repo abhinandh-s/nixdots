@@ -1,19 +1,17 @@
-{
-  ...
-}:
-{
+{ config, ... }: {
   home = {
+    stateVersion = "24.05";
     username = "abhi";
     homeDirectory = "/home/abhi";
-    # stateVersion = "24.11";
-    stateVersion = "24.05";
   };
 
   imports = [
     ./mods
     ./pkgs.nix
   ];
-  
+
+  my.colorpencil.option = "black";
+
   home.sessionVariables = {
     # remain backwards compatible with qt5
     DISABLE_QT5_COMPAT = "0";
@@ -21,7 +19,7 @@
     # tell calibre to use the dark theme
     CALIBRE_USE_DARK_PALETTE = "1";
   };
-  
+
   program.brightness.enable = true;
   program.otter = {
     enable = true;
@@ -53,8 +51,6 @@
       };
     };
   };
-
-  my.colorpencil.option = "red";
 
   xdg.userDirs = {
     enable = true;

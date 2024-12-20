@@ -5,6 +5,8 @@ in
   {
   environment.systemPackages = with pkgs; [
     # clipCat
+    eww
+    xdotool
     nemo-with-extensions
     alsa-utils
     pass

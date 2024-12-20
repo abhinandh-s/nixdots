@@ -1,5 +1,6 @@
-{ pkgs, ... }:
+{ config, pkgs, colorpencil, ... }:
 let
+  selectedColor = builtins.getAttr (config.my.colorpencil.option) colorpencil;
   # Define conky configuration string
   conkyConfig = /*lua*/ ''
 conky.config = {
@@ -24,7 +25,7 @@ conky.config = {
   default_color = 'FFFFFF',
   default_outline_color = 'white',
   default_shade_color = 'white',
-  color1 = 'f38ba8',
+  color1 = '${selectedColor.foreground-s}',
 
   -- Window Settings --
   background = false,

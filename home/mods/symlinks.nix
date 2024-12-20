@@ -1,13 +1,22 @@
-{ pkgs, ... }
-:
-let
-  kdeconnect_config = ''[General]
-name=nixos'';
-in 
-  {
+{
+  config,
+  pkgs,
+  ...
+}: let
+  selectedColor = config.my.colorpencil.option;
+
+  wallpaper = if selectedColor == "red"
+      then pkgs.lib.cleanSource ../../assets/wallpaper/wallpaper-pink.avif
+    else if selectedColor == "black"
+      then pkgs.lib.cleanSource ../../assets/wallpaper/kali-linux-wallpaper-v1.png
+    else pkgs.lib.cleanSource ../../assets/wallpaper/wallpaper-pink.avif;
+
+  kdeconnect_config = ''    [General]
+    name=nixos'';
+in {
   home.file = {
     # ".local/bin/slstatus".source = ../../custom/bin/slstatus;
-    ".background-image".source = ../../assets/wallpaper/wallpaper-pink.avif;
+    ".background-image".source = "${wallpaper}";
     ".local/bin/autostart.sh".source = ../../custom/bin/autostart.sh;
     ".ssh/id_ed25519.pub".source = ../../secrets/id_ed25519.pub;
     ".config/kdeconnect/config".text = kdeconnect_config;

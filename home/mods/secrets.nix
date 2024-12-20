@@ -13,6 +13,10 @@
 				path = "/home/abhi/.config/hut/config";
 				mode = "0644";
 			};
+      cargo-token = {
+        path = "/home/abhi/.cargo/credentials.toml";
+        mode = "0644";
+      };
     };
   };
 }
