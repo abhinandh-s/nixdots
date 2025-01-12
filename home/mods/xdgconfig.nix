@@ -48,6 +48,7 @@ in
       templates = "${config.home.homeDirectory}/templates";
       extraConfig = {
         XDG_MISC_DIR = "${config.home.homeDirectory}/misc";
+        XDG_DEV_DIR = "${config.home.homeDirectory}/git";
         XDG_ARCHIVE_DIR = "${config.home.homeDirectory}/archive";
         XDG_DOCS_ARCHIVE_DIR = "${config.home.homeDirectory}/docs/archive";
         XDG_BOOK_DIR = "${config.home.homeDirectory}/docs/books";

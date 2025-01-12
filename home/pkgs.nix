@@ -1,7 +1,7 @@
 {
-config,
-pkgs,
-...
+  config,
+  pkgs,
+  ...
 }: let
   install_base = true;
   install_misc = true; # Change this to false to skip misc_packages
@@ -9,15 +9,17 @@ pkgs,
 
   base_packages =
     if install_base
-      then
+    then
       with pkgs; [
+        anki-bin
+        lazygit
         # tokyonight-gtk-theme
       ]
     else [];
 
   misc_packages =
     if install_misc
-      then
+    then
       with pkgs; [
         libreoffice-fresh
         (calibre.override {
@@ -59,6 +61,7 @@ pkgs,
       hut
       zathura
       unstable.neovim
+      discord
       telegram-desktop
       (slstatus.override {
         conf = builtins.readFile ../custom/configs/slstatus/config.h;
