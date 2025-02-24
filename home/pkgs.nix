@@ -13,6 +13,8 @@
       with pkgs; [
         anki-bin
         lazygit
+        rnote
+        unstable.ghostty
         # tokyonight-gtk-theme
       ]
     else [];

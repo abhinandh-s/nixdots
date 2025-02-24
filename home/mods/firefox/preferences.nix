@@ -84,14 +84,14 @@
   # --
   "browser.newtabpage.pinned" = [
     { title = "Abhinandh"; url = "https://abhinandhs.in/";} #25
-    { title = "My website"; url = "https://abhi-xyz.github.io/site/";} #20
-    { title = "Github"; url = "https://github.com/abhi-xyz";} #8
+    { title = "My website"; url = "https://abhinandh-s.github.io/site/";} #20
+    { title = "Github"; url = "https://github.com/abhinandh-s";} #8
     { title = "Deno"; url = "https://fresh.deno.dev";} #1
     { title = "MyNixOs"; url = "https://mynixos.com";} #2
     { title = "NixOS Search"; url = "https://search.nixos.org/packages";} #10
     { title = "figma"; url = "https://www.figma.com/files/team/";} #15
     { title = "NixOS WiKi"; url = "https://nixos.wiki/";} #14
-    { title = "Tailwindcss"; url = "https://tailwindcss.com/docs/installation";} #13
+    { title = "Whatsapp"; url = "https://web.whatsapp.com/";} #13
     { title = "Rust Doc"; url = "https://doc.rust-lang.org/stable/book";} #3
     { title = "Typst"; url = "https://typst.app/";} #30
     { title = "Rust by Examples"; url = "https://doc.rust-lang.org/rust-by-example/index.html";} #31

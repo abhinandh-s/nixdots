@@ -37,6 +37,7 @@
     ./betterlockscreen.nix
     ./kdeconnect.nix
     ./dropbox.nix
+    ./tmux.nix
     # ./youtube-music.nix
     ./obs.nix
     # ./thunderbird.nix

@@ -31,11 +31,6 @@
       url = "github:abhi-xyz/roxide";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    otter = {
-      url = "github:abhi-xyz/otter";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     brightness = {
       url = "github:abhi-xyz/brightness";
     };
@@ -49,7 +44,6 @@
     self,
     nix-fonts,
     roxide,
-    otter,
     brightness,
     nixpkgs,
     nixpkgs-unstable,
@@ -100,7 +94,6 @@
               imports = [
                 ./home/home.nix
                 roxide.homeManagerModules.roxide
-                otter.homeManagerModules.otter
                 brightness.homeManagerModules.brightness
               ];
               _module.args.colorpencil = import ./custom/themes/colorpencil;
