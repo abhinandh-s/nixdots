@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  inputs,
   ...
 }: let
   install_base = true;
@@ -15,6 +16,7 @@
         lazygit
         rnote
         unstable.ghostty
+        inputs.zen-browser.packages."x86_64-linux".default # beta
         # tokyonight-gtk-theme
       ]
     else [];
