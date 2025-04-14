@@ -1,3 +1,6 @@
+# i had permission issue on last nixos-install
+# sudo chown -R abhi:users /home/abhi/
+
 test:
   @echo " "
   @echo "random number changed from"
@@ -10,12 +13,12 @@ test:
   @cat random.txt
   @echo " "
   @git add -A
-  sudo nixos-rebuild test -v --flake .
+  sudo nixos-rebuild test -v --flake .#abhi
 
 build:
   shuf -i 100-99999999 -n 1 > random.txt
   git add -A
-  sudo nixos-rebuild switch --flake .
+  sudo nixos-rebuild switch --flake .#abhi
   sudo nix-store --optimise
 
 push:
@@ -32,7 +35,7 @@ update-roxide:
   sudo nix flake lock --update-input roxide
   shuf -i 100-99999999 -n 1 > random.txt
   git add -A
-  sudo nixos-rebuild switch --flake .
+  sudo nixos-rebuild switch --flake .#abhi
 
 update-lyricz:
   sudo nix flake lock --update-input lyricz

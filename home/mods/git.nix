@@ -4,10 +4,10 @@
     enable = true;
     userName = "Abhinandh S";
     userEmail = "ugabhi@proton.me";
-    signing = {
-      signByDefault = true;
-      key = "F0267B9AC219D809ED315ADCC7BDA2250EB4B330";
-    };
+    # signing = {
+      #  signByDefault = true;
+      #  key = "F0267B9AC219D809ED315ADCC7BDA2250EB4B330";
+    # };
     extraConfig = {
       init = {
         defaultBranch = "main";

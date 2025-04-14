@@ -15,8 +15,9 @@
         anki-bin
         lazygit
         rnote
-        unstable.ghostty
-        inputs.zen-browser.packages."x86_64-linux".default # beta
+        libreoffice-fresh
+        # unstable.ghostty
+       # inputs.zen-browser.packages."x86_64-linux".default # beta
         # tokyonight-gtk-theme
       ]
     else [];
@@ -26,9 +27,9 @@
     then
       with pkgs; [
         libreoffice-fresh
-        (calibre.override {
-          unrarSupport = true;
-        })
+       # (calibre.override {
+       #   unrarSupport = true;
+        # })
       ]
     else [];
 
@@ -65,7 +66,7 @@
       hut
       zathura
       unstable.neovim
-      discord
+      unstable.discord
       telegram-desktop
       (slstatus.override {
         conf = builtins.readFile ../custom/configs/slstatus/config.h;

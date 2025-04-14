@@ -14,7 +14,7 @@ in
     xkb.variant = "";
     xkb.options = "caps:escape_shifted_capslock";
     windowManager = {
-      # qtile.enable = true;
+      qtile.enable = true;
       leftwm.enable = true;
       dwm.enable = true;
     };

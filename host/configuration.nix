@@ -1,14 +1,19 @@
-{
-  pkgs,
-  config,
-  ...
-}: {
+
+{ config, lib, pkgs, performFullSetup, ... }:
+ {
   imports = [
     ./hardware-configuration.nix
     ./mods
-  ];
+  ]
+    ++ (
+      if performFullSetup then [
+        # ../pkgs.nix
+      ]
+      else []
+    );
 
 boot.kernelPackages = pkgs.linuxPackages_zen;
+  boot.initrd.luks.devices."crypted".device = "/dev/disk/by-partlabel/disk-main-luks";
 
   # program.roxide.enable = true;
   /*
