@@ -7,13 +7,13 @@
       "locked": {
         "lastModified": 1732635833,
         "narHash": "sha256-U+3vYSBt1NdN/YeT3hDjHTmsmNwmFh3s0exGNTLc3gY=",
-        "owner": "abhi-xyz",
+        "owner": "abhinandh-s",
         "repo": "brightness",
         "rev": "d9dccf0bc2c1bdb2db9fca283752a201acb0dfd6",
         "type": "github"
       },
       "original": {
-        "owner": "abhi-xyz",
+        "owner": "abhinandh-s",
         "repo": "brightness",
         "type": "github"
       }
@@ -161,15 +161,15 @@
         ]
       },
       "locked": {
-        "lastModified": 1732627312,
-        "narHash": "sha256-i3ialZzTmnc6PhJi5x74+Kzz0NTrQV/9TDFBLCOnSWM=",
-        "owner": "abhi-xyz",
+        "lastModified": 1744641754,
+        "narHash": "sha256-J9eijjwenuwY96it0Pzk/gAI6DtXs9VdL+2NhUip2/E=",
+        "owner": "abhinandh-s",
         "repo": "nix-fonts",
-        "rev": "28ed5c2382f637cca3b0c17447aff17474375dc2",
+        "rev": "5768212231fe56ffe4ea4ad1108e64482c6fd4c2",
         "type": "github"
       },
       "original": {
-        "owner": "abhi-xyz",
+        "owner": "abhinandh-s",
         "repo": "nix-fonts",
         "type": "github"
       }
@@ -258,15 +258,15 @@
         ]
       },
       "locked": {
-        "lastModified": 1743323168,
-        "narHash": "sha256-1vrBVXaRG2yGUAnlg2q4BJ5oSGByVje6DXKldvbQdH8=",
-        "owner": "abhi-xyz",
+        "lastModified": 1744538510,
+        "narHash": "sha256-8AgrxXHsVy9/ud+ZvBPWh3jg2qYeFcgmffTY/Xf4ox4=",
+        "owner": "abhinandh-s",
         "repo": "roxide",
-        "rev": "a5216db0c730c2176d0a665d127b1a0f07344a5c",
+        "rev": "e34572758da4722ed316ba67b4cee9ee6a6d2197",
         "type": "github"
       },
       "original": {
-        "owner": "abhi-xyz",
+        "owner": "abhinandh-s",
         "repo": "roxide",
         "type": "github"
       }

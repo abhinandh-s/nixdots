@@ -57,3 +57,8 @@ update-home-manager:
 
 
 
+update-fonts:
+  sudo nix flake lock --update-input nix-fonts
+
+
+

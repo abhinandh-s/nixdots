@@ -4,6 +4,7 @@ let
 in 
   {
   environment.systemPackages = with pkgs; [
+    tmux
     _7zz
     alsa-utils
     age 

@@ -28,14 +28,14 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     roxide = {
-      url = "github:abhi-xyz/roxide";
+      url = "github:abhinandh-s/roxide";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     brightness = {
-      url = "github:abhi-xyz/brightness";
+      url = "github:abhinandh-s/brightness";
     };
     nix-fonts = {
-      url = "github:abhi-xyz/nix-fonts";
+      url = "github:abhinandh-s/nix-fonts";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -74,7 +74,6 @@
               nixpkgs.overlays = [overlay-unstable];
             }
           )
-          nix-fonts.nixosModules.nix-fonts
           sops-nix.nixosModules.sops
           roxide.nixosModules.roxide
           #  lyricz.nixosModules.lyricz
