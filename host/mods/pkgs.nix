@@ -6,6 +6,7 @@ in
   environment.systemPackages = with pkgs; [
     tmux
     _7zz
+    starship
     alsa-utils
     age 
     ark

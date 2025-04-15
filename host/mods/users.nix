@@ -5,7 +5,7 @@
 }: {
   sops.secrets.abhi_password.neededForUsers = true;
   users = {
-    defaultUserShell = pkgs.fish;
+    defaultUserShell = pkgs.nushellFull;
     mutableUsers = false;
     # If set to true, you are free to add new users and groups to the system with the ordinary useradd and groupadd commands.
     # must set to false for sops
