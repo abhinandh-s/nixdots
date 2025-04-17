@@ -12,6 +12,7 @@
     if install_base
     then
       with pkgs; [
+        zellij
         anki-bin
         lazygit
         rnote
