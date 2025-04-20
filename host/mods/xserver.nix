@@ -1,15 +1,14 @@
 {
   lib,
+  pkgs,
   inputs,
   ...
 }: let
-  dwmPackage = inputs.dwm.packages.x86_64-linux.default;
-  # how to properly patch this?
-  dwmPackage2 = inputs.dwm.packages.x86_64-linux.default.overrideAttrs (oldAttrs: {
-    postPatch = ''
-      cp ${./../../custom/pkgs/dwm/config.h} $out/config.h
-    '';
-  });
+  # default_dwmPackage = inputs.dwm.packages.x86_64-linux.default;
+  dwmPackage = import inputs.dwm {
+    inherit pkgs;
+    configFile = lib.cleanSource ./../../dots/dwm/config.h;
+  };
 in {
   services.xserver = {
     enable = true;
@@ -19,22 +18,12 @@ in {
     windowManager = {
       qtile.enable = true;
       leftwm.enable = true;
-      dwm.enable = true;
+      dwm = {
+        enable = true;
+        package = dwmPackage;
+      };
     };
   };
-  services.xserver.windowManager.dwm.package = dwmPackage;
-  # pkgs.dwm.overrideAttrs {
-  #   src = pkgs.fetchFromSourcehut {
-  #     owner = "~abhinandh";
-  #     repo = "dwm";
-  #     rev = "0031712dcf6dd51de6d347bdf7f7c6b57bdeb6e3";
-  #     sha256 = "sha256-R5r8CwE33XsxwJflEd2KKea4RyYC0ob9cyGyx6VO78E=";
-  #   };
-  #   postPatch = ''
-  # echo "-----------------------------------------------"
-  # echo "Copying config.h directly to the src directory"
-  # '';
-  # };
 
   services.displayManager.sddm = {
     enable = true;
