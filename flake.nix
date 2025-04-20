@@ -31,6 +31,10 @@
       url = "github:abhinandh-s/roxide";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    dwm = {
+      url = "github:abhinandh-s/dwm";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     brightness = {
       url = "github:abhinandh-s/brightness";
     };
@@ -39,76 +43,75 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
-  outputs = inputs @ { 
+  outputs = inputs @ {
     self,
     nixpkgs,
     disko,
     roxide,
+    dwm,
     nix-fonts,
     brightness,
     nixpkgs-unstable,
     sops-nix,
     home-manager,
     sddm-sugar-candy-nix,
-    ... 
-    }:
-    let
-      randomNumber = builtins.readFile ./random.txt; # to keep home-manager.backupFileExtension happy
-      system = "x86_64-linux";
-      overlay-unstable = final: prev: {
-        unstable = import nixpkgs-unstable {
-          inherit system;
-          config.allowUnfree = true;
-        };
-      };
-    in
-      {
-      nixosConfigurations.abhi = nixpkgs.lib.nixosSystem {
+    ...
+  }: let
+    randomNumber = builtins.readFile ./random.txt; # to keep home-manager.backupFileExtension happy
+    system = "x86_64-linux";
+    overlay-unstable = final: prev: {
+      unstable = import nixpkgs-unstable {
         inherit system;
-        modules = [
-          disko.nixosModules.disko
-          ./disko.nix
-          ./host/configuration.nix
-          (
-            {...}: {
-              nixpkgs.overlays = [overlay-unstable];
-            }
-          )
-          sops-nix.nixosModules.sops
-          roxide.nixosModules.roxide
-          #  lyricz.nixosModules.lyricz
-          sddm-sugar-candy-nix.nixosModules.default
-          {
-            nixpkgs = {
-              overlays = [sddm-sugar-candy-nix.overlays.default];
-            };
-          }
-
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.backupFileExtension = randomNumber;
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              users.abhi = {
-                imports = [
-                  ./home/home.nix
-                  roxide.homeManagerModules.roxide
-                  brightness.homeManagerModules.brightness
-                ];
-                _module.args.colorpencil = import ./custom/themes/colorpencil;
-              };
-              sharedModules = [inputs.sops-nix.homeManagerModules.sops];
-              extraSpecialArgs = {
-                inherit self inputs;
-              };
-            };
-          }
-        ];
-        specialArgs = { 
-          performFullSetup = true;
-          inherit inputs;
-        };
+        config.allowUnfree = true;
       };
     };
+  in {
+    nixosConfigurations.abhi = nixpkgs.lib.nixosSystem {
+      inherit system;
+      modules = [
+        disko.nixosModules.disko
+        ./disko.nix
+        ./host/configuration.nix
+        (
+          {...}: {
+            nixpkgs.overlays = [overlay-unstable];
+          }
+        )
+        sops-nix.nixosModules.sops
+        roxide.nixosModules.roxide
+        #  lyricz.nixosModules.lyricz
+        sddm-sugar-candy-nix.nixosModules.default
+        {
+          nixpkgs = {
+            overlays = [sddm-sugar-candy-nix.overlays.default];
+          };
+        }
+
+        home-manager.nixosModules.home-manager
+        {
+          home-manager.backupFileExtension = randomNumber;
+          home-manager = {
+            useGlobalPkgs = true;
+            useUserPackages = true;
+            users.abhi = {
+              imports = [
+                ./home/home.nix
+                roxide.homeManagerModules.roxide
+                brightness.homeManagerModules.brightness
+              ];
+              _module.args.colorpencil = import ./custom/themes/colorpencil;
+            };
+            sharedModules = [inputs.sops-nix.homeManagerModules.sops];
+            extraSpecialArgs = {
+              inherit self inputs;
+            };
+          };
+        }
+      ];
+      specialArgs = {
+        performFullSetup = true;
+        inherit inputs;
+      };
+    };
+  };
 }

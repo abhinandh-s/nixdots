@@ -38,6 +38,26 @@
         "type": "github"
       }
     },
+    "dwm": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1745124783,
+        "narHash": "sha256-YkDktkzUsOia3neOUF9hZF0BSXqYOCNS/sIjV7jxvAc=",
+        "owner": "abhinandh-s",
+        "repo": "dwm",
+        "rev": "18ab98d0fa6ca03dd9f842f3458d2f4372990288",
+        "type": "github"
+      },
+      "original": {
+        "owner": "abhinandh-s",
+        "repo": "dwm",
+        "type": "github"
+      }
+    },
     "firefox": {
       "inputs": {
         "flake-compat": "flake-compat",
@@ -161,11 +181,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1744641754,
-        "narHash": "sha256-J9eijjwenuwY96it0Pzk/gAI6DtXs9VdL+2NhUip2/E=",
+        "lastModified": 1745060274,
+        "narHash": "sha256-LDyOU/QShvbO3NGsX3j5zj6qSuyKdfSDWRm/QBMVHmI=",
         "owner": "abhinandh-s",
         "repo": "nix-fonts",
-        "rev": "5768212231fe56ffe4ea4ad1108e64482c6fd4c2",
+        "rev": "2b704142b3898215c1d7d4160673c5065961dee0",
         "type": "github"
       },
       "original": {
@@ -240,6 +260,7 @@
       "inputs": {
         "brightness": "brightness",
         "disko": "disko",
+        "dwm": "dwm",
         "firefox": "firefox",
         "home-manager": "home-manager",
         "nix-fonts": "nix-fonts",

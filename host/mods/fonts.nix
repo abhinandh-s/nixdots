@@ -3,30 +3,15 @@
   inputs,
   ...
 }: let
-  # commit-mono = inputs.commit-mono;
   fonts = inputs.nix-fonts.packages;
 in {
-  # fonts.nix-fonts = {
-  #   enable = true;
-  #   fonts = [
-  #     "lora"
-  #     "inter"
-  #     "eb-garamond"
-  #   ];
-  # };
-
   fonts.packages = with pkgs;
     [
       maple-mono
-      # LoraFont
-      # InterFont
       (nerdfonts.override {
         fonts = [
           "FiraCode"
           "FiraMono"
-          "Iosevka"
-          "IosevkaTerm"
-          "IosevkaTermSlab"
           "JetBrainsMono"
           "NerdFontsSymbolsOnly"
           "Terminus"
@@ -42,6 +27,8 @@ in {
     ++ (with fonts; [
       lora
       commit-mono
-      # "commit-mono"
+      Iosevka
+      IosevkaAile
+      IosevkaEtoile
     ]);
 }

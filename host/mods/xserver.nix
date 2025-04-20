@@ -1,13 +1,16 @@
 {
   lib,
-  pkgs,
-stdenv,
+  inputs,
   ...
-}:
-let
-customDwm = import ../../custom/pkgs/dwm/default.nix { inherit pkgs; };
-in 
-{
+}: let
+  dwmPackage = inputs.dwm.packages.x86_64-linux.default;
+  # how to properly patch this?
+  dwmPackage2 = inputs.dwm.packages.x86_64-linux.default.overrideAttrs (oldAttrs: {
+    postPatch = ''
+      cp ${./../../custom/pkgs/dwm/config.h} $out/config.h
+    '';
+  });
+in {
   services.xserver = {
     enable = true;
     xkb.layout = "us";
@@ -19,7 +22,7 @@ in
       dwm.enable = true;
     };
   };
-  services.xserver.windowManager.dwm.package = customDwm;
+  services.xserver.windowManager.dwm.package = dwmPackage;
   # pkgs.dwm.overrideAttrs {
   #   src = pkgs.fetchFromSourcehut {
   #     owner = "~abhinandh";

@@ -1,21 +1,27 @@
-
-{ config, lib, pkgs, performFullSetup, ... }:
- {
-  imports = [
-    ./hardware-configuration.nix
-    ./mods
-  ]
+{
+  config,
+  lib,
+  pkgs,
+  performFullSetup,
+  ...
+}: {
+  imports =
+    [
+      ./hardware-configuration.nix
+      ./mods
+    ]
     ++ (
-      if performFullSetup then [
+      if performFullSetup
+      then [
         # ../pkgs.nix
       ]
       else []
     );
 
-boot.kernelPackages = pkgs.linuxPackages_zen;
+  boot.kernelPackages = pkgs.linuxPackages_zen;
   boot.initrd.luks.devices."crypted".device = "/dev/disk/by-partlabel/disk-main-luks";
 
-  # program.roxide.enable = true;
+  program.roxide.enable = true;
   /*
   program.lyricz = {
     enable = true;
@@ -26,7 +32,7 @@ boot.kernelPackages = pkgs.linuxPackages_zen;
       input = "test";
     };
   };
-*/
+  */
 
   services.clipcat = {
     enable = true;
@@ -55,12 +61,12 @@ boot.kernelPackages = pkgs.linuxPackages_zen;
   };
 
   environment = {
-    shells = with pkgs; [ fish ];
+    shells = with pkgs; [fish];
     variables = {
       EDITOR = "nvim";
       VISUAL = "nvim";
       BROWSER = "firefox";
-      TERMINAL = "alacritty";
+      TERMINAL = "ghostty";
     };
   };
 
@@ -70,7 +76,7 @@ boot.kernelPackages = pkgs.linuxPackages_zen;
     enable = true;
     settings = {
       default = [
-        "kitty.desktop"
+        "ghostty.desktop"
       ];
     };
   };
