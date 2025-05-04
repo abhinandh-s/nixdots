@@ -32,4 +32,10 @@ in {
       };
     in "${repo}/themes/mocha/catppuccin-mocha-red.calibre-palette";
   };
+
+  home.file = {
+    "templates/rust/flake.nix".source = ../../shells/rust/flake.nix;
+    # "templates/rust/flake.lock".source = ../../shells/rust/flake.lock; lock file must not be a symlink
+    "templates/rust/rust-toolchain.toml".source = ../../shells/rust/rust-toolchain.toml;
+  };
 }
