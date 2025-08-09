@@ -28,8 +28,8 @@ push:
   git commit -m "Refactoring"
   git push
 
-update-otter:
-  sudo nix flake lock --update-input otter
+update-catppuccin:
+  sudo nix flake lock --update-input catppuccin
 
 update-roxide:
   sudo nix flake lock --update-input roxide

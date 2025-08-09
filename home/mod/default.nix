@@ -1,0 +1,30 @@
+{...}: {
+  imports = [
+    ./alacritty.nix
+    ./bat.nix
+    ./betterlockscreen.nix
+    ./cava.nix
+    ./conky.nix
+    ./dropbox.nix
+    ./dunst.nix
+    ./eza.nix
+    ./firefox
+    ./fish.nix
+    ./flameshot.nix
+    ./fastfetch.nix
+    ./git.nix
+    ./mpd.nix
+    ./ncmpcpp.nix
+    ./newsboat.nix
+    ./neomutt.nix
+    ./obs.nix
+    ./redshift.nix
+    ./rofi.nix
+    ./symlinks.nix
+    ./theme.nix
+    ./tmux.nix
+    ./yazi.nix
+    ./zoxide.nix
+    ./zathura.nix
+  ];
+}

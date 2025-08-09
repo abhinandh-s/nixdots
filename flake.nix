@@ -1,35 +1,25 @@
 {
-  description = "Abhi's NixOS Configuration";
+  description = "A very basic flake";
+
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-24.11";
+    catppuccin.url = "/home/abhi/git/catppuccin-nix";
+    nixpkgs.url = "nixpkgs/nixos-25.05";
     nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
-    zen-browser = {
-      url = "github:0xc000022070/zen-browser-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    disko = {
-      url = "github:nix-community/disko";
-      inputs.nixpkgs.follows = "nixpkgs";
+    rust-overlay = {
+      url = "github:oxalica/rust-overlay";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";  
     };
     sops-nix = {
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     home-manager = {
-      url = "github:nix-community/home-manager/release-24.11";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    sddm-sugar-candy-nix = {
-      url = "gitlab:Zhaith-Izaliel/sddm-sugar-candy-nix";
+      url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     firefox = {
       url = "github:nix-community/flake-firefox-nightly";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    roxide = {
-      url = "github:abhinandh-s/roxide";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
     dwm = {
       url = "github:abhinandh-s/dwm";
@@ -37,81 +27,40 @@
     };
     brightness = {
       url = "github:abhinandh-s/brightness";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-fonts = {
       url = "github:abhinandh-s/nix-fonts";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    sddm-sugar-candy-nix = {
+      url = "gitlab:Zhaith-Izaliel/sddm-sugar-candy-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
-  outputs = inputs @ {
-    self,
-    nixpkgs,
-    disko,
-    roxide,
-    dwm,
-    nix-fonts,
-    brightness,
-    nixpkgs-unstable,
-    sops-nix,
-    home-manager,
-    sddm-sugar-candy-nix,
-    ...
-  }: let
-    randomNumber = builtins.readFile ./random.txt; # to keep home-manager.backupFileExtension happy
-    system = "x86_64-linux";
-    overlay-unstable = final: prev: {
-      unstable = import nixpkgs-unstable {
-        inherit system;
-        config.allowUnfree = true;
-      };
-    };
+  outputs = { self, nixpkgs, home-manager, ... } @ inputs: let
+    inherit (self) outputs;
+    variables = (import ./variables.nix);
+    performFullSetup = true;
   in {
-    nixosConfigurations.abhi = nixpkgs.lib.nixosSystem {
-      inherit system;
-      modules = [
-        disko.nixosModules.disko
-        ./disko.nix
-        ./host/configuration.nix
-        (
-          {...}: {
-            nixpkgs.overlays = [overlay-unstable];
-          }
-        )
-        sops-nix.nixosModules.sops
-        roxide.nixosModules.roxide
-        #  lyricz.nixosModules.lyricz
-        sddm-sugar-candy-nix.nixosModules.default
-        {
-          nixpkgs = {
-            overlays = [sddm-sugar-candy-nix.overlays.default];
-          };
-        }
 
-        home-manager.nixosModules.home-manager
-        {
-          home-manager.backupFileExtension = randomNumber;
-          home-manager = {
-            useGlobalPkgs = true;
-            useUserPackages = true;
-            users.abhi = {
-              imports = [
-                ./home/home.nix
-                roxide.homeManagerModules.roxide
-                brightness.homeManagerModules.brightness
-              ];
-              _module.args.colorpencil = import ./custom/themes/colorpencil;
-            };
-            sharedModules = [inputs.sops-nix.homeManagerModules.sops];
-            extraSpecialArgs = {
-              inherit self inputs;
-            };
+  overlays = import ./overlays { inherit inputs; };
+ 
+  nixosConfigurations = {
+      abhi = nixpkgs.lib.nixosSystem {
+          specialArgs = { 
+            inherit inputs outputs;
+            performFullSetup = performFullSetup;  
+            variables = variables;  
           };
-        }
-      ];
-      specialArgs = {
-        performFullSetup = true;
-        inherit inputs;
-      };
-    };
+          system = "x86_64-linux";
+          modules = [
+            ./nixos/configuration.nix
+            inputs.sops-nix.nixosModules.sops
+            inputs.sddm-sugar-candy-nix.nixosModules.default
+            home-manager.nixosModules.home-manager (import ./home/home-manager.nix)
+          ];
+        };
+     };
   };
 }

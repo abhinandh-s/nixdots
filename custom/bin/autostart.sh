@@ -1,4 +1,4 @@
-#!/usr/bin/env fish
+#!/usr/bin/env bash
 
 picom &
 conky --daemonize --pause=1 -c ~/.config/conky/system &
