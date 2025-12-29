@@ -14,7 +14,7 @@
     ./pkgs.nix
     ./picom.nix
     ./polkit.nix
-    ./qt.nix
+    # ./qt.nix
     ./userenv.nix
     ./xserver.nix
     ./xdg.nix

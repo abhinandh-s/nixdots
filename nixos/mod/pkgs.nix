@@ -4,7 +4,9 @@ let
 in 
   {
   environment.systemPackages = with pkgs; [
-alacritty
+    alacritty
+    sddm-astronaut 
+    lua-language-server
     tmux
     _7zz
     starship
@@ -14,7 +16,6 @@ alacritty
     # clipCat
     cryptsetup
     dconf
-    eww
     fzf
     fd
     feh
@@ -28,7 +29,7 @@ alacritty
     gcc
     killall
     librewolf
-    mpc-cli
+    mpc
     nixd
     nemo-with-extensions
     neovim

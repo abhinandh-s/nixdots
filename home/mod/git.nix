@@ -1,6 +1,6 @@
 {pkgs,userSettings, ... }:{  
 
-programs.git = {
+programs.git.settings = {
     enable = true;
     userName = userSettings.name;
     userEmail = userSettings.email;

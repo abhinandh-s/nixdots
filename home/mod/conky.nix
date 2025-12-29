@@ -25,7 +25,7 @@ conky.config = {
   default_color = 'FFFFFF',
   default_outline_color = 'white',
   default_shade_color = 'white',
-  color1 = '${catppuccin.text}',
+  color1 = '${catppuccin.pink}',
 
   -- Window Settings --
   background = false,

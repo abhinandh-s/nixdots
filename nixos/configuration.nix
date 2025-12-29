@@ -10,7 +10,6 @@
 
   nixpkgs = {
     overlays = [
-      inputs.sddm-sugar-candy-nix.overlays.default
       inputs.catppuccin.overlays.default
       outputs.overlays.unstable-nixpkgs      
       (import inputs.rust-overlay)

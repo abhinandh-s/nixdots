@@ -26,6 +26,9 @@ userSettings,
       git-cliff
       font-manager
       unstable.rust-analyzer
+      unstable.deno
+      unstable.tailwindcss
+      unstable.tailwindcss-language-server
       rust-bin.stable.latest.default
       unstable.neovim     
       librewolf

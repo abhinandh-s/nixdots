@@ -25,16 +25,17 @@ in {
 
   services.displayManager.sddm = {
     enable = true;
-    sugarCandyNix = {
-      enable = true; # This set SDDM's theme to "sddm-sugar-candy-nix".
-      settings = {
-        Background = lib.cleanSource ../../assets/wallpaper/wall-sddm.jpg;
-        ScreenWidth = 1920;
-        ScreenHeight = 1080;
-        FormPosition = "left";
-        HaveFormBackground = true;
-        PartialBlur = true;
-      };
-    };
+    theme = "sddm-astronaut-theme";
+    # sugarCandyNix = {
+    #   enable = true; # This set SDDM's theme to "sddm-sugar-candy-nix".
+    #   settings = {
+    #     Background = lib.cleanSource ../../assets/wallpaper/wall-sddm.jpg;
+    #     ScreenWidth = 1920;
+    #     ScreenHeight = 1080;
+    #     FormPosition = "left";
+    #     HaveFormBackground = true;
+    #     PartialBlur = true;
+    #   };
+    # };
   };
 }
