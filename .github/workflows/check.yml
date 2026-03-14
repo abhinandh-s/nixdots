@@ -1,0 +1,22 @@
+name: "Test NixOS Config"
+on:
+  pull_request:
+  push:
+  
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Install Nix
+      uses: DeterminateSystems/nix-installer-action@v11
+      
+    - name: Magic Nix Cache
+      uses: DeterminateSystems/magic-nix-cache-action@v4
+
+    - name: Check Flake Metadata
+      run: nix flake check
+
+    - name: Build Configuration
+      run: nix build .#nixosConfigurations.abhi.config.system.build.toplevel
