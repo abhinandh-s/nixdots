@@ -18,5 +18,8 @@ jobs:
     - name: Check Flake Metadata
       run: nix flake check
 
+    - name: Check Formatting
+      run: nix run nixpkgs#alejandra -- --check .
+      
     - name: Build Configuration
       run: nix build .#nixosConfigurations.abhi.config.system.build.toplevel
