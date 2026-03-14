@@ -2,7 +2,7 @@
   description = "A very basic flake";
 
   inputs = {
-    catppuccin.url = "/home/abhi/git/catppuccin-nix";
+    catppuccin.url = "github:abhinandh-s/catppuccin-nix";
     nixpkgs.url = "nixpkgs/nixos-25.11";
     nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
     rust-overlay = {
